@@ -91,7 +91,7 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 
 **Fase 3 · Design system**
 - ~~T3.1 Theme (claro y oscuro)~~ ✅ `src/theme/` + `useTheme`
-- T3.2 Componentes base
+- ~~T3.2 Componentes base~~ ✅ `src/components/ui/`
 - T3.3 Estados de pantalla
 - T3.4 Imagen de ejercicio
 
@@ -121,4 +121,4 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. T3.2 (componentes base): `Text`, `Button`, `Card`, `Badge`, `Input`, `IconButton`.
+1. T3.3 (estados de pantalla): `LoadingSkeleton`, `ErrorState` (con reintentar), `EmptyState`.

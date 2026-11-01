@@ -108,7 +108,7 @@
   Colores (claro y oscuro, incluidos los 6 acentos de `ClassType`), tipografía, espaciados, radios, sombras. Hook `useTheme`.
   ✅ Tokens tipados; cambiar el esquema del sistema cambia el tema.
 
-- [ ] **T3.2 · Componentes base** → T3.1
+- [x] **T3.2 · Componentes base** → T3.1
   `Text`, `Button` (variantes y estado loading/disabled), `Card`, `Badge`, `Input`, `IconButton`.
   ✅ Tests de comportamiento y `accessibilityLabel`; área táctil ≥ 44 px.
 
