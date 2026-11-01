@@ -22,7 +22,7 @@
   Jest con preset `jest-expo` + React Native Testing Library. Un test de ejemplo.
   ✅ `npm test` corre y pasa.
 
-- [ ] **T0.4 · Calidad de código** → T0.1
+- [x] **T0.4 · Calidad de código** → T0.1
   ESLint + Prettier con configuración de Expo. Scripts `lint` y `format`.
   ✅ `npm run lint` sin errores.
 
