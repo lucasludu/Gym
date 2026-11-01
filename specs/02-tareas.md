@@ -72,7 +72,7 @@
   `estimate1Rm` (Epley, rango 1–12 reps, redondeo a 0,5 kg), `getPersonalRecords`, `isNewRecord` (empate no cuenta).
   ✅ Tests de la fórmula, límites del rango y empates.
 
-- [ ] **T1.8 · Racha semanal** → T1.2, T1.6
+- [x] **T1.8 · Racha semanal** → T1.2, T1.6
   `getWeeklyStreak` según las reglas del modelo.
   ✅ Tests: racha cortada, semana actual en curso, semana actual cumplida, varias actividades el mismo día.
 

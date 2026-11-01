@@ -261,6 +261,7 @@ Si no hay valor previo para esa métrica (primera vez que se hace el ejercicio),
 ### WeeklyStreak*
 - La semana va de lunes a domingo.
 - Una semana se **cumple** si la cantidad de días distintos con actividad (una `WorkoutSession` finalizada o un `Booking` con `status = "attended"`) es ≥ `user.weeklyGoal`.
+- El día de una actividad es la fecha en Buenos Aires de `startedAt` (entrenamiento, aunque termine pasada la medianoche) o del `startsAt` de la clase (reserva).
 - La **racha** es la cantidad de semanas consecutivas cumplidas, contando hacia atrás desde la semana anterior a la actual.
 - Si la semana actual ya se cumplió, suma 1. Si todavía no se cumplió, no corta la racha (la semana sigue en curso).
 
