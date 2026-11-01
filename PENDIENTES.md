@@ -123,4 +123,5 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. Auth (T5.1–T5.5) ✅ implementada. Sigue T4.3 (`specs/features/reservas.md`) o implementar Home (T5.6–T5.9, spec lista).
+1. Auth (T5.1–T5.5) ✅ e Inicio (T5.6–T5.9) ✅ implementados. Pendiente de Inicio: "Empezar" → logger (T5.21), tarjeta en curso (T5.25), detalle de clase al tocar la próxima clase (T5.13).
+2. Sigue T4.3 (`specs/features/reservas.md`).

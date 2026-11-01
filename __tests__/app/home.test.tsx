@@ -261,6 +261,119 @@ describe('Inicio', () => {
     });
   });
 
+  describe("today's workout card (T5.9)", () => {
+    const routine = {
+      id: 'routine-1',
+      userId: SOFIA.id,
+      trainerId: 't1',
+      name: 'Hipertrofia',
+      startDate: '2026-10-01',
+      endDate: null,
+      isActive: true,
+    };
+    const days = [
+      { id: 'day-a', routineId: routine.id, order: 1, name: 'Día A – Tren inferior' },
+      { id: 'day-b', routineId: routine.id, order: 2, name: 'Día B – Tren superior' },
+      { id: 'day-c', routineId: routine.id, order: 3, name: 'Día C – Full body' },
+    ];
+    const planned = (id: string, routineDayId: string, order: number) => ({
+      id,
+      routineDayId,
+      exerciseId: `wger-${order}`,
+      order,
+      targetSets: 3,
+      targetReps: '8-10',
+      targetWeightKg: null,
+      targetSeconds: null,
+      restSeconds: 90,
+      notes: null,
+    });
+    const trained = (routineDayId: string | null, startedAt: string) => ({
+      id: `w-${startedAt}`,
+      userId: SOFIA.id,
+      routineDayId,
+      startedAt,
+      finishedAt: startedAt.replace('T08:', 'T09:'),
+      notes: null,
+    });
+    const withRoutine = {
+      routines: [routine],
+      routineDays: days,
+      routineExercises: [
+        planned('re1', 'day-c', 1),
+        planned('re2', 'day-c', 2),
+        planned('re3', 'day-c', 3),
+        planned('re4', 'day-a', 1),
+      ],
+    };
+
+    it('shows the day after the last one trained with its exercises (criterion 17)', async () => {
+      routeHomeApi(api, {
+        ...withRoutine,
+        workoutSessions: [trained('day-b', '2026-11-02T08:00:00-03:00')],
+      });
+      await openHome();
+      const today = await waitFor(() => {
+        const element = card('Entrenamiento de hoy');
+        within(element).getByText('Día C – Full body');
+        return element;
+      });
+      expect(within(today).getByText('3 ejercicios')).toBeOnTheScreen();
+      expect(
+        within(today).getByRole('button', { name: 'Empezar Día C – Full body' }),
+      ).toBeOnTheScreen();
+    });
+
+    it('starts with the first day when the routine was never trained (criterion 19)', async () => {
+      routeHomeApi(api, {
+        ...withRoutine,
+        workoutSessions: [trained(null, '2026-11-02T08:00:00-03:00')],
+      });
+      await openHome();
+      expect(await screen.findByText('Día A – Tren inferior')).toBeOnTheScreen();
+      expect(screen.getByText('1 ejercicio')).toBeOnTheScreen();
+    });
+
+    it('opens the Rutina tab with "Elegir otro día"', async () => {
+      routeHomeApi(api, withRoutine);
+      const router = await openHome();
+      await userEvent.setup().press(await screen.findByRole('button', { name: 'Elegir otro día' }));
+      await waitFor(() => expect(router.getPathname()).toBe('/routine'));
+    });
+
+    it.each([
+      ['without an active routine', {}],
+      ['with a routine without days', { routines: [routine], routineDays: [] }],
+    ])('invites to train free %s (criterion 22)', async (_case, data) => {
+      routeHomeApi(api, data);
+      await openHome();
+      expect(await screen.findByText('Todavía no tenés rutina')).toBeOnTheScreen();
+      expect(
+        screen.getByText('Pedile una a tu entrenador. Mientras tanto podés entrenar libre.'),
+      ).toBeOnTheScreen();
+      expect(screen.getByRole('button', { name: 'Entrenamiento libre' })).toBeOnTheScreen();
+    });
+
+    it('is available with an expired membership (criterion 23)', async () => {
+      routeHomeApi(api, { ...withRoutine, ...membershipEnding('2026-10-01') });
+      await openHome();
+      await screen.findByText('Vencida');
+      expect(
+        await screen.findByRole('button', { name: 'Empezar Día A – Tren inferior' }),
+      ).toBeEnabled();
+    });
+  });
+
+  it('shows the cards in the order of the spec', async () => {
+    routeHomeApi(api);
+    await openHome();
+    await screen.findByText('Todavía no tenés rutina');
+    const titles = screen
+      .getAllByTestId(/^home-card-/)
+      .map((element) => String(element.props.testID).replace('home-card-', ''));
+    expect(titles).toEqual(['Membresía', 'Entrenamiento de hoy', 'Próxima clase', 'Racha semanal']);
+  });
+
   it('still greets with "Hola" when the profile cannot be loaded', async () => {
     routeHomeApi(api, { user: () => new Response('{}', { status: 400 }) });
     await openHome();

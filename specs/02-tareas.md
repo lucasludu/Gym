@@ -152,7 +152,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 - [x] **T5.6 · Tarjeta de membresía** (estado, días restantes, aviso si está por vencer) → T1.3, T2.5, T4.2
 - [x] **T5.7 · Próxima clase reservada** con acceso directo al detalle → T2.5
 - [x] **T5.8 · Racha semanal y progreso hacia el objetivo** → T1.8
-- [ ] **T5.9 · Acceso rápido** "Empezar entrenamiento de hoy": el siguiente día de la rotación (`getNextRoutineDay`, función pura nueva) → T5.6
+- [x] **T5.9 · Acceso rápido** "Empezar entrenamiento de hoy": el siguiente día de la rotación (`getNextRoutineDay`, función pura nueva) → T5.6
 
 ### Reservas · 📄 `features/reservas.md`
 - [ ] **T5.10 · Selector de semana y día** → T4.3
@@ -170,11 +170,11 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 - [ ] **T5.20 · Estado vacío** si no tiene rutina asignada → T3.3
 
 ### Workout logger · 📄 `features/workout-logger.md`
-- [ ] **T5.21 · Iniciar entrenamiento** desde un día de la rutina o libre (solo una en curso) → T4.5
+- [ ] **T5.21 · Iniciar entrenamiento** desde un día de la rutina o libre (solo una en curso). Incluye conectar "Empezar" y "Entrenamiento libre" de Inicio (hoy abren la pestaña Rutina; criterio 20 de home.md) → T4.5
 - [ ] **T5.22 · Registrar series** precargando el peso de la vez anterior; completar con 1 toque → T5.21
 - [ ] **T5.23 · Agregar y quitar series y ejercicios** → T5.22
 - [ ] **T5.24 · Timer de descanso** con notificación local y haptics al terminar → T5.22
-- [ ] **T5.25 · Persistir el entrenamiento en curso** en el celular (store de Zustand persistido) para no perderlo si se cierra la app; se envía al servidor recién al finalizar. Incluye conectar el aviso y el borrado al cerrar sesión (`getSignOutConfirmation(true)` y `useSignOut`) → T5.21
+- [ ] **T5.25 · Persistir el entrenamiento en curso** en el celular (store de Zustand persistido) para no perderlo si se cierra la app; se envía al servidor recién al finalizar. Incluye conectar el aviso, la tarjeta "Entrenamiento en curso" de Inicio (criterio 21 de home.md) y el borrado al cerrar sesión (`getSignOutConfirmation(true)` y `useSignOut`) → T5.21
 - [ ] **T5.26 · Finalizar** con resumen (duración, volumen, récords nuevos); descartar si está vacía → T1.7
 
 ### Progreso · 📄 `features/progreso.md`
