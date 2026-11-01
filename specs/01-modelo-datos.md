@@ -156,8 +156,10 @@ Catálogo de ejercicios.
 | sourceId | string \| null | id en la fuente externa, para poder reimportar sin duplicar |
 
 **Reglas de imagen**
-- Si `imageUrl` es `null`, la app muestra un placeholder con el ícono del `muscleGroup`.
-- Si hay `imageAuthor`, la pantalla de detalle del ejercicio muestra la atribución ("Imagen: {imageAuthor} · {imageLicense}").
+- Si `imageUrl` es `null`, la app muestra un placeholder con el ícono del `muscleGroup` (`@expo/vector-icons`, MaterialCommunityIcons) y su nombre en español ("Pecho", "Espalda", "Piernas", "Hombros", "Brazos", "Core", "Cuerpo completo"). En el tamaño chico (miniaturas de listas) solo el ícono.
+- Si la imagen no carga (URL rota o sin conexión), también se muestra el placeholder. Si cambia la URL, se vuelve a intentar.
+- Para el lector de pantalla: "Imagen de {name}" con imagen; "{name}, sin imagen ({grupo})" con placeholder.
+- Si hay `imageAuthor`, la pantalla de detalle del ejercicio muestra la atribución ("Imagen: {imageAuthor} · {imageLicense}"). Sin licencia: "Imagen: {imageAuthor}". Sin autor (o vacío): no se muestra nada.
 - Las imágenes se muestran con `expo-image` (caché, placeholder mientras carga y soporte de GIF).
 
 ### Routine

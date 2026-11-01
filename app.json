@@ -22,6 +22,6 @@
       "favicon": "./assets/favicon.png"
     },
     "scheme": "gymapp",
-    "plugins": ["expo-router", "expo-image"]
+    "plugins": ["expo-router", "expo-image", "expo-font", "expo-asset"]
   }
 }

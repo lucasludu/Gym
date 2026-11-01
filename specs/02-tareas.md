@@ -116,7 +116,7 @@
   `LoadingSkeleton`, `ErrorState` (con botón reintentar), `EmptyState`.
   ✅ Tests de cada estado.
 
-- [ ] **T3.4 · Imagen de ejercicio** → T3.2
+- [x] **T3.4 · Imagen de ejercicio** → T3.2
   `ExerciseImage` con `expo-image`, placeholder por `muscleGroup` cuando no hay imagen, y componente `ImageAttribution`.
   ✅ Tests con y sin `imageUrl`.
 

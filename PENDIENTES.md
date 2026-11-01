@@ -48,6 +48,8 @@ Se instalan cuando llegue la tarea que las usa.
 
 **Ya aprobadas en CLAUDE.md**
 - ~~`@tanstack/react-query` → T2.5~~ ✅ instalada
+- ~~`expo-image` → T3.4~~ ✅ instalada
+- ~~`@expo/vector-icons` → T3.4~~ ✅ instalada (con sus peers `expo-font` y `expo-asset`)
 - `zustand` → T5.2
 - `react-hook-form` + `@hookform/resolvers` → T5.3
 
@@ -93,7 +95,7 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 - ~~T3.1 Theme (claro y oscuro)~~ ✅ `src/theme/` + `useTheme`
 - ~~T3.2 Componentes base~~ ✅ `src/components/ui/`
 - ~~T3.3 Estados de pantalla~~ ✅ `LoadingSkeleton`, `ErrorState`, `EmptyState`
-- T3.4 Imagen de ejercicio
+- ~~T3.4 Imagen de ejercicio~~ ✅ `ExerciseImage`, `ImageAttribution`
 
 **Fase 4 · Specs de features** (bloquean la Fase 5)
 - T4.1 `auth.md`
@@ -121,4 +123,4 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. T3.4 (imagen de ejercicio): `ExerciseImage` con `expo-image` (dependencia nueva, a aprobar) e `ImageAttribution`.
+1. Fase 4: T4.1 (`specs/features/auth.md`), escribir la spec antes de implementar.
