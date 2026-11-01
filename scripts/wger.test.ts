@@ -254,6 +254,17 @@ describe('inferTrackingType', () => {
     ).toBe('time');
   });
 
+  it.each([
+    ['371', 'Prensa de piernas'],
+    ['364', 'Curl femoral'],
+    ['355', 'Jalón al pecho'],
+    ['1904', 'Pec Deck'],
+  ])('tracks weight for machines that wger lists without equipment (wger %s)', (sourceId, name) => {
+    expect(inferTrackingType({ ...base, sourceId, names: [name], equipment: 'other' })).toBe(
+      'weight_reps',
+    );
+  });
+
   it('lets the exception list win over every other rule', () => {
     // wger 1489 "Plank Jacks" is dynamic: counted in reps despite its name.
     expect(inferTrackingType({ ...base, sourceId: '1489', names: ['Plank Jacks'] })).toBe('reps');

@@ -78,4 +78,35 @@ export const TRACKING_TYPE_EXCEPTIONS: Readonly<Record<string, TrackingType>> = 
   '1115': 'reps', // 3D lunge warmup (cardio)
   '1373': 'reps', // box jumps (cardio)
   '1525': 'reps', // Ball Slams (cardio)
+
+  // Machines and loaded exercises that wger lists without equipment and whose
+  // name does not say "machine". The equipment stays "other"; only weight is tracked.
+  '71': 'weight_reps', // Extensión de Cuádriceps a una Pierna
+  '124': 'weight_reps', // Sentadilla con Disco al Frente
+  '139': 'weight_reps', // Pec-Deck Inverso
+  '158': 'weight_reps', // Jalón al Pecho con Agarre Cerrado
+  '254': 'weight_reps', // Elevaciones Frontales con Disco
+  '354': 'weight_reps', // Jalón al pecho (inclinado)
+  '355': 'weight_reps', // Jalón al pecho
+  '364': 'weight_reps', // Curl femoral
+  '366': 'weight_reps', // Curl femoral sentado
+  '367': 'weight_reps', // Leg Curls (standing)
+  '371': 'weight_reps', // Prensa de piernas
+  '373': 'weight_reps', // Prensa de piernas cerrada
+  '569': 'weight_reps', // Press de hombros en multipower
+  '684': 'weight_reps', // Jalón al pecho con agarre supino
+  '691': 'weight_reps', // Remo al mentón en multipower
+  '722': 'weight_reps', // Weighted Step-ups
+  '916': 'weight_reps', // Prensa Smith
+  '1280': 'weight_reps', // Jalón al pecho con agarre estrecho para bíceps
+  '1414': 'weight_reps', // Sentadillas Hack
+  '1464': 'weight_reps', // Hack squats con pausa
+  '1515': 'weight_reps', // Leg Press Toe Press
+  '1521': 'weight_reps', // Pendular hack
+  '1735': 'weight_reps', // Gluteo en prensa de lado con una pierna
+  '1904': 'weight_reps', // Pec Deck
+  '1927': 'weight_reps', // Jalón al pecho con agarre supino
+  '2623': 'weight_reps', // Plate-Loaded Lat Pulldown
+  '2676': 'weight_reps', // Weighted neck flexion
+  '2677': 'weight_reps', // Single leg press
 };
