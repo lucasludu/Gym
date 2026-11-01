@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react-native';
 
-import HomeScreen from './index';
+import HomeScreen from '../../app/index';
 
 // Smoke test: verifies the Jest + jest-expo + RNTL setup works end to end.
 test('renders the placeholder screen', async () => {
