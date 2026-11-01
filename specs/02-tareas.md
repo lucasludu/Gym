@@ -104,7 +104,7 @@
 
 ## Fase 3 · Design system
 
-- [ ] **T3.1 · Theme** → T0.2
+- [x] **T3.1 · Theme** → T0.2
   Colores (claro y oscuro, incluidos los 6 acentos de `ClassType`), tipografía, espaciados, radios, sombras. Hook `useTheme`.
   ✅ Tokens tipados; cambiar el esquema del sistema cambia el tema.
 

@@ -54,6 +54,14 @@ Fuera de alcance por ahora: entrenador y admin (se harán como panel web junto c
 - **Feedback inmediato:** toda acción muestra resultado (loading, éxito o error).
 - **Accesible:** contraste adecuado, áreas táctiles de al menos 44 px, soporte para lector de pantalla.
 
+## Identidad visual
+- **Color principal:** verde lima. Claro: `#3F7D0A` con texto blanco; oscuro: `#A3E635` con texto casi negro.
+- **Modo claro y oscuro:** la app sigue el esquema del sistema.
+- **Tipografía:** la del sistema (San Francisco / Roboto), para respetar el tamaño de fuente dinámico.
+- **Acentos de clases:** 6 colores (`ClassType.color`), distinguibles del principal.
+- **Contraste:** todo texto cumple WCAG AA (≥ 4.5:1) sobre fondos y superficies; lo verifican los tests de `src/theme/`.
+- Los valores viven en `src/theme/` y no se hardcodean en los componentes.
+
 ## Etapas del proyecto
 1. **Front con API mock** (esta etapa): todas las pantallas consumen una capa `api/` que hoy devuelve datos simulados.
 2. **Backend:** API real con auth, roles y control de cupos. El front solo cambia la URL base.

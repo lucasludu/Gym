@@ -90,7 +90,7 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 - ~~T2.5 TanStack Query~~ ✅ `src/hooks/`
 
 **Fase 3 · Design system**
-- T3.1 Theme (claro y oscuro)
+- ~~T3.1 Theme (claro y oscuro)~~ ✅ `src/theme/` + `useTheme`
 - T3.2 Componentes base
 - T3.3 Estados de pantalla
 - T3.4 Imagen de ejercicio
@@ -121,4 +121,4 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. Fase 3, empezando por T3.1 (theme claro y oscuro, con los 6 acentos de `ClassType`).
+1. T3.2 (componentes base): `Text`, `Button`, `Card`, `Badge`, `Input`, `IconButton`.
