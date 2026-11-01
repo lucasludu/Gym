@@ -14,12 +14,12 @@ Que el socio entre a la app con su cuenta, o se cree una, y que la sesión se ma
 | `/(tabs)/…` | `(tabs)` | Inicio, Clases, Rutina, Progreso, Perfil (el logout está en Perfil) |
 
 - **Rutas protegidas:** sin sesión, cualquier ruta de `(tabs)` redirige a `/login`. Con sesión, las rutas de `(auth)` redirigen a `/(tabs)` (Inicio).
-- **Arranque:** mientras se lee la sesión guardada se mantiene la splash screen; no se muestra el login ni un parpadeo de pantalla equivocada.
+- **Arranque:** mientras se lee la sesión guardada (milisegundos) se muestra una pantalla vacía con el color de fondo del theme; no se muestra el login ni un parpadeo de pantalla equivocada. No se usa `expo-splash-screen`.
 - El link "Crear cuenta" del login y "Ya tengo cuenta" del registro reemplazan la pantalla (no se apilan una sobre otra).
 
 ## Sesión (T5.2)
 - Store de Zustand con `userId: string | null` y el estado `hydrated` (si ya se leyó lo guardado).
-- Se persiste **solo el `userId`** con `expo-secure-store` (dependencia a aprobar en T5.2). No se guardan contraseña, email ni datos del perfil: el `User` se pide a la API con TanStack Query (`getUser`).
+- Se persiste **solo el `userId`** con `expo-secure-store`. No se guardan contraseña, email ni datos del perfil: el `User` se pide a la API con TanStack Query (`getUser`).
 - Al abrir la app con sesión guardada:
   - si `getUser` responde → se entra directo a Inicio;
   - si responde **404** (el usuario ya no existe) → se cierra la sesión y se va a login;
@@ -81,7 +81,7 @@ Que el socio entre a la app con su cuenta, o se cree una, y que la sesión se ma
 ## Estados
 | Pantalla | Carga | Error | Vacío |
 |---|---|---|---|
-| Arranque | splash hasta leer la sesión | sesión ilegible → login | — |
+| Arranque | pantalla vacía hasta leer la sesión | sesión ilegible → login | — |
 | Login | botón "Ingresar" en loading | mensaje sobre el formulario (credenciales o red) | — |
 | Registro | botón "Crear cuenta" en loading | email duplicado en el campo; red sobre el formulario | — |
 | Logout | — (es local) | — | — |

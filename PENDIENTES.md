@@ -50,11 +50,11 @@ Se instalan cuando llegue la tarea que las usa.
 - ~~`@tanstack/react-query` → T2.5~~ ✅ instalada
 - ~~`expo-image` → T3.4~~ ✅ instalada
 - ~~`@expo/vector-icons` → T3.4~~ ✅ instalada (con sus peers `expo-font` y `expo-asset`)
-- `zustand` → T5.2
-- `react-hook-form` + `@hookform/resolvers` → T5.3
+- ~~`zustand` → T5.2~~ ✅ instalada
+- ~~`react-hook-form` + `@hookform/resolvers` → T5.3~~ ✅ instaladas
 
 **Nombradas en las tareas (hay que aprobarlas)**
-- `expo-secure-store` → T5.2
+- ~~`expo-secure-store` → T5.2~~ ✅ instalada
 - `expo-notifications` y `expo-haptics` → T5.24, T6.4
 - `react-native-reanimated` → T6.3
 - `@shopify/flash-list` → T6.6

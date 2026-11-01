@@ -5,6 +5,7 @@ import type { LocalDate } from '../domain/dates';
  * the user id, so data never leaks between accounts.
  */
 export const queryKeys = {
+  user: (userId: string | null) => ['user', userId] as const,
   classTypes: () => ['classTypes'] as const,
   trainers: () => ['trainers'] as const,
   /** Prefix of every class sessions query, to invalidate them all after booking. */
