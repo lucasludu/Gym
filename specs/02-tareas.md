@@ -30,7 +30,7 @@
   Instalar json-server, crear `mock/db.json` vacío con todas las colecciones, script `npm run mock` en el puerto 3000.
   ✅ `GET /exercises` responde `[]`.
 
-- [ ] **T0.6 · Variables de entorno** → T0.2
+- [x] **T0.6 · Variables de entorno** → T0.2
   `EXPO_PUBLIC_API_URL` en `.env` (con `.env.example` versionado), módulo `src/api/config.ts` que la lee.
   ✅ Cambiar la variable cambia la URL usada.
 
