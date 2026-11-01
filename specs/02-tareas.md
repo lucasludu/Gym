@@ -56,7 +56,7 @@
   `getMembershipStatus` y `getDaysLeft`.
   ✅ Tests de `active`, `expiring` (límite de 5 días inclusive) y `expired`.
 
-- [ ] **T1.4 · Clases** → T1.2
+- [x] **T1.4 · Clases** → T1.2
   `getSpotsLeft`, `isFull`, `hasStarted`.
   ✅ Tests de casos borde (cupo 0, sobrecupo, clase empezando justo ahora).
 
