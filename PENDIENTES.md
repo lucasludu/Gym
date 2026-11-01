@@ -124,4 +124,4 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 ## Próximo paso sugerido
 
 1. Auth (T5.1–T5.5) ✅ e Inicio (T5.6–T5.9) ✅ implementados. Pendiente de Inicio: "Empezar" → logger (T5.21), tarjeta en curso (T5.25), detalle de clase al tocar la próxima clase (T5.13).
-2. Spec de Reservas (T4.3) ✅. Sigue T4.4 (`specs/features/rutina.md`) o implementar Reservas (T5.10–T5.16).
+2. Specs de Reservas (T4.3) y Rutina (T4.4) ✅. Sigue T4.5 (`specs/features/workout-logger.md`) o implementar Reservas (T5.10–T5.16) / Rutina (T5.17–T5.20).

@@ -129,7 +129,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 - [x] **T4.1** · `specs/features/auth.md`
 - [x] **T4.2** · `specs/features/home.md`
 - [x] **T4.3** · `specs/features/reservas.md`
-- [ ] **T4.4** · `specs/features/rutina.md`
+- [x] **T4.4** · `specs/features/rutina.md`
 - [ ] **T4.5** · `specs/features/workout-logger.md`
 - [ ] **T4.6** · `specs/features/progreso.md`
 
@@ -170,7 +170,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 - [ ] **T5.20 · Estado vacío** si no tiene rutina asignada → T3.3
 
 ### Workout logger · 📄 `features/workout-logger.md`
-- [ ] **T5.21 · Iniciar entrenamiento** desde un día de la rutina o libre (solo una en curso). Incluye conectar "Empezar" y "Entrenamiento libre" de Inicio (hoy abren la pestaña Rutina; criterio 20 de home.md) → T4.5
+- [ ] **T5.21 · Iniciar entrenamiento** desde un día de la rutina o libre (solo una en curso). Incluye conectar "Empezar" y "Entrenamiento libre" de Inicio y de Rutina (detalle del día y estado vacío) (hoy abren la pestaña Rutina; criterio 20 de home.md) → T4.5
 - [ ] **T5.22 · Registrar series** precargando el peso de la vez anterior; completar con 1 toque → T5.21
 - [ ] **T5.23 · Agregar y quitar series y ejercicios** → T5.22
 - [ ] **T5.24 · Timer de descanso** con notificación local y haptics al terminar → T5.22
