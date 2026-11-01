@@ -80,7 +80,7 @@
 
 ## Fase 2 · Datos y capa de API
 
-- [ ] **T2.1 · Importador de ejercicios (wger)** → T1.1
+- [x] **T2.1 · Importador de ejercicios (wger)** → T1.1
   `scripts/import-exercises.ts` con funciones puras de mapeo (`mapWgerExercise`, `inferTrackingType`, `pickMainImage`, `stripHtml`) testeadas con fixtures.
   📄 sección "Fuente de datos de ejercicios" · ✅ Tests sin red en verde y `mock/db.json` con ejercicios reales.
 

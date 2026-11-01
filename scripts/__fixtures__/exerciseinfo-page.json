@@ -1,0 +1,811 @@
+{
+  "count": 904,
+  "next": "https://wger.de/api/v2/exerciseinfo/?limit=9&offset=9&status=2",
+  "previous": null,
+  "results": [
+    {
+      "id": 73,
+      "uuid": "3717d144-7815-4a97-9a56-956fb889c996",
+      "created": "2023-08-06T10:17:17.422900+02:00",
+      "last_update": "2024-01-17T11:23:51.262565+01:00",
+      "last_update_global": "2026-10-24T15:57:25.065560+02:00",
+      "category": {
+        "id": 11,
+        "name": "Chest"
+      },
+      "equipment": [
+        {
+          "id": 1,
+          "name": "Barbell"
+        },
+        {
+          "id": 8,
+          "name": "Bench"
+        }
+      ],
+      "license": {
+        "id": 1,
+        "full_name": " Creative Commons Attribution Share Alike 3",
+        "short_name": "CC-BY-SA 3",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+      },
+      "license_author": "sistab2",
+      "images": [
+        {
+          "id": 68,
+          "uuid": "08517378-bc36-4f6b-9952-1f45a02d936e",
+          "exercise": 73,
+          "exercise_uuid": "3717d144-7815-4a97-9a56-956fb889c996",
+          "image": "https://wger.de/media/exercise-images/192/Bench-press-1.png",
+          "is_main": true,
+          "style": "1",
+          "license": 1,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "Everkinetic",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 70,
+          "uuid": "41e5c58e-0325-4620-8d96-7372cc4dae8c",
+          "exercise": 73,
+          "exercise_uuid": "3717d144-7815-4a97-9a56-956fb889c996",
+          "image": "https://wger.de/media/exercise-images/192/Bench-press-2.png",
+          "is_main": false,
+          "style": "1",
+          "license": 1,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "Everkinetic",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        }
+      ],
+      "translations": [
+        {
+          "id": 15,
+          "uuid": "198dcb2e-e35f-4b69-ae8b-e1124d438eae",
+          "name": "Bankdrücken LH",
+          "exercise": 73,
+          "description": "<p>Lege dich auf die Bank, die Stange direkt über die Augen, die Knie etwas angewinkelt und die Füße fest auf dem Boden. Greife die Stange breit und lasse sie langsam und kontrolliert runter, dabei sollte die Stange kurz auf Brustwarzenhöhe den Körper berühren. Dann das Gewicht wieder hochdrücken bis die Arme durchgestreckt sind.</p>\n<p>Bei hohem Gewicht, empfielt sich natürlich einen <em>Spotter</em> zu haben, der einen hilft falls man die Stange nicht alleine hochdrücken kann.</p>\n<p>Mit der Breite des Griffs kann außerdem kontrolliert werden, welcher Bereich der Brust stärker belastet wird:</p>\n<ul>\n<li>breiter Griff: äußere Brustmuskeln</li>\n<li>enger Griff: innere Brustmuskeln und Trizeps</li>\n</ul>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 1,
+          "license": 1,
+          "license_author": "sistab2"
+        },
+        {
+          "id": 192,
+          "uuid": "5da6340b-22ec-4c1b-a443-eef2f59f92f0",
+          "name": "Bench Press",
+          "exercise": 73,
+          "description": "<p>Lay down on a bench, the bar should be directly above your eyes, the knees are somewhat angled and the feet are firmly on the floor. Concentrate, breath deeply and grab the bar more than shoulder wide. Bring it slowly down till it briefly touches your chest at the height of your nipples. Push the bar up.</p>\n<p>If you train with a high weight it is advisable to have a <em>spotter</em> that can help you up if you can't lift the weight on your own.</p>\n<p>With the width of the grip you can also control which part of the chest is trained more:</p>\n<ul>\n<li>wide grip: outer chest muscles</li>\n<li>narrow grip: inner chest muscles and triceps</li>\n</ul>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 2,
+          "license": 1,
+          "license_author": "sistab2"
+        },
+        {
+          "id": 2547,
+          "uuid": "2b7f6743-ebc7-4519-ac37-1afb211e350f",
+          "name": "Press de Banca",
+          "exercise": 73,
+          "description": "<p>Acuéstate en un banco plano. La barra debe estar directamente sobre tus ojos, las rodillas deben estar ligeramente flexionadas y los pies firmemente apoyados en el suelo. Concéntrate, respira profundamente y agarra la barra con una apertura mayor a la anchura de tus hombros. Bájala lentamente hasta que toque brevemente tu pecho a la altura de los pezones. Empuja la barra hacia arriba.</p>\n<p>Si entrenas con un peso elevado, es aconsejable tener un ayudante (<em>spotter</em>) que pueda asistirte si no puedes levantar el peso por ti mismo.</p>\n<p>Con la anchura del agarre también puedes controlar qué parte del pecho se trabaja más:</p>\n<ul>\n<li><strong>Agarre ancho:</strong> musculatura externa del pecho.</li>\n<li><strong>Agarre cerrado:</strong> musculatura interna del pecho y tríceps.</li>\n</ul>\n",
+          "created": "2025-08-18T06:35:03.259698+02:00",
+          "language": 4,
+          "license": 2,
+          "license_author": "wgerjhn"
+        }
+      ]
+    },
+    {
+      "id": 498,
+      "uuid": "1b95d961-1d5c-4ded-b25e-c090295ffe37",
+      "created": "2023-08-06T10:17:17.422900+02:00",
+      "last_update": "2024-01-17T11:34:43.606586+01:00",
+      "last_update_global": "2026-04-15T22:23:55.328255+02:00",
+      "category": {
+        "id": 11,
+        "name": "Chest"
+      },
+      "equipment": [
+        {
+          "id": 1,
+          "name": "Barbell"
+        },
+        {
+          "id": 8,
+          "name": "Bench"
+        }
+      ],
+      "license": {
+        "id": 2,
+        "full_name": "Creative Commons Attribution Share Alike 4",
+        "short_name": "CC-BY-SA 4",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+      },
+      "license_author": "bl0sh",
+      "images": [],
+      "translations": [
+        {
+          "id": 399,
+          "uuid": "30a8ef85-a24c-4f44-b558-55d3279b29c5",
+          "name": "Reverse Grip Bench Press",
+          "exercise": 498,
+          "description": "<p>Upper chest focuses exercise that also works triceps</p>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 2,
+          "license": 2,
+          "license_author": "bl0sh"
+        }
+      ]
+    },
+    {
+      "id": 301,
+      "uuid": "37f6bd56-815a-4975-99af-05e749fae4b2",
+      "created": "2023-08-06T10:17:17.422900+02:00",
+      "last_update": "2026-10-31T00:05:21.576123+01:00",
+      "last_update_global": "2026-10-31T00:05:21.576123+01:00",
+      "category": {
+        "id": 12,
+        "name": "Back"
+      },
+      "equipment": [],
+      "license": {
+        "id": 1,
+        "full_name": " Creative Commons Attribution Share Alike 3",
+        "short_name": "CC-BY-SA 3",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+      },
+      "license_author": "wger.de",
+      "images": [
+        {
+          "id": 719,
+          "uuid": "2d5c2f99-b8ff-4095-b515-4c2a85afde70",
+          "exercise": 301,
+          "exercise_uuid": "37f6bd56-815a-4975-99af-05e749fae4b2",
+          "image": "https://wger.de/media/exercise-images/301/2d5c2f99-b8ff-4095-b515-4c2a85afde70.png",
+          "is_main": true,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": true
+        },
+        {
+          "id": 11,
+          "uuid": "59efcec2-a7ce-40ba-bf2b-1a6eabe52fbd",
+          "exercise": 301,
+          "exercise_uuid": "37f6bd56-815a-4975-99af-05e749fae4b2",
+          "image": "https://wger.de/media/exercise-images/128/Hyperextensions-1.png",
+          "is_main": false,
+          "style": "1",
+          "license": 1,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "Everkinetic",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 12,
+          "uuid": "046ad15d-e908-43b9-91e2-b8223d4322fa",
+          "exercise": 301,
+          "exercise_uuid": "37f6bd56-815a-4975-99af-05e749fae4b2",
+          "image": "https://wger.de/media/exercise-images/128/Hyperextensions-2.png",
+          "is_main": false,
+          "style": "1",
+          "license": 1,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "Everkinetic",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        }
+      ],
+      "translations": [
+        {
+          "id": 3595,
+          "uuid": "eebb8cd8-ced1-4ad9-81d1-af03c5486d21",
+          "name": "Extensiones lumbares a 45°",
+          "exercise": 301,
+          "description": "<p>Túmbate sobre el cojín de hiperextensiones con el ombligo en el borde delantero, dejando que la parte superior del cuerpo cuelgue libremente. Tensa todos los músculos de la espalda y eleva el torso hasta quedar en horizontal, pero no más alto. Desciende lentamente, manteniendo un flujo constante de los músculos.</p>\n",
+          "created": "2026-06-19T17:52:11.128641+02:00",
+          "language": 4,
+          "license": 2,
+          "license_author": "wger.de"
+        },
+        {
+          "id": 60,
+          "uuid": "913d71cc-ba7a-4902-bfa8-3c5203129d72",
+          "name": "Hyperextensions",
+          "exercise": 301,
+          "description": "<p>Lege dich auf das Polster so, dass der Bauchnabel kurz vor der Vorderkante liegt, der Oberkörper hängt frei nach unten. Spanne die gesamte Rückenmuskulatur an, und bringe den Oberkörper nach oben bis er waagerecht ist (nicht höher). Gehe nun langsam wieder nach unten (Muskelanspannung nicht vergessen).</p>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 1,
+          "license": 1,
+          "license_author": "wger.de"
+        },
+        {
+          "id": 128,
+          "uuid": "f57a0c60-7d37-4eb3-a94e-1a90292e8c02",
+          "name": "Hyperextensions",
+          "exercise": 301,
+          "description": "<p>Lie on the hyperextension pillow with your navel at the front edge, allowing your upper body to hang freely. Tighten all your back muscles and raise your torso until you're horizontal, but no higher. Lower yourself slowly, maintaining a steady flow of muscles.</p>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 2,
+          "license": 1,
+          "license_author": "wger.de"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "uuid": "f2733700-aa5d-4df7-bc52-1876ab4fb479",
+      "created": "2023-08-06T10:17:17.422900+02:00",
+      "last_update": "2024-01-17T11:21:01.706493+01:00",
+      "last_update_global": "2026-10-24T16:00:18.963699+02:00",
+      "category": {
+        "id": 8,
+        "name": "Arms"
+      },
+      "equipment": [
+        {
+          "id": 3,
+          "name": "Dumbbell"
+        }
+      ],
+      "license": {
+        "id": 1,
+        "full_name": " Creative Commons Attribution Share Alike 3",
+        "short_name": "CC-BY-SA 3",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+      },
+      "license_author": "GrosseHund",
+      "images": [
+        {
+          "id": 665,
+          "uuid": "92f6451b-f89d-49d6-9531-8970ea420d97",
+          "exercise": 31,
+          "exercise_uuid": "f2733700-aa5d-4df7-bc52-1876ab4fb479",
+          "image": "https://wger.de/media/exercise-images/31/92f6451b-f89d-49d6-9531-8970ea420d97.png",
+          "is_main": true,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": true
+        }
+      ],
+      "translations": [
+        {
+          "id": 677,
+          "uuid": "8e9d8968-323d-468c-9174-8cf11a105fad",
+          "name": "Axe Hold",
+          "exercise": 31,
+          "description": "<p>Nehmen Sie die Hanteln und strecken Sie die Arme zur Seite. Halten Sie sie so lange wie möglich.</p>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 1,
+          "license": 1,
+          "license_author": "GrosseHund"
+        },
+        {
+          "id": 289,
+          "uuid": "6add5973-86d0-4543-928a-6bb8b3f34efc",
+          "name": "Axe Hold",
+          "exercise": 31,
+          "description": "<p>Hold a dumbbell in each hand and raise your straight arms out to the sides to shoulder height. Hold this position for as long as you can.</p>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 2,
+          "license": 1,
+          "license_author": "GrosseHund"
+        },
+        {
+          "id": 2549,
+          "uuid": "c76fcf70-2c8c-48ce-854d-1f53568c61cc",
+          "name": "Sostenimiento Lateral Isométrico",
+          "exercise": 31,
+          "description": "<p>Toma un par de mancuernas, extiende los brazos hacia los lados y mantén la posición el mayor tiempo que puedas.</p>\n",
+          "created": "2025-08-18T06:38:22.678816+02:00",
+          "language": 4,
+          "license": 2,
+          "license_author": "wgerjhn"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "uuid": "53906cd1-61f1-4d56-ac60-e4fcc5824861",
+      "created": "2023-08-06T10:17:17.422900+02:00",
+      "last_update": "2026-10-31T00:06:27.328057+01:00",
+      "last_update_global": "2026-10-31T00:06:27.328057+01:00",
+      "category": {
+        "id": 9,
+        "name": "Legs"
+      },
+      "equipment": [],
+      "license": {
+        "id": 1,
+        "full_name": " Creative Commons Attribution Share Alike 3",
+        "short_name": "CC-BY-SA 3",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+      },
+      "license_author": "flori",
+      "images": [
+        {
+          "id": 570,
+          "uuid": "4a42cc6f-648d-40cc-a72a-c49dd47e1667",
+          "exercise": 12,
+          "exercise_uuid": "53906cd1-61f1-4d56-ac60-e4fcc5824861",
+          "image": "https://wger.de/media/exercise-images/12/4a42cc6f-648d-40cc-a72a-c49dd47e1667.webp",
+          "is_main": true,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        }
+      ],
+      "translations": [
+        {
+          "id": 174,
+          "uuid": "99881bdd-43d7-4c3b-82ed-9c187d0455b7",
+          "name": "Adduktoren-Maschine",
+          "exercise": 12,
+          "description": "<ul>\n<li>in eine aufrechte Position setzen, bei der die Beine hüftbreit geöffnet sind</li>\n<li>den Rücken, die Knie und die Oberschenkelaußenseite an die jeweiligen Polster pressen</li>\n<li>mit den Händen an den Griffen festhalten</li>\n<li>die Oberschenkel bis zum Anschlagpunkt der Hebelarme auseinander drücken</li>\n<li>danach die Beine wieder zusammen führen</li>\n<li>das Gesäß nicht vom Sitz abheben</li>\n<li>beim Auseinanderdrücken der Hebelarme aus- und beim Zusammenführen einatmen</li>\n</ul>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 1,
+          "license": 1,
+          "license_author": "flori"
+        },
+        {
+          "id": 2565,
+          "uuid": "431d53bf-fd32-42f3-af1d-658f3ed1219f",
+          "name": "Aducción de Cadera en Máquina",
+          "exercise": 12,
+          "description": "<p>Este es un ejercicio de aislamiento que se realiza en una máquina específica para fortalecer los músculos aductores, es decir, la musculatura de la parte interna de los muslos. Ayuda a mejorar la estabilidad de la cadera y a equilibrar la fuerza de las piernas.</p>\n<p><strong>Cómo realizarlo:</strong></p>\n<ol>\n<li><strong>Preparación:</strong> Siéntate en la máquina con la espalda y la cadera completamente apoyadas en el respaldo. Coloca la parte interna de tus muslos o rodillas contra las almohadillas acolchadas. Ajusta la palanca de la máquina para establecer un rango de movimiento inicial que te resulte cómodo pero que genere un ligero estiramiento.</li>\n<li><strong>Ejecución:</strong> Usando la fuerza de la parte interna de tus muslos, junta las piernas de manera lenta y controlada. Haz una breve pausa en el punto de máxima contracción (cuando las almohadillas casi se tocan), apretando fuertemente los aductores.</li>\n<li><strong>Regreso:</strong> Vuelve a la posición inicial de forma igualmente controlada, resistiendo el peso a medida que tus piernas se separan. Evita que las placas de peso choquen bruscamente.</li>\n</ol>\n",
+          "created": "2025-08-18T07:50:47.608177+02:00",
+          "language": 4,
+          "license": 2,
+          "license_author": "wgerjhn"
+        },
+        {
+          "id": 377,
+          "uuid": "4b3025a9-b717-4577-9e92-b1c200fe5f1c",
+          "name": "Seated Hip Adduction",
+          "exercise": 12,
+          "description": "<p>Starting Position: Sit on the machine with your knees inward and against the pads. Pull the pin to release the pads. Grab the handles on the sides.b</p>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 2,
+          "license": 1,
+          "license_author": "flori"
+        }
+      ]
+    },
+    {
+      "id": 203,
+      "uuid": "b7c6a444-90ea-4f5b-9fea-748311606eaa",
+      "created": "2023-08-06T10:17:17.422900+02:00",
+      "last_update": "2024-01-17T11:27:18.204540+01:00",
+      "last_update_global": "2026-10-24T15:57:39.764017+02:00",
+      "category": {
+        "id": 9,
+        "name": "Legs"
+      },
+      "equipment": [
+        {
+          "id": 3,
+          "name": "Dumbbell"
+        }
+      ],
+      "license": {
+        "id": 2,
+        "full_name": "Creative Commons Attribution Share Alike 4",
+        "short_name": "CC-BY-SA 4",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+      },
+      "license_author": "ataraxie67",
+      "images": [
+        {
+          "id": 328,
+          "uuid": "1c052351-2af0-4227-aeb0-244008e4b0a8",
+          "exercise": 203,
+          "exercise_uuid": "b7c6a444-90ea-4f5b-9fea-748311606eaa",
+          "image": "https://wger.de/media/exercise-images/203/1c052351-2af0-4227-aeb0-244008e4b0a8.jpeg",
+          "is_main": true,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "philip",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 329,
+          "uuid": "2ab30113-4e08-4d39-9d23-d901ce2c0971",
+          "exercise": 203,
+          "exercise_uuid": "b7c6a444-90ea-4f5b-9fea-748311606eaa",
+          "image": "https://wger.de/media/exercise-images/203/2ab30113-4e08-4d39-9d23-d901ce2c0971.jpeg",
+          "is_main": false,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "philip",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 518,
+          "uuid": "300a44ac-4368-48e2-8b18-beea32ab915d",
+          "exercise": 203,
+          "exercise_uuid": "b7c6a444-90ea-4f5b-9fea-748311606eaa",
+          "image": "https://wger.de/media/exercise-images/203/300a44ac-4368-48e2-8b18-beea32ab915d.gif",
+          "is_main": false,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        }
+      ],
+      "translations": [
+        {
+          "id": 300,
+          "uuid": "2120f390-4a5f-41bc-9139-045581a3a245",
+          "name": "Dumbbell Goblet Squat",
+          "exercise": 203,
+          "description": "<p>Grasp dumbbell with both hands at the sides of the upper plates. Hold dumbbell in front of chest, close to torso. Place feet about shoulderwide apart, keep knees slightly bent.</p>\n<p>Squat down until thighs are parallel to floor. Keep back straight, bend and move hips backward to keep knees above feet. Return, keep knees slightly flexed. Repeat.</p>\n<p>Keep bodyweight on heels and look ahead or slightly above to keep back straight.</p>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 2,
+          "license": 2,
+          "license_author": "ataraxie67"
+        },
+        {
+          "id": 4312,
+          "uuid": "d0e704f4-680e-4de8-a0bb-49915a1d2119",
+          "name": "Goblet Squat mit Kurzhantel",
+          "exercise": 203,
+          "description": "<p>Greife die Kurzhantel mit beiden Händen an den Seiten der oberen Gewichtsscheiben. Halte die Kurzhantel vor der Brust, nah am Oberkörper. Stelle die Füße etwa schulterbreit auseinander und halte die Knie leicht gebeugt.</p>\n<p>Gehe in die Hocke, bis die Oberschenkel parallel zum Boden sind. Halte den Rücken gerade, beuge dich und schiebe die Hüfte nach hinten, damit die Knie über den Füßen bleiben. Komme wieder hoch und halte die Knie leicht gebeugt. Wiederhole die Bewegung.</p>\n<p>Verlagere dein Körpergewicht auf die Fersen und blicke geradeaus oder leicht nach oben, um den Rücken gerade zu halten.</p>\n",
+          "created": "2026-06-19T17:58:41.916256+02:00",
+          "language": 1,
+          "license": 2,
+          "license_author": "wger.de"
+        },
+        {
+          "id": 2597,
+          "uuid": "8e77cdd5-3e9a-4058-a33a-61ffc184d15c",
+          "name": "Sentadilla con disco",
+          "exercise": 203,
+          "description": "<p>Tipos de sentadillas con disco\nGoblet Squat:\nEs la sentadilla con disco más común, donde el disco se sostiene a la altura del pecho, ayudando a mantener una buena postura y mejorando la estabilidad del tobillo.&nbsp;\nOverhead Plate Squat:\nEn esta variación, el disco se mantiene por encima de la cabeza durante todo el movimiento de la sentadilla, lo que aumenta la demanda de movilidad y estabilidad del hombro.</p>\n",
+          "created": "2025-08-26T13:49:07.386179+02:00",
+          "language": 4,
+          "license": 2,
+          "license_author": "Tierrasverdes"
+        }
+      ]
+    },
+    {
+      "id": 458,
+      "uuid": "c9e57bbe-e839-44c6-861d-1c8dd2845e36",
+      "created": "2023-08-06T10:17:17.422900+02:00",
+      "last_update": "2024-01-17T11:33:38.076893+01:00",
+      "last_update_global": "2026-10-10T17:06:12.972143+02:00",
+      "category": {
+        "id": 10,
+        "name": "Abs"
+      },
+      "equipment": [
+        {
+          "id": 7,
+          "name": "none (bodyweight exercise)"
+        }
+      ],
+      "license": {
+        "id": 1,
+        "full_name": " Creative Commons Attribution Share Alike 3",
+        "short_name": "CC-BY-SA 3",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+      },
+      "license_author": "YYCfit / BFad07",
+      "images": [
+        {
+          "id": 346,
+          "uuid": "b7bd9c28-9f1d-4647-bd17-ab6a3adf5770",
+          "exercise": 458,
+          "exercise_uuid": "c9e57bbe-e839-44c6-861d-1c8dd2845e36",
+          "image": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png",
+          "is_main": true,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "utkb",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 347,
+          "uuid": "902e6836-394e-458b-b94e-101d714294e2",
+          "exercise": 458,
+          "exercise_uuid": "c9e57bbe-e839-44c6-861d-1c8dd2845e36",
+          "image": "https://wger.de/media/exercise-images/458/902e6836-394e-458b-b94e-101d714294e2.png",
+          "is_main": false,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "utkb",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 348,
+          "uuid": "d1ca4a79-f299-4e70-a391-3e9526c3b141",
+          "exercise": 458,
+          "exercise_uuid": "c9e57bbe-e839-44c6-861d-1c8dd2845e36",
+          "image": "https://wger.de/media/exercise-images/458/d1ca4a79-f299-4e70-a391-3e9526c3b141.png",
+          "is_main": false,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "utkb",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 349,
+          "uuid": "b180ce8b-a2c2-40da-924f-998d97aebb63",
+          "exercise": 458,
+          "exercise_uuid": "c9e57bbe-e839-44c6-861d-1c8dd2845e36",
+          "image": "https://wger.de/media/exercise-images/458/b180ce8b-a2c2-40da-924f-998d97aebb63.png",
+          "is_main": false,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "utkb",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 350,
+          "uuid": "167db646-9acb-4426-a383-c7e7dc92e3ec",
+          "exercise": 458,
+          "exercise_uuid": "c9e57bbe-e839-44c6-861d-1c8dd2845e36",
+          "image": "https://wger.de/media/exercise-images/458/167db646-9acb-4426-a383-c7e7dc92e3ec.png",
+          "is_main": false,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "utkb",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 351,
+          "uuid": "e13f92a4-69ae-4043-ae1f-70f155a53024",
+          "exercise": 458,
+          "exercise_uuid": "c9e57bbe-e839-44c6-861d-1c8dd2845e36",
+          "image": "https://wger.de/media/exercise-images/458/e13f92a4-69ae-4043-ae1f-70f155a53024.png",
+          "is_main": false,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "utkb",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 352,
+          "uuid": "bce9a15d-d080-4fb0-bc30-f80778b38793",
+          "exercise": 458,
+          "exercise_uuid": "c9e57bbe-e839-44c6-861d-1c8dd2845e36",
+          "image": "https://wger.de/media/exercise-images/458/bce9a15d-d080-4fb0-bc30-f80778b38793.png",
+          "is_main": false,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "utkb",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 353,
+          "uuid": "2c43d623-5898-4669-b5f8-eb3e1c38cd29",
+          "exercise": 458,
+          "exercise_uuid": "c9e57bbe-e839-44c6-861d-1c8dd2845e36",
+          "image": "https://wger.de/media/exercise-images/458/2c43d623-5898-4669-b5f8-eb3e1c38cd29.png",
+          "is_main": false,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "utkb",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        },
+        {
+          "id": 354,
+          "uuid": "122735cf-f940-4de8-aa30-49a1da148319",
+          "exercise": 458,
+          "exercise_uuid": "c9e57bbe-e839-44c6-861d-1c8dd2845e36",
+          "image": "https://wger.de/media/exercise-images/458/122735cf-f940-4de8-aa30-49a1da148319.png",
+          "is_main": false,
+          "style": "4",
+          "license": 2,
+          "license_title": "",
+          "license_object_url": "",
+          "license_author": "utkb",
+          "license_author_url": "",
+          "license_derivative_source_url": "",
+          "is_ai_generated": false
+        }
+      ],
+      "translations": [
+        {
+          "id": 1401,
+          "uuid": "96ba2610-dd8b-490b-8583-5dc7ef871c02",
+          "name": "Plancha de antebrazo",
+          "exercise": 458,
+          "description": "<p>Posición de salida:</p>\n<ol>\n<li>Empiece a cuatro patas.Los brazos deben estar doblados en ángulo recto, con los hombros justo sobre los codos.La espalda debe estar recta, todo el cuerpo en línea recta.</li>\n</ol>\n<p>Pasos:</p>\n<ol>\n<li>Mantenga esta posición.</li>\n</ol>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 4,
+          "license": 1,
+          "license_author": "YYCfit / BFad07"
+        },
+        {
+          "id": 417,
+          "uuid": "257cdb33-ba8b-410a-9396-5132b08dc912",
+          "name": "Plank",
+          "exercise": 458,
+          "description": "<p>Mit dem Bauch auf den Boden legen und den Körper mit Unterarmen und Zehen abstützen. Beine, Rücken und Kopf sollten eine gerade Linie bilden.</p>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 1,
+          "license": 1,
+          "license_author": "YYCfit / BFad07"
+        },
+        {
+          "id": 238,
+          "uuid": "7729ffe5-a896-4deb-80e0-f4e6163c0c09",
+          "name": "Plank",
+          "exercise": 458,
+          "description": "<p>Get into a position on the floor supporting your weight on your forearms and toes. Arms are bent and directly below the shoulder.</p>\n<p>Keep your body straight at all times and hold this position as long as possible. To increase difficulty an arm or leg can be raised while performing this exercise.</p>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 2,
+          "license": 1,
+          "license_author": "YYCfit / BFad07"
+        }
+      ]
+    },
+    {
+      "id": 177,
+      "uuid": "8dedde58-a5dc-4a23-ad20-fd7cf524f8b5",
+      "created": "2023-08-06T10:17:17.422900+02:00",
+      "last_update": "2026-10-31T00:06:01.913883+01:00",
+      "last_update_global": "2026-10-31T00:06:01.913883+01:00",
+      "category": {
+        "id": 15,
+        "name": "Cardio"
+      },
+      "equipment": [
+        {
+          "id": 7,
+          "name": "none (bodyweight exercise)"
+        }
+      ],
+      "license": {
+        "id": 3,
+        "full_name": "Creative Commons Public Domain 1.0",
+        "short_name": "CC0",
+        "url": "http://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "license_author": "BFad07",
+      "images": [],
+      "translations": [
+        {
+          "id": 2705,
+          "uuid": "484bb33b-2ac4-451d-a5d9-fc810abcd6aa",
+          "name": "Ciclismo",
+          "exercise": 177,
+          "description": "<p>El ciclismo es el uso de la bicicleta como ejercicio, transporte o deporte. Es una de las actividades cardiovasculares más completas y populares.</p>\n<p><strong>Descripción:</strong></p>\n<p>Como ejercicio, el ciclismo es una actividad de <strong>bajo impacto</strong>, ideal para la salud del corazón y para proteger las articulaciones (rodillas, tobillos). Fortalece principalmente el tren inferior del cuerpo: cuádriceps, isquiotibiales, glúteos y pantorrillas. Se puede practicar al aire libre (ciclismo de ruta o de montaña) o en interiores, utilizando una bicicleta estacionaria o en clases de spinning.</p>\n",
+          "created": "2025-09-16T17:05:04.543693+02:00",
+          "language": 4,
+          "license": 2,
+          "license_author": "wgerjhn"
+        },
+        {
+          "id": 806,
+          "uuid": "035d5dfc-1a1b-480b-bc9b-b6f634f19aee",
+          "name": "Cycling",
+          "exercise": 177,
+          "description": "<p>Cycling, also called bicycling or biking, is the use of bicycles for transport, recreation, exercise or sport. People engaged in cycling are referred to as cyclists, bicyclists, or bikers. Apart from two-wheeled bicycles, cycling also includes the riding of unicycles, tricycles, quadracycles, recumbent and similar human-powered vehicles.</p>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 2,
+          "license": 3,
+          "license_author": "BFad07"
+        },
+        {
+          "id": 1065,
+          "uuid": "74466d9b-7658-49b5-8127-c91a70fd2307",
+          "name": "Fahrrad fahren",
+          "exercise": 177,
+          "description": "",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 1,
+          "license": 3,
+          "license_author": "BFad07"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "uuid": "1b020b3a-3732-4c7e-92fd-a0cec90ed69b",
+      "created": "2023-08-06T10:17:17.422900+02:00",
+      "last_update": "2026-07-23T12:24:53.482746+02:00",
+      "last_update_global": "2026-10-24T16:00:18.357676+02:00",
+      "category": {
+        "id": 10,
+        "name": "Abs"
+      },
+      "equipment": [
+        {
+          "id": 10,
+          "name": "Kettlebell"
+        }
+      ],
+      "license": {
+        "id": 2,
+        "full_name": "Creative Commons Attribution Share Alike 4",
+        "short_name": "CC-BY-SA 4",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+      },
+      "license_author": "deusinvictus",
+      "images": [],
+      "translations": [
+        {
+          "id": 345,
+          "uuid": "c788d643-150a-4ac7-97ef-84643c6419bf",
+          "name": "2 Handed Kettlebell Swing",
+          "exercise": 9,
+          "description": "<ol>\n<li>Stand with your feet slightly wider than shoulder-width, the kettlebell on the floor about 20-30 cm in front of your toes.</li>\n<li>Hinge at the hips with a slight bend in the knees and a flat back, and grip the handle with both hands.</li>\n<li>Hike the kettlebell back between your legs, then drive your hips forward explosively so that it swings forward and up to chest or shoulder height (Russian style, not overhead). Your arms stay straight and relaxed, the power comes from the hips.</li>\n<li>Let the kettlebell swing back down, hinge again as it passes between your legs and go straight into the next rep.</li>\n</ol>\n",
+          "created": "2023-08-06T10:17:17.349574+02:00",
+          "language": 2,
+          "license": 2,
+          "license_author": "deusinvictus"
+        }
+      ]
+    }
+  ]
+}

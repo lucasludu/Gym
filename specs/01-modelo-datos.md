@@ -285,15 +285,22 @@ El catálogo de `Exercise` se importa de la API pública de **wger** (`https://w
 1. Traer ejercicios con `exerciseinfo`, solo los aprobados (`status=2`), paginando hasta el final.
 2. Tomar nombre e instrucciones de la traducción en **español**; si no existe, usar la de **inglés**. Si no hay ninguna de las dos, descartar el ejercicio.
 3. Limpiar el HTML de las instrucciones y dejar texto plano.
-4. Tomar la imagen marcada como principal (`is_main`); si no hay, la primera disponible; si no hay ninguna, `imageUrl: null`. Guardar autor y licencia de la imagen.
+4. Elegir la imagen prefiriendo fotos reales (wger marca las generadas con IA con `is_ai_generated`), en este orden: principal (`is_main`) no IA → primera no IA → principal IA → primera IA. Si no hay ninguna, `imageUrl: null`. Guardar autor y licencia de la imagen:
+   - si la imagen no tiene autor, `imageAuthor: "Comunidad de wger"`, para que la atribución siempre se muestre (la mayoría son CC-BY-SA);
+   - la licencia se guarda con su nombre corto (`"CC-BY-SA 4"`, `"CC-BY-SA 3"`…); si el id de licencia es desconocido, `null`.
 5. Mapear categorías y equipamiento de wger a nuestros enums (tabla de mapeo en `scripts/wger-mapping.ts`). Lo que no tenga equivalente va a `"other"` (equipamiento) o se descarta (grupo muscular), y se informa en la salida del script.
+   - La categoría **Cardio** va a `"full_body"`.
+   - Una lista de equipamiento **vacía** significa "desconocido", no "sin equipamiento": va a `"other"`. Solo "none (bodyweight exercise)" y "Pull-up bar" van a `"bodyweight"`.
+   - wger no tiene equipamiento "máquina": si el nombre contiene "máquina" o "machine", el equipamiento es `"machine"`.
+   - Si hay varios equipamientos, gana el primero en este orden: barra, mancuerna, kettlebell, polea, máquina, otro, peso corporal.
 6. Inferir `trackingType` aplicando estas reglas **en orden** (gana la primera que se cumple):
    1. el ejercicio está en la lista de excepciones de `scripts/wger-mapping.ts` → el valor de la lista
-   2. nombre que contenga "plank", "plancha", "hold" o "isométric" (sin distinguir mayúsculas) → `"time"`
-   3. equipamiento barra, mancuerna, máquina, polea o kettlebell → `"weight_reps"`
-   4. cualquier otro caso (sin equipamiento u `"other"`) → `"reps"`
+   2. nombre (en español o inglés) que contenga "plank", "plancha", "hold" o "isométric" (sin distinguir mayúsculas ni tildes) → `"time"`
+   3. categoría Cardio → `"time"`
+   4. equipamiento barra, mancuerna, máquina, polea o kettlebell → `"weight_reps"`
+   5. cualquier otro caso (peso corporal u `"other"`) → `"reps"`
 
-   Ejemplo: una plancha sin equipamiento cumple las reglas 2 y 4; gana la 2 → `"time"`.
+   Ejemplo: una plancha sin equipamiento cumple las reglas 2 y 5; gana la 2 → `"time"`.
 7. Escribir el resultado en la colección `exercises` de `mock/db.json` sin pisar las demás colecciones.
 8. Al final, mostrar un resumen: importados, actualizados, descartados (con motivo) y sin imagen.
 

@@ -83,7 +83,7 @@ Fase 1 terminada; el resto, sin empezar.
 - T1.8 Racha semanal
 
 **Fase 2 · Datos y API**
-- T2.1 Importador de ejercicios (wger)
+- ~~T2.1 Importador de ejercicios (wger)~~ ✅ 904 ejercicios en `mock/db.json`
 - T2.2 Seed del mock
 - T2.3 Cliente HTTP
 - T2.4 Funciones de API por recurso
@@ -121,4 +121,4 @@ Fase 1 terminada; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. Fase 2, empezando por T2.1 (importador de wger).
+1. T2.2 (seed del mock): usuarios (incluido uno sin membresía), clases, reservas, rutina e historial que referencien ejercicios importados.
