@@ -64,7 +64,7 @@
   `canBookClass(...)` que devuelve `{ ok: true }` o `{ ok: false, reason: BookingBlockReason }`, y `canCancelBooking(...)` (límite de 2 horas).
   ✅ Un test por cada una de las 7 reglas y por cada motivo de bloqueo.
 
-- [ ] **T1.6 · Entrenamientos** → T1.1
+- [x] **T1.6 · Entrenamientos** → T1.1
   `getWorkoutDuration`, `getTotalVolume` (solo series completadas).
   ✅ Tests con sesiones en curso, vacías y con series sin completar.
 

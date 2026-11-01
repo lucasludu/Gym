@@ -1,4 +1,5 @@
-import { workoutSessionSchema } from './workoutSession';
+import type { WorkoutSet } from './workoutSet';
+import { getTotalVolume, getWorkoutDuration, workoutSessionSchema } from './workoutSession';
 
 const validSession = {
   id: 'workout-1',
@@ -47,5 +48,93 @@ describe('workoutSessionSchema', () => {
     ['empty userId', { userId: '' }],
   ])('rejects %s', (_label, patch) => {
     expect(workoutSessionSchema.safeParse({ ...validSession, ...patch }).success).toBe(false);
+  });
+});
+
+describe('getWorkoutDuration', () => {
+  it('returns the seconds between startedAt and finishedAt', () => {
+    expect(getWorkoutDuration(validSession)).toBe(70 * 60);
+  });
+
+  it('returns null while the session is in progress', () => {
+    expect(getWorkoutDuration({ ...validSession, finishedAt: null })).toBeNull();
+  });
+
+  it('returns 0 when the session finished at the same instant it started', () => {
+    expect(getWorkoutDuration({ ...validSession, finishedAt: validSession.startedAt })).toBe(0);
+  });
+
+  it('compares instants across timezone offsets', () => {
+    // 22:30Z is 19:30 in Buenos Aires: 90 minutes after 18:00.
+    expect(getWorkoutDuration({ ...validSession, finishedAt: '2026-10-30T22:30:00Z' })).toBe(
+      90 * 60,
+    );
+  });
+
+  it('works across midnight', () => {
+    expect(
+      getWorkoutDuration({
+        startedAt: '2026-10-30T23:30:00-03:00',
+        finishedAt: '2026-10-31T00:15:00-03:00',
+      }),
+    ).toBe(45 * 60);
+  });
+
+  it('drops fractions of a second', () => {
+    expect(
+      getWorkoutDuration({
+        startedAt: '2026-10-30T18:00:00.000-03:00',
+        finishedAt: '2026-10-30T18:00:10.900-03:00',
+      }),
+    ).toBe(10);
+  });
+
+  it('throws when finishedAt is before startedAt', () => {
+    expect(() =>
+      getWorkoutDuration({ ...validSession, finishedAt: '2026-10-30T17:00:00-03:00' }),
+    ).toThrow();
+  });
+
+  it('throws on an invalid datetime', () => {
+    expect(() => getWorkoutDuration({ ...validSession, finishedAt: 'not-a-date' })).toThrow();
+  });
+});
+
+describe('getTotalVolume', () => {
+  type VolumeSet = Pick<WorkoutSet, 'weightKg' | 'reps' | 'completed'>;
+  const set = (weightKg: number | null, reps: number | null, completed = true): VolumeSet => ({
+    weightKg,
+    reps,
+    completed,
+  });
+
+  it('returns 0 for a session without sets', () => {
+    expect(getTotalVolume([])).toBe(0);
+  });
+
+  it('sums weight × reps of completed sets', () => {
+    expect(getTotalVolume([set(100, 5), set(80, 8), set(20, 12)])).toBe(500 + 640 + 240);
+  });
+
+  it('ignores sets that are not completed (session in progress)', () => {
+    expect(getTotalVolume([set(100, 5), set(100, 5, false), set(100, 5, false)])).toBe(500);
+  });
+
+  it('returns 0 when no set is completed', () => {
+    expect(getTotalVolume([set(100, 5, false), set(80, 8, false)])).toBe(0);
+  });
+
+  it('ignores sets without weight (reps exercises) or without reps (time exercises)', () => {
+    expect(getTotalVolume([set(60, 10), set(null, 15), set(null, null)])).toBe(600);
+  });
+
+  it('counts a completed set with 0 kg as 0 volume', () => {
+    expect(getTotalVolume([set(0, 10), set(50, 2)])).toBe(100);
+  });
+
+  it('avoids floating point drift with decimal weights', () => {
+    // 0.1 + 0.2 style errors: 3 × (2.1 × 1) would give 6.300000000000001.
+    expect(getTotalVolume([set(2.1, 1), set(2.1, 1), set(2.1, 1)])).toBe(6.3);
+    expect(getTotalVolume([set(22.5, 3), set(17.5, 7)])).toBe(67.5 + 122.5);
   });
 });
