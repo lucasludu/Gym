@@ -1,6 +1,6 @@
 import type { Booking, BookingBlockReason, BookingStatus } from './booking';
 import { hasStarted, isFull, type ClassSession } from './classSession';
-import { toInstantMs } from './common';
+import { toInstantMs, toIsoDateTime } from './common';
 import { getWeekStart } from './dates';
 import { getMembershipStatus, type Membership } from './membership';
 import type { Plan } from './plan';
@@ -125,7 +125,6 @@ export function cancelBooking(booking: Booking, now: string | Date): Booking {
   if (booking.status !== 'confirmed') {
     throw new Error(`Only confirmed bookings can be cancelled, got "${booking.status}"`);
   }
-  const instantMs = toInstantMs(now); // throws on invalid input
-  const cancelledAt = typeof now === 'string' ? now : new Date(instantMs).toISOString();
+  const cancelledAt = toIsoDateTime(now); // throws on invalid input
   return { ...booking, status: 'cancelled', cancelledAt };
 }

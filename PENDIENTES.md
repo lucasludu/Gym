@@ -86,7 +86,7 @@ Fase 1 terminada; el resto, sin empezar.
 - ~~T2.1 Importador de ejercicios (wger)~~ ✅ 904 ejercicios en `mock/db.json`
 - ~~T2.2 Seed del mock~~ ✅ `npm run seed`
 - ~~T2.3 Cliente HTTP~~ ✅ `src/api/client.ts`
-- T2.4 Funciones de API por recurso
+- ~~T2.4 Funciones de API por recurso~~ ✅ `src/api/*.ts`
 - T2.5 TanStack Query
 
 **Fase 3 · Design system**
@@ -121,4 +121,4 @@ Fase 1 terminada; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. T2.4 (funciones de API por recurso) sobre `src/api/client.ts`.
+1. T2.5 (TanStack Query): `QueryClientProvider`, `queryKeys.ts` y hooks base.

@@ -92,7 +92,7 @@
   `src/api/client.ts`: wrapper de `fetch` con URL base, timeout, manejo de errores tipado y validación de respuestas con Zod.
   ✅ Tests con `fetch` mockeado: éxito, error HTTP, timeout, respuesta inválida.
 
-- [ ] **T2.4 · Funciones de API por recurso** → T2.3
+- [x] **T2.4 · Funciones de API por recurso** → T2.3
   `classes.ts`, `bookings.ts`, `memberships.ts`, `routines.ts`, `exercises.ts`, `workouts.ts`, `users.ts`.
   ✅ Cada función testeada con `fetch` mockeado.
 

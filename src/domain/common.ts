@@ -41,6 +41,15 @@ export const toInstantMs = (value: string | Date): number => {
   return Date.parse(value);
 };
 
+/**
+ * ISO datetime of a value: a valid ISO string is returned as is, a Date as UTC ISO.
+ * Throws on invalid input.
+ */
+export const toIsoDateTime = (value: string | Date): string => {
+  const ms = toInstantMs(value);
+  return typeof value === 'string' ? value : new Date(ms).toISOString();
+};
+
 /** True if `later` is the same instant as `earlier` or after it. Works across offsets. */
 export const isSameOrAfterInstant = (earlier: string, later: string): boolean =>
   Date.parse(later) >= Date.parse(earlier);
