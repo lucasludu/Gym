@@ -48,7 +48,7 @@
   Un schema por entidad con su tipo derivado (`z.infer`). Incluye enums y validaciones de rangos.
   ✅ Tests de datos válidos e inválidos por entidad.
 
-- [ ] **T1.2 · Utilidades de fecha** → T1.1
+- [x] **T1.2 · Utilidades de fecha** → T1.1
   Inicio y fin de semana (lunes a domingo), diferencia en días, todo con zona `America/Argentina/Buenos_Aires`. La fecha actual siempre se recibe por parámetro.
   ✅ Tests con casos de cambio de semana y de mes.
 
