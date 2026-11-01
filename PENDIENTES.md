@@ -47,7 +47,7 @@ Las decisiones quedaron en `specs/01-modelo-datos.md` y `specs/02-tareas.md`.
 Se instalan cuando llegue la tarea que las usa.
 
 **Ya aprobadas en CLAUDE.md**
-- `@tanstack/react-query` → T2.5
+- ~~`@tanstack/react-query` → T2.5~~ ✅ instalada
 - `zustand` → T5.2
 - `react-hook-form` + `@hookform/resolvers` → T5.3
 
@@ -70,7 +70,7 @@ Se instalan cuando llegue la tarea que las usa.
 
 ## 5. Backlog por fase
 
-Fase 1 terminada; el resto, sin empezar.
+Fases 1 y 2 terminadas; el resto, sin empezar.
 
 **Fase 1 · Dominio** ✅ terminada
 - T1.1 Schemas Zod
@@ -82,12 +82,12 @@ Fase 1 terminada; el resto, sin empezar.
 - T1.7 1RM y récords
 - T1.8 Racha semanal
 
-**Fase 2 · Datos y API**
+**Fase 2 · Datos y API** ✅ terminada
 - ~~T2.1 Importador de ejercicios (wger)~~ ✅ 904 ejercicios en `mock/db.json`
 - ~~T2.2 Seed del mock~~ ✅ `npm run seed`
 - ~~T2.3 Cliente HTTP~~ ✅ `src/api/client.ts`
 - ~~T2.4 Funciones de API por recurso~~ ✅ `src/api/*.ts`
-- T2.5 TanStack Query
+- ~~T2.5 TanStack Query~~ ✅ `src/hooks/`
 
 **Fase 3 · Design system**
 - T3.1 Theme (claro y oscuro)
@@ -121,4 +121,4 @@ Fase 1 terminada; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. T2.5 (TanStack Query): `QueryClientProvider`, `queryKeys.ts` y hooks base.
+1. Fase 3, empezando por T3.1 (theme claro y oscuro, con los 6 acentos de `ClassType`).

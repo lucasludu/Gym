@@ -96,7 +96,7 @@
   `classes.ts`, `bookings.ts`, `memberships.ts`, `routines.ts`, `exercises.ts`, `workouts.ts`, `users.ts`.
   ✅ Cada función testeada con `fetch` mockeado.
 
-- [ ] **T2.5 · TanStack Query** → T2.4
+- [x] **T2.5 · TanStack Query** → T2.4
   `QueryClientProvider`, claves de query centralizadas (`queryKeys.ts`), hooks base (`useClassSessions`, `useMyBookings`, `useMembership`, `useRoutine`, `useExercises`, `useWorkoutHistory`).
   ✅ Tests de hooks con un `QueryClient` de prueba.
 
