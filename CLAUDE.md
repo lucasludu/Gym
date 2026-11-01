@@ -72,5 +72,6 @@ npm test                # Correr los tests
 npm run typecheck       # Chequear tipos (app + scripts/)
 npm run mock            # Levantar json-server en el puerto 3000
 npm run import:exercises  # Reimportar el catálogo de ejercicios de wger a mock/db.json
+npm run seed            # Regenerar los datos del mock relativos a hoy (no toca exercises)
 ```
 Recordatorio: desde el celular, la API mock se accede con la IP local de la PC, no con `localhost`.

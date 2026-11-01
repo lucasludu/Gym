@@ -328,7 +328,8 @@ workoutSessions, workoutSets
 - El seed incluye un usuario sin membresía para probar el estado "Sin membresía activa".
 - Los datos deben cubrir los casos borde de las reglas: una clase llena, una clase que ya empezó, una membresía por vencer, una semana con racha cortada, ejercicios de los tres `trackingType` y al menos un récord personal en el historial.
 - La colección `exercises` la genera `scripts/import-exercises.ts`; las rutinas y entrenamientos del mock referencian ejercicios importados, incluyendo al menos uno sin imagen para probar el placeholder.
-- Las fechas de clases se generan relativas a "hoy" con un script (`mock/seed.ts`) para que el mock no quede viejo.
+- Las fechas de clases se generan relativas a "hoy" con un script para que el mock no quede viejo: `mock/seed.ts` arma los datos (función pura `buildSeed(now, exercises)`, testeada) y `npm run seed` reescribe todas las colecciones de `mock/db.json` salvo `exercises`. Conviene correrlo antes de cada sesión de prueba.
+- El usuario principal (`user-1`) tiene la membresía por vencer, un plan de 3 clases por semana y reservas que permiten ver todos los motivos de bloqueo (clase llena, empezada, ya reservada, superposición y límite semanal), una reserva a menos de 2 horas (no se puede cancelar), y 8 semanas de historial con una racha de 4 semanas cortada hace 5.
 - json-server no valida reglas de negocio: en esta etapa, las reglas de reserva se aplican en el front (`src/domain/bookingRules.ts`) y quedan cubiertas por tests.
 
 ## Implementación en el front

@@ -45,7 +45,8 @@
     "lint": "expo lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "import:exercises": "tsx scripts/import-exercises.ts"
+    "import:exercises": "tsx scripts/import-exercises.ts",
+    "seed": "tsx scripts/seed-mock.ts"
   },
   "private": true
 }

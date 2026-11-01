@@ -1,11 +1,4045 @@
 {
-  "users": [],
-  "plans": [],
-  "memberships": [],
-  "classTypes": [],
-  "trainers": [],
-  "classSessions": [],
-  "bookings": [],
+  "users": [
+    {
+      "id": "user-1",
+      "firstName": "Sofía",
+      "lastName": "Martínez",
+      "email": "sofia.martinez@example.com",
+      "avatarUrl": null,
+      "weeklyGoal": 3,
+      "createdAt": "2026-04-15T10:00:00-03:00"
+    },
+    {
+      "id": "user-2",
+      "firstName": "Martín",
+      "lastName": "Gómez",
+      "email": "martin.gomez@example.com",
+      "avatarUrl": null,
+      "weeklyGoal": 4,
+      "createdAt": "2026-08-03T10:00:00-03:00"
+    },
+    {
+      "id": "user-3",
+      "firstName": "Valentina",
+      "lastName": "López",
+      "email": "valentina.lopez@example.com",
+      "avatarUrl": null,
+      "weeklyGoal": 2,
+      "createdAt": "2026-07-04T10:00:00-03:00"
+    },
+    {
+      "id": "user-4",
+      "firstName": "Joaquín",
+      "lastName": "Fernández",
+      "email": "joaquin.fernandez@example.com",
+      "avatarUrl": null,
+      "weeklyGoal": 3,
+      "createdAt": "2026-10-31T10:00:00-03:00"
+    }
+  ],
+  "plans": [
+    {
+      "id": "plan-1",
+      "name": "Pase libre",
+      "price": 48000,
+      "weeklyClassLimit": null
+    },
+    {
+      "id": "plan-2",
+      "name": "3 veces por semana",
+      "price": 36000,
+      "weeklyClassLimit": 3
+    },
+    {
+      "id": "plan-3",
+      "name": "2 veces por semana",
+      "price": 28000,
+      "weeklyClassLimit": 2
+    }
+  ],
+  "memberships": [
+    {
+      "id": "membership-1",
+      "userId": "user-1",
+      "planId": "plan-2",
+      "startDate": "2026-10-05",
+      "endDate": "2026-11-04"
+    },
+    {
+      "id": "membership-2",
+      "userId": "user-2",
+      "planId": "plan-1",
+      "startDate": "2026-10-22",
+      "endDate": "2026-11-21"
+    },
+    {
+      "id": "membership-3",
+      "userId": "user-3",
+      "planId": "plan-3",
+      "startDate": "2026-09-17",
+      "endDate": "2026-10-17"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "trainer-1",
+      "firstName": "Camila",
+      "lastName": "Rodríguez",
+      "avatarUrl": null
+    },
+    {
+      "id": "trainer-2",
+      "firstName": "Nicolás",
+      "lastName": "Pérez",
+      "avatarUrl": null
+    },
+    {
+      "id": "trainer-3",
+      "firstName": "Lucía",
+      "lastName": "Sosa",
+      "avatarUrl": null
+    },
+    {
+      "id": "trainer-4",
+      "firstName": "Diego",
+      "lastName": "Romero",
+      "avatarUrl": null
+    }
+  ],
+  "classTypes": [
+    {
+      "id": "class-type-funcional",
+      "name": "Funcional",
+      "description": "Circuitos con el peso del cuerpo y elementos para ganar fuerza y resistencia.",
+      "durationMinutes": 60,
+      "intensity": "high",
+      "color": "accentOrange"
+    },
+    {
+      "id": "class-type-spinning",
+      "name": "Spinning",
+      "description": "Bicicleta fija al ritmo de la música, con cambios de intensidad.",
+      "durationMinutes": 45,
+      "intensity": "high",
+      "color": "accentBlue"
+    },
+    {
+      "id": "class-type-yoga",
+      "name": "Yoga",
+      "description": "Posturas, respiración y relajación para ganar movilidad.",
+      "durationMinutes": 60,
+      "intensity": "low",
+      "color": "accentGreen"
+    },
+    {
+      "id": "class-type-pilates",
+      "name": "Pilates",
+      "description": "Trabajo de core, postura y control del movimiento.",
+      "durationMinutes": 50,
+      "intensity": "medium",
+      "color": "accentPurple"
+    },
+    {
+      "id": "class-type-zumba",
+      "name": "Zumba",
+      "description": "Baile aeróbico con ritmos latinos.",
+      "durationMinutes": 55,
+      "intensity": "medium",
+      "color": "accentPink"
+    },
+    {
+      "id": "class-type-hiit",
+      "name": "HIIT",
+      "description": "Intervalos cortos de alta intensidad con pausas breves.",
+      "durationMinutes": 30,
+      "intensity": "high",
+      "color": "accentTeal"
+    }
+  ],
+  "classSessions": [
+    {
+      "id": "class-2026-09-12-1030-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-09-12T10:30:00-03:00",
+      "capacity": 12,
+      "bookedCount": 9
+    },
+    {
+      "id": "class-2026-09-24-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-09-24T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 5
+    },
+    {
+      "id": "class-2026-09-29-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-09-29T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 10
+    },
+    {
+      "id": "class-2026-10-07-1800-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-10-07T18:00:00-03:00",
+      "capacity": 12,
+      "bookedCount": 8
+    },
+    {
+      "id": "class-2026-10-12-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-10-12T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 12
+    },
+    {
+      "id": "class-2026-10-16-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-10-16T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 4
+    },
+    {
+      "id": "class-2026-11-01-1000-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-01T10:00:00-03:00",
+      "capacity": 12,
+      "bookedCount": 3
+    },
+    {
+      "id": "class-started",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-01T13:45:00-03:00",
+      "capacity": 20,
+      "bookedCount": 13
+    },
+    {
+      "id": "class-soon",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-01T15:20:00-03:00",
+      "capacity": 16,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-02-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-02T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 14
+    },
+    {
+      "id": "class-2026-11-02-0830-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-02T08:30:00-03:00",
+      "capacity": 15,
+      "bookedCount": 8
+    },
+    {
+      "id": "class-2026-11-02-1230-hiit",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-02T12:30:00-03:00",
+      "capacity": 16,
+      "bookedCount": 5
+    },
+    {
+      "id": "class-2026-11-02-1800-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-02T18:00:00-03:00",
+      "capacity": 12,
+      "bookedCount": 9
+    },
+    {
+      "id": "class-2026-11-02-1900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-02T19:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 8
+    },
+    {
+      "id": "class-2026-11-02-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-02T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 9
+    },
+    {
+      "id": "class-2026-11-02-2015-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-02T20:15:00-03:00",
+      "capacity": 25,
+      "bookedCount": 21
+    },
+    {
+      "id": "class-2026-11-03-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-03T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 13
+    },
+    {
+      "id": "class-2026-11-03-0830-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-03T08:30:00-03:00",
+      "capacity": 15,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-03-1230-hiit",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-03T12:30:00-03:00",
+      "capacity": 16,
+      "bookedCount": 4
+    },
+    {
+      "id": "class-2026-11-03-1800-pilates",
+      "classTypeId": "class-type-pilates",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-03T18:00:00-03:00",
+      "capacity": 10,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-03-1900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-03T19:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-03-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-03T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 8
+    },
+    {
+      "id": "class-2026-11-03-2015-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-03T20:15:00-03:00",
+      "capacity": 25,
+      "bookedCount": 19
+    },
+    {
+      "id": "class-2026-11-04-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-04T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 12
+    },
+    {
+      "id": "class-2026-11-04-0830-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-04T08:30:00-03:00",
+      "capacity": 15,
+      "bookedCount": 6
+    },
+    {
+      "id": "class-2026-11-04-1230-hiit",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-04T12:30:00-03:00",
+      "capacity": 16,
+      "bookedCount": 13
+    },
+    {
+      "id": "class-2026-11-04-1800-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-04T18:00:00-03:00",
+      "capacity": 12,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-04-1900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-04T19:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 6
+    },
+    {
+      "id": "class-2026-11-04-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-04T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-04-2015-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-04T20:15:00-03:00",
+      "capacity": 25,
+      "bookedCount": 18
+    },
+    {
+      "id": "class-2026-11-05-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-05T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 10
+    },
+    {
+      "id": "class-2026-11-05-0830-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-05T08:30:00-03:00",
+      "capacity": 15,
+      "bookedCount": 5
+    },
+    {
+      "id": "class-2026-11-05-1230-hiit",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-05T12:30:00-03:00",
+      "capacity": 16,
+      "bookedCount": 12
+    },
+    {
+      "id": "class-2026-11-05-1800-pilates",
+      "classTypeId": "class-type-pilates",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-05T18:00:00-03:00",
+      "capacity": 10,
+      "bookedCount": 6
+    },
+    {
+      "id": "class-2026-11-05-1900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-05T19:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 16
+    },
+    {
+      "id": "class-2026-11-05-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-05T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 6
+    },
+    {
+      "id": "class-2026-11-05-2015-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-05T20:15:00-03:00",
+      "capacity": 25,
+      "bookedCount": 25
+    },
+    {
+      "id": "class-2026-11-06-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-06T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 9
+    },
+    {
+      "id": "class-2026-11-06-0830-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-06T08:30:00-03:00",
+      "capacity": 15,
+      "bookedCount": 4
+    },
+    {
+      "id": "class-2026-11-06-1230-hiit",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-06T12:30:00-03:00",
+      "capacity": 16,
+      "bookedCount": 11
+    },
+    {
+      "id": "class-2026-11-06-1800-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-06T18:00:00-03:00",
+      "capacity": 12,
+      "bookedCount": 6
+    },
+    {
+      "id": "class-2026-11-06-1900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-06T19:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 15
+    },
+    {
+      "id": "class-2026-11-06-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-06T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 5
+    },
+    {
+      "id": "class-2026-11-06-2015-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-06T20:15:00-03:00",
+      "capacity": 25,
+      "bookedCount": 15
+    },
+    {
+      "id": "class-2026-11-07-0900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-07T09:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 8
+    },
+    {
+      "id": "class-2026-11-07-1030-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-07T10:30:00-03:00",
+      "capacity": 12,
+      "bookedCount": 10
+    },
+    {
+      "id": "class-2026-11-07-1200-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-07T12:00:00-03:00",
+      "capacity": 25,
+      "bookedCount": 16
+    },
+    {
+      "id": "class-2026-11-08-1000-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-08T10:00:00-03:00",
+      "capacity": 12,
+      "bookedCount": 5
+    },
+    {
+      "id": "class-2026-11-09-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-09T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 6
+    },
+    {
+      "id": "class-2026-11-09-0830-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-09T08:30:00-03:00",
+      "capacity": 15,
+      "bookedCount": 10
+    },
+    {
+      "id": "class-2026-11-09-1230-hiit",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-09T12:30:00-03:00",
+      "capacity": 16,
+      "bookedCount": 8
+    },
+    {
+      "id": "class-2026-11-09-1800-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-09T18:00:00-03:00",
+      "capacity": 12,
+      "bookedCount": 4
+    },
+    {
+      "id": "class-2026-11-09-1900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-09T19:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 12
+    },
+    {
+      "id": "class-2026-11-09-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-09T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 11
+    },
+    {
+      "id": "class-2026-11-09-2015-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-09T20:15:00-03:00",
+      "capacity": 25,
+      "bookedCount": 10
+    },
+    {
+      "id": "class-2026-11-10-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-10T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 16
+    },
+    {
+      "id": "class-2026-11-10-0830-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-10T08:30:00-03:00",
+      "capacity": 15,
+      "bookedCount": 9
+    },
+    {
+      "id": "class-2026-11-10-1230-hiit",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-10T12:30:00-03:00",
+      "capacity": 16,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-10-1800-pilates",
+      "classTypeId": "class-type-pilates",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-10T18:00:00-03:00",
+      "capacity": 10,
+      "bookedCount": 3
+    },
+    {
+      "id": "class-2026-11-10-1900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-10T19:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 10
+    },
+    {
+      "id": "class-2026-11-10-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-10T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 10
+    },
+    {
+      "id": "class-2026-11-10-2015-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-10T20:15:00-03:00",
+      "capacity": 25,
+      "bookedCount": 9
+    },
+    {
+      "id": "class-2026-11-11-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-11T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 15
+    },
+    {
+      "id": "class-2026-11-11-0830-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-11T08:30:00-03:00",
+      "capacity": 15,
+      "bookedCount": 9
+    },
+    {
+      "id": "class-2026-11-11-1230-hiit",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-11T12:30:00-03:00",
+      "capacity": 16,
+      "bookedCount": 6
+    },
+    {
+      "id": "class-2026-11-11-1800-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-11T18:00:00-03:00",
+      "capacity": 12,
+      "bookedCount": 10
+    },
+    {
+      "id": "class-2026-11-11-1900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-11T19:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 9
+    },
+    {
+      "id": "class-2026-11-11-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-11T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 9
+    },
+    {
+      "id": "class-2026-11-11-2015-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-11T20:15:00-03:00",
+      "capacity": 25,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-12-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-12T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 14
+    },
+    {
+      "id": "class-2026-11-12-0830-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-12T08:30:00-03:00",
+      "capacity": 15,
+      "bookedCount": 8
+    },
+    {
+      "id": "class-2026-11-12-1230-hiit",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-12T12:30:00-03:00",
+      "capacity": 16,
+      "bookedCount": 5
+    },
+    {
+      "id": "class-2026-11-12-1800-pilates",
+      "classTypeId": "class-type-pilates",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-12T18:00:00-03:00",
+      "capacity": 10,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-12-1900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-12T19:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 8
+    },
+    {
+      "id": "class-2026-11-12-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-12T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 9
+    },
+    {
+      "id": "class-2026-11-12-2015-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-12T20:15:00-03:00",
+      "capacity": 25,
+      "bookedCount": 21
+    },
+    {
+      "id": "class-2026-11-13-0700-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-13T07:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 13
+    },
+    {
+      "id": "class-2026-11-13-0830-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-13T08:30:00-03:00",
+      "capacity": 15,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-13-1230-hiit",
+      "classTypeId": "class-type-hiit",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-13T12:30:00-03:00",
+      "capacity": 16,
+      "bookedCount": 4
+    },
+    {
+      "id": "class-2026-11-13-1800-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-13T18:00:00-03:00",
+      "capacity": 12,
+      "bookedCount": 8
+    },
+    {
+      "id": "class-2026-11-13-1900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-13T19:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 7
+    },
+    {
+      "id": "class-2026-11-13-1900-spinning",
+      "classTypeId": "class-type-spinning",
+      "trainerId": "trainer-2",
+      "startsAt": "2026-11-13T19:00:00-03:00",
+      "capacity": 15,
+      "bookedCount": 8
+    },
+    {
+      "id": "class-2026-11-13-2015-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-13T20:15:00-03:00",
+      "capacity": 25,
+      "bookedCount": 19
+    },
+    {
+      "id": "class-2026-11-14-0900-funcional",
+      "classTypeId": "class-type-funcional",
+      "trainerId": "trainer-1",
+      "startsAt": "2026-11-14T09:00:00-03:00",
+      "capacity": 20,
+      "bookedCount": 12
+    },
+    {
+      "id": "class-2026-11-14-1030-yoga",
+      "classTypeId": "class-type-yoga",
+      "trainerId": "trainer-4",
+      "startsAt": "2026-11-14T10:30:00-03:00",
+      "capacity": 12,
+      "bookedCount": 5
+    },
+    {
+      "id": "class-2026-11-14-1200-zumba",
+      "classTypeId": "class-type-zumba",
+      "trainerId": "trainer-3",
+      "startsAt": "2026-11-14T12:00:00-03:00",
+      "capacity": 25,
+      "bookedCount": 21
+    }
+  ],
+  "bookings": [
+    {
+      "id": "booking-1",
+      "userId": "user-1",
+      "classSessionId": "class-2026-11-02-1900-spinning",
+      "status": "confirmed",
+      "createdAt": "2026-10-30T14:19:53-03:00",
+      "cancelledAt": null
+    },
+    {
+      "id": "booking-2",
+      "userId": "user-1",
+      "classSessionId": "class-2026-11-04-1900-spinning",
+      "status": "confirmed",
+      "createdAt": "2026-10-30T14:19:53-03:00",
+      "cancelledAt": null
+    },
+    {
+      "id": "booking-3",
+      "userId": "user-1",
+      "classSessionId": "class-2026-11-06-1800-yoga",
+      "status": "confirmed",
+      "createdAt": "2026-10-30T14:19:53-03:00",
+      "cancelledAt": null
+    },
+    {
+      "id": "booking-4",
+      "userId": "user-1",
+      "classSessionId": "class-soon",
+      "status": "confirmed",
+      "createdAt": "2026-10-31T14:19:53-03:00",
+      "cancelledAt": null
+    },
+    {
+      "id": "booking-5",
+      "userId": "user-1",
+      "classSessionId": "class-2026-11-03-1230-hiit",
+      "status": "cancelled",
+      "createdAt": "2026-10-30T14:19:53-03:00",
+      "cancelledAt": "2026-10-31T14:19:53-03:00"
+    },
+    {
+      "id": "booking-6",
+      "userId": "user-1",
+      "classSessionId": "class-2026-10-16-1900-spinning",
+      "status": "attended",
+      "createdAt": "2026-10-14T19:00:00-03:00",
+      "cancelledAt": null
+    },
+    {
+      "id": "booking-7",
+      "userId": "user-1",
+      "classSessionId": "class-2026-10-07-1800-yoga",
+      "status": "cancelled",
+      "createdAt": "2026-10-05T18:00:00-03:00",
+      "cancelledAt": "2026-10-06T18:00:00-03:00"
+    },
+    {
+      "id": "booking-8",
+      "userId": "user-1",
+      "classSessionId": "class-2026-09-29-0700-funcional",
+      "status": "attended",
+      "createdAt": "2026-09-27T07:00:00-03:00",
+      "cancelledAt": null
+    },
+    {
+      "id": "booking-9",
+      "userId": "user-1",
+      "classSessionId": "class-2026-09-24-1900-spinning",
+      "status": "no_show",
+      "createdAt": "2026-09-22T19:00:00-03:00",
+      "cancelledAt": null
+    },
+    {
+      "id": "booking-10",
+      "userId": "user-1",
+      "classSessionId": "class-2026-09-12-1030-yoga",
+      "status": "attended",
+      "createdAt": "2026-09-10T10:30:00-03:00",
+      "cancelledAt": null
+    },
+    {
+      "id": "booking-11",
+      "userId": "user-2",
+      "classSessionId": "class-2026-11-04-0830-spinning",
+      "status": "confirmed",
+      "createdAt": "2026-10-30T14:19:53-03:00",
+      "cancelledAt": null
+    },
+    {
+      "id": "booking-12",
+      "userId": "user-2",
+      "classSessionId": "class-2026-11-05-2015-zumba",
+      "status": "confirmed",
+      "createdAt": "2026-10-30T14:19:53-03:00",
+      "cancelledAt": null
+    },
+    {
+      "id": "booking-13",
+      "userId": "user-3",
+      "classSessionId": "class-2026-10-12-0700-funcional",
+      "status": "attended",
+      "createdAt": "2026-10-10T07:00:00-03:00",
+      "cancelledAt": null
+    }
+  ],
+  "routines": [
+    {
+      "id": "routine-1",
+      "userId": "user-1",
+      "trainerId": "trainer-1",
+      "name": "Hipertrofia – Bloque 1",
+      "startDate": "2026-08-24",
+      "endDate": null,
+      "isActive": true
+    }
+  ],
+  "routineDays": [
+    {
+      "id": "routine-day-1",
+      "routineId": "routine-1",
+      "order": 1,
+      "name": "Día A – Tren inferior"
+    },
+    {
+      "id": "routine-day-2",
+      "routineId": "routine-1",
+      "order": 2,
+      "name": "Día B – Empuje"
+    },
+    {
+      "id": "routine-day-3",
+      "routineId": "routine-1",
+      "order": 3,
+      "name": "Día C – Tirón"
+    }
+  ],
+  "routineExercises": [
+    {
+      "id": "routine-exercise-1-1",
+      "routineDayId": "routine-day-1",
+      "exerciseId": "wger-615",
+      "order": 1,
+      "targetSets": 3,
+      "targetReps": "8-10",
+      "targetWeightKg": 60,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": "Bajá hasta la paralela."
+    },
+    {
+      "id": "routine-exercise-1-2",
+      "routineDayId": "routine-day-1",
+      "exerciseId": "wger-507",
+      "order": 2,
+      "targetSets": 3,
+      "targetReps": "10",
+      "targetWeightKg": 50,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": null
+    },
+    {
+      "id": "routine-exercise-1-3",
+      "routineDayId": "routine-day-1",
+      "exerciseId": "wger-1706",
+      "order": 3,
+      "targetSets": 3,
+      "targetReps": "10",
+      "targetWeightKg": 12,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": "Por pierna."
+    },
+    {
+      "id": "routine-exercise-1-4",
+      "routineDayId": "routine-day-1",
+      "exerciseId": "wger-458",
+      "order": 4,
+      "targetSets": 3,
+      "targetReps": "1",
+      "targetWeightKg": null,
+      "targetSeconds": 45,
+      "restSeconds": 60,
+      "notes": null
+    },
+    {
+      "id": "routine-exercise-2-1",
+      "routineDayId": "routine-day-2",
+      "exerciseId": "wger-73",
+      "order": 1,
+      "targetSets": 3,
+      "targetReps": "8",
+      "targetWeightKg": 50,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": null
+    },
+    {
+      "id": "routine-exercise-2-2",
+      "routineDayId": "routine-day-2",
+      "exerciseId": "wger-418",
+      "order": 2,
+      "targetSets": 3,
+      "targetReps": "8-10",
+      "targetWeightKg": 30,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": null
+    },
+    {
+      "id": "routine-exercise-2-3",
+      "routineDayId": "routine-day-2",
+      "exerciseId": "wger-1378",
+      "order": 3,
+      "targetSets": 3,
+      "targetReps": "12",
+      "targetWeightKg": 7.5,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": null
+    },
+    {
+      "id": "routine-exercise-2-4",
+      "routineDayId": "routine-day-2",
+      "exerciseId": "wger-194",
+      "order": 4,
+      "targetSets": 3,
+      "targetReps": "AMRAP",
+      "targetWeightKg": null,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": null
+    },
+    {
+      "id": "routine-exercise-3-1",
+      "routineDayId": "routine-day-3",
+      "exerciseId": "wger-184",
+      "order": 1,
+      "targetSets": 3,
+      "targetReps": "5",
+      "targetWeightKg": 80,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": "Espalda neutra."
+    },
+    {
+      "id": "routine-exercise-3-2",
+      "routineDayId": "routine-day-3",
+      "exerciseId": "wger-1698",
+      "order": 2,
+      "targetSets": 3,
+      "targetReps": "8-10",
+      "targetWeightKg": 40,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": null
+    },
+    {
+      "id": "routine-exercise-3-3",
+      "routineDayId": "routine-day-3",
+      "exerciseId": "wger-475",
+      "order": 3,
+      "targetSets": 3,
+      "targetReps": "AMRAP",
+      "targetWeightKg": null,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": null
+    },
+    {
+      "id": "routine-exercise-3-4",
+      "routineDayId": "routine-day-3",
+      "exerciseId": "wger-92",
+      "order": 4,
+      "targetSets": 3,
+      "targetReps": "10-12",
+      "targetWeightKg": 10,
+      "targetSeconds": null,
+      "restSeconds": 90,
+      "notes": null
+    }
+  ],
+  "workoutSessions": [
+    {
+      "id": "workout-1",
+      "userId": "user-1",
+      "routineDayId": "routine-day-1",
+      "startedAt": "2026-08-31T19:00:00-03:00",
+      "finishedAt": "2026-08-31T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-2",
+      "userId": "user-1",
+      "routineDayId": "routine-day-2",
+      "startedAt": "2026-09-02T19:00:00-03:00",
+      "finishedAt": "2026-09-02T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-3",
+      "userId": "user-1",
+      "routineDayId": "routine-day-3",
+      "startedAt": "2026-09-04T19:00:00-03:00",
+      "finishedAt": "2026-09-04T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-4",
+      "userId": "user-1",
+      "routineDayId": "routine-day-1",
+      "startedAt": "2026-09-07T19:00:00-03:00",
+      "finishedAt": "2026-09-07T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-5",
+      "userId": "user-1",
+      "routineDayId": "routine-day-2",
+      "startedAt": "2026-09-10T19:00:00-03:00",
+      "finishedAt": "2026-09-10T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-6",
+      "userId": "user-1",
+      "routineDayId": "routine-day-3",
+      "startedAt": "2026-09-14T19:00:00-03:00",
+      "finishedAt": "2026-09-14T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-7",
+      "userId": "user-1",
+      "routineDayId": "routine-day-1",
+      "startedAt": "2026-09-16T19:00:00-03:00",
+      "finishedAt": "2026-09-16T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-8",
+      "userId": "user-1",
+      "routineDayId": null,
+      "startedAt": "2026-09-18T19:00:00-03:00",
+      "finishedAt": "2026-09-18T19:32:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-9",
+      "userId": "user-1",
+      "routineDayId": "routine-day-2",
+      "startedAt": "2026-09-22T19:00:00-03:00",
+      "finishedAt": "2026-09-22T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-10",
+      "userId": "user-1",
+      "routineDayId": "routine-day-3",
+      "startedAt": "2026-09-28T19:00:00-03:00",
+      "finishedAt": "2026-09-28T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-11",
+      "userId": "user-1",
+      "routineDayId": "routine-day-1",
+      "startedAt": "2026-09-30T19:00:00-03:00",
+      "finishedAt": "2026-09-30T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-12",
+      "userId": "user-1",
+      "routineDayId": "routine-day-2",
+      "startedAt": "2026-10-02T19:00:00-03:00",
+      "finishedAt": "2026-10-02T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-13",
+      "userId": "user-1",
+      "routineDayId": "routine-day-3",
+      "startedAt": "2026-10-06T19:00:00-03:00",
+      "finishedAt": "2026-10-06T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-14",
+      "userId": "user-1",
+      "routineDayId": "routine-day-1",
+      "startedAt": "2026-10-08T19:00:00-03:00",
+      "finishedAt": "2026-10-08T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-15",
+      "userId": "user-1",
+      "routineDayId": "routine-day-2",
+      "startedAt": "2026-10-10T19:00:00-03:00",
+      "finishedAt": "2026-10-10T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-16",
+      "userId": "user-1",
+      "routineDayId": "routine-day-3",
+      "startedAt": "2026-10-12T19:00:00-03:00",
+      "finishedAt": "2026-10-12T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-17",
+      "userId": "user-1",
+      "routineDayId": "routine-day-1",
+      "startedAt": "2026-10-14T19:00:00-03:00",
+      "finishedAt": "2026-10-14T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-18",
+      "userId": "user-1",
+      "routineDayId": "routine-day-2",
+      "startedAt": "2026-10-19T19:00:00-03:00",
+      "finishedAt": "2026-10-19T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-19",
+      "userId": "user-1",
+      "routineDayId": "routine-day-3",
+      "startedAt": "2026-10-21T19:00:00-03:00",
+      "finishedAt": "2026-10-21T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-20",
+      "userId": "user-1",
+      "routineDayId": "routine-day-1",
+      "startedAt": "2026-10-23T19:00:00-03:00",
+      "finishedAt": "2026-10-23T19:41:00-03:00",
+      "notes": null
+    },
+    {
+      "id": "workout-21",
+      "userId": "user-1",
+      "routineDayId": "routine-day-2",
+      "startedAt": "2026-10-26T19:00:00-03:00",
+      "finishedAt": "2026-10-26T19:41:00-03:00",
+      "notes": null
+    }
+  ],
+  "workoutSets": [
+    {
+      "id": "set-1-1",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-615",
+      "order": 1,
+      "weightKg": 60,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-08-31T19:03:00-03:00"
+    },
+    {
+      "id": "set-1-2",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-615",
+      "order": 2,
+      "weightKg": 60,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-08-31T19:06:00-03:00"
+    },
+    {
+      "id": "set-1-3",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-615",
+      "order": 3,
+      "weightKg": 60,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-08-31T19:09:00-03:00"
+    },
+    {
+      "id": "set-1-4",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-507",
+      "order": 1,
+      "weightKg": 50,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-08-31T19:12:00-03:00"
+    },
+    {
+      "id": "set-1-5",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-507",
+      "order": 2,
+      "weightKg": 50,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-08-31T19:15:00-03:00"
+    },
+    {
+      "id": "set-1-6",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-507",
+      "order": 3,
+      "weightKg": 50,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-08-31T19:18:00-03:00"
+    },
+    {
+      "id": "set-1-7",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-1706",
+      "order": 1,
+      "weightKg": 12,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-08-31T19:21:00-03:00"
+    },
+    {
+      "id": "set-1-8",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-1706",
+      "order": 2,
+      "weightKg": 12,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-08-31T19:24:00-03:00"
+    },
+    {
+      "id": "set-1-9",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-1706",
+      "order": 3,
+      "weightKg": 12,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-08-31T19:27:00-03:00"
+    },
+    {
+      "id": "set-1-10",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-458",
+      "order": 1,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 30,
+      "completed": true,
+      "completedAt": "2026-08-31T19:30:00-03:00"
+    },
+    {
+      "id": "set-1-11",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-458",
+      "order": 2,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 29,
+      "completed": true,
+      "completedAt": "2026-08-31T19:33:00-03:00"
+    },
+    {
+      "id": "set-1-12",
+      "workoutSessionId": "workout-1",
+      "exerciseId": "wger-458",
+      "order": 3,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 28,
+      "completed": true,
+      "completedAt": "2026-08-31T19:36:00-03:00"
+    },
+    {
+      "id": "set-2-1",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-73",
+      "order": 1,
+      "weightKg": 50,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:03:00-03:00"
+    },
+    {
+      "id": "set-2-2",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-73",
+      "order": 2,
+      "weightKg": 50,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:06:00-03:00"
+    },
+    {
+      "id": "set-2-3",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-73",
+      "order": 3,
+      "weightKg": 50,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:09:00-03:00"
+    },
+    {
+      "id": "set-2-4",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-418",
+      "order": 1,
+      "weightKg": 30,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:12:00-03:00"
+    },
+    {
+      "id": "set-2-5",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-418",
+      "order": 2,
+      "weightKg": 30,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:15:00-03:00"
+    },
+    {
+      "id": "set-2-6",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-418",
+      "order": 3,
+      "weightKg": 30,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:18:00-03:00"
+    },
+    {
+      "id": "set-2-7",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-1378",
+      "order": 1,
+      "weightKg": 7.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:21:00-03:00"
+    },
+    {
+      "id": "set-2-8",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-1378",
+      "order": 2,
+      "weightKg": 7.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:24:00-03:00"
+    },
+    {
+      "id": "set-2-9",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-1378",
+      "order": 3,
+      "weightKg": 7.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:27:00-03:00"
+    },
+    {
+      "id": "set-2-10",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-194",
+      "order": 1,
+      "weightKg": null,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:30:00-03:00"
+    },
+    {
+      "id": "set-2-11",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-194",
+      "order": 2,
+      "weightKg": null,
+      "reps": 5,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:33:00-03:00"
+    },
+    {
+      "id": "set-2-12",
+      "workoutSessionId": "workout-2",
+      "exerciseId": "wger-194",
+      "order": 3,
+      "weightKg": null,
+      "reps": 4,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-02T19:36:00-03:00"
+    },
+    {
+      "id": "set-3-1",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-184",
+      "order": 1,
+      "weightKg": 80,
+      "reps": 5,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:03:00-03:00"
+    },
+    {
+      "id": "set-3-2",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-184",
+      "order": 2,
+      "weightKg": 80,
+      "reps": 4,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:06:00-03:00"
+    },
+    {
+      "id": "set-3-3",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-184",
+      "order": 3,
+      "weightKg": 80,
+      "reps": 3,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:09:00-03:00"
+    },
+    {
+      "id": "set-3-4",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-1698",
+      "order": 1,
+      "weightKg": 40,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:12:00-03:00"
+    },
+    {
+      "id": "set-3-5",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-1698",
+      "order": 2,
+      "weightKg": 40,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:15:00-03:00"
+    },
+    {
+      "id": "set-3-6",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-1698",
+      "order": 3,
+      "weightKg": 40,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:18:00-03:00"
+    },
+    {
+      "id": "set-3-7",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-475",
+      "order": 1,
+      "weightKg": null,
+      "reps": 4,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:21:00-03:00"
+    },
+    {
+      "id": "set-3-8",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-475",
+      "order": 2,
+      "weightKg": null,
+      "reps": 3,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:24:00-03:00"
+    },
+    {
+      "id": "set-3-9",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-475",
+      "order": 3,
+      "weightKg": null,
+      "reps": 2,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:27:00-03:00"
+    },
+    {
+      "id": "set-3-10",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-92",
+      "order": 1,
+      "weightKg": 10,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:30:00-03:00"
+    },
+    {
+      "id": "set-3-11",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-92",
+      "order": 2,
+      "weightKg": 10,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:33:00-03:00"
+    },
+    {
+      "id": "set-3-12",
+      "workoutSessionId": "workout-3",
+      "exerciseId": "wger-92",
+      "order": 3,
+      "weightKg": 10,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-04T19:36:00-03:00"
+    },
+    {
+      "id": "set-4-1",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-615",
+      "order": 1,
+      "weightKg": 62.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-07T19:03:00-03:00"
+    },
+    {
+      "id": "set-4-2",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-615",
+      "order": 2,
+      "weightKg": 62.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-07T19:06:00-03:00"
+    },
+    {
+      "id": "set-4-3",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-615",
+      "order": 3,
+      "weightKg": 62.5,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-07T19:09:00-03:00"
+    },
+    {
+      "id": "set-4-4",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-507",
+      "order": 1,
+      "weightKg": 52.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-07T19:12:00-03:00"
+    },
+    {
+      "id": "set-4-5",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-507",
+      "order": 2,
+      "weightKg": 52.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-07T19:15:00-03:00"
+    },
+    {
+      "id": "set-4-6",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-507",
+      "order": 3,
+      "weightKg": 52.5,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-07T19:18:00-03:00"
+    },
+    {
+      "id": "set-4-7",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-1706",
+      "order": 1,
+      "weightKg": 13,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-07T19:21:00-03:00"
+    },
+    {
+      "id": "set-4-8",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-1706",
+      "order": 2,
+      "weightKg": 13,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-07T19:24:00-03:00"
+    },
+    {
+      "id": "set-4-9",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-1706",
+      "order": 3,
+      "weightKg": 13,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-07T19:27:00-03:00"
+    },
+    {
+      "id": "set-4-10",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-458",
+      "order": 1,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 35,
+      "completed": true,
+      "completedAt": "2026-09-07T19:30:00-03:00"
+    },
+    {
+      "id": "set-4-11",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-458",
+      "order": 2,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 34,
+      "completed": true,
+      "completedAt": "2026-09-07T19:33:00-03:00"
+    },
+    {
+      "id": "set-4-12",
+      "workoutSessionId": "workout-4",
+      "exerciseId": "wger-458",
+      "order": 3,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 33,
+      "completed": true,
+      "completedAt": "2026-09-07T19:36:00-03:00"
+    },
+    {
+      "id": "set-5-1",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-73",
+      "order": 1,
+      "weightKg": 52.5,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:03:00-03:00"
+    },
+    {
+      "id": "set-5-2",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-73",
+      "order": 2,
+      "weightKg": 52.5,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:06:00-03:00"
+    },
+    {
+      "id": "set-5-3",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-73",
+      "order": 3,
+      "weightKg": 52.5,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:09:00-03:00"
+    },
+    {
+      "id": "set-5-4",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-418",
+      "order": 1,
+      "weightKg": 32.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:12:00-03:00"
+    },
+    {
+      "id": "set-5-5",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-418",
+      "order": 2,
+      "weightKg": 32.5,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:15:00-03:00"
+    },
+    {
+      "id": "set-5-6",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-418",
+      "order": 3,
+      "weightKg": 32.5,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:18:00-03:00"
+    },
+    {
+      "id": "set-5-7",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-1378",
+      "order": 1,
+      "weightKg": 8.5,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:21:00-03:00"
+    },
+    {
+      "id": "set-5-8",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-1378",
+      "order": 2,
+      "weightKg": 8.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:24:00-03:00"
+    },
+    {
+      "id": "set-5-9",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-1378",
+      "order": 3,
+      "weightKg": 8.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:27:00-03:00"
+    },
+    {
+      "id": "set-5-10",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-194",
+      "order": 1,
+      "weightKg": null,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:30:00-03:00"
+    },
+    {
+      "id": "set-5-11",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-194",
+      "order": 2,
+      "weightKg": null,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:33:00-03:00"
+    },
+    {
+      "id": "set-5-12",
+      "workoutSessionId": "workout-5",
+      "exerciseId": "wger-194",
+      "order": 3,
+      "weightKg": null,
+      "reps": 5,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-10T19:36:00-03:00"
+    },
+    {
+      "id": "set-6-1",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-184",
+      "order": 1,
+      "weightKg": 85,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:03:00-03:00"
+    },
+    {
+      "id": "set-6-2",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-184",
+      "order": 2,
+      "weightKg": 85,
+      "reps": 5,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:06:00-03:00"
+    },
+    {
+      "id": "set-6-3",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-184",
+      "order": 3,
+      "weightKg": 85,
+      "reps": 4,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:09:00-03:00"
+    },
+    {
+      "id": "set-6-4",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-1698",
+      "order": 1,
+      "weightKg": 42.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:12:00-03:00"
+    },
+    {
+      "id": "set-6-5",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-1698",
+      "order": 2,
+      "weightKg": 42.5,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:15:00-03:00"
+    },
+    {
+      "id": "set-6-6",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-1698",
+      "order": 3,
+      "weightKg": 42.5,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:18:00-03:00"
+    },
+    {
+      "id": "set-6-7",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-475",
+      "order": 1,
+      "weightKg": null,
+      "reps": 5,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:21:00-03:00"
+    },
+    {
+      "id": "set-6-8",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-475",
+      "order": 2,
+      "weightKg": null,
+      "reps": 4,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:24:00-03:00"
+    },
+    {
+      "id": "set-6-9",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-475",
+      "order": 3,
+      "weightKg": null,
+      "reps": 3,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:27:00-03:00"
+    },
+    {
+      "id": "set-6-10",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-92",
+      "order": 1,
+      "weightKg": 11,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:30:00-03:00"
+    },
+    {
+      "id": "set-6-11",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-92",
+      "order": 2,
+      "weightKg": 11,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:33:00-03:00"
+    },
+    {
+      "id": "set-6-12",
+      "workoutSessionId": "workout-6",
+      "exerciseId": "wger-92",
+      "order": 3,
+      "weightKg": 11,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-14T19:36:00-03:00"
+    },
+    {
+      "id": "set-7-1",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-615",
+      "order": 1,
+      "weightKg": 62.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-16T19:03:00-03:00"
+    },
+    {
+      "id": "set-7-2",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-615",
+      "order": 2,
+      "weightKg": 62.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-16T19:06:00-03:00"
+    },
+    {
+      "id": "set-7-3",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-615",
+      "order": 3,
+      "weightKg": 62.5,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-16T19:09:00-03:00"
+    },
+    {
+      "id": "set-7-4",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-507",
+      "order": 1,
+      "weightKg": 52.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-16T19:12:00-03:00"
+    },
+    {
+      "id": "set-7-5",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-507",
+      "order": 2,
+      "weightKg": 52.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-16T19:15:00-03:00"
+    },
+    {
+      "id": "set-7-6",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-507",
+      "order": 3,
+      "weightKg": 52.5,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-16T19:18:00-03:00"
+    },
+    {
+      "id": "set-7-7",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-1706",
+      "order": 1,
+      "weightKg": 13,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-16T19:21:00-03:00"
+    },
+    {
+      "id": "set-7-8",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-1706",
+      "order": 2,
+      "weightKg": 13,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-16T19:24:00-03:00"
+    },
+    {
+      "id": "set-7-9",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-1706",
+      "order": 3,
+      "weightKg": 13,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-16T19:27:00-03:00"
+    },
+    {
+      "id": "set-7-10",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-458",
+      "order": 1,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 35,
+      "completed": true,
+      "completedAt": "2026-09-16T19:30:00-03:00"
+    },
+    {
+      "id": "set-7-11",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-458",
+      "order": 2,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 34,
+      "completed": true,
+      "completedAt": "2026-09-16T19:33:00-03:00"
+    },
+    {
+      "id": "set-7-12",
+      "workoutSessionId": "workout-7",
+      "exerciseId": "wger-458",
+      "order": 3,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 33,
+      "completed": true,
+      "completedAt": "2026-09-16T19:36:00-03:00"
+    },
+    {
+      "id": "set-8-1",
+      "workoutSessionId": "workout-8",
+      "exerciseId": "wger-475",
+      "order": 1,
+      "weightKg": null,
+      "reps": 5,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-18T19:03:00-03:00"
+    },
+    {
+      "id": "set-8-2",
+      "workoutSessionId": "workout-8",
+      "exerciseId": "wger-475",
+      "order": 2,
+      "weightKg": null,
+      "reps": 4,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-18T19:06:00-03:00"
+    },
+    {
+      "id": "set-8-3",
+      "workoutSessionId": "workout-8",
+      "exerciseId": "wger-475",
+      "order": 3,
+      "weightKg": null,
+      "reps": 3,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-18T19:09:00-03:00"
+    },
+    {
+      "id": "set-8-4",
+      "workoutSessionId": "workout-8",
+      "exerciseId": "wger-458",
+      "order": 1,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 35,
+      "completed": true,
+      "completedAt": "2026-09-18T19:12:00-03:00"
+    },
+    {
+      "id": "set-8-5",
+      "workoutSessionId": "workout-8",
+      "exerciseId": "wger-458",
+      "order": 2,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 34,
+      "completed": true,
+      "completedAt": "2026-09-18T19:15:00-03:00"
+    },
+    {
+      "id": "set-8-6",
+      "workoutSessionId": "workout-8",
+      "exerciseId": "wger-458",
+      "order": 3,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 33,
+      "completed": true,
+      "completedAt": "2026-09-18T19:18:00-03:00"
+    },
+    {
+      "id": "set-8-7",
+      "workoutSessionId": "workout-8",
+      "exerciseId": "wger-92",
+      "order": 1,
+      "weightKg": 11,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-18T19:21:00-03:00"
+    },
+    {
+      "id": "set-8-8",
+      "workoutSessionId": "workout-8",
+      "exerciseId": "wger-92",
+      "order": 2,
+      "weightKg": 11,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-18T19:24:00-03:00"
+    },
+    {
+      "id": "set-8-9",
+      "workoutSessionId": "workout-8",
+      "exerciseId": "wger-92",
+      "order": 3,
+      "weightKg": 11,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-18T19:27:00-03:00"
+    },
+    {
+      "id": "set-9-1",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-73",
+      "order": 1,
+      "weightKg": 55,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:03:00-03:00"
+    },
+    {
+      "id": "set-9-2",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-73",
+      "order": 2,
+      "weightKg": 55,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:06:00-03:00"
+    },
+    {
+      "id": "set-9-3",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-73",
+      "order": 3,
+      "weightKg": 55,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:09:00-03:00"
+    },
+    {
+      "id": "set-9-4",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-418",
+      "order": 1,
+      "weightKg": 35,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:12:00-03:00"
+    },
+    {
+      "id": "set-9-5",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-418",
+      "order": 2,
+      "weightKg": 35,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:15:00-03:00"
+    },
+    {
+      "id": "set-9-6",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-418",
+      "order": 3,
+      "weightKg": 35,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:18:00-03:00"
+    },
+    {
+      "id": "set-9-7",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-1378",
+      "order": 1,
+      "weightKg": 9.5,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:21:00-03:00"
+    },
+    {
+      "id": "set-9-8",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-1378",
+      "order": 2,
+      "weightKg": 9.5,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:24:00-03:00"
+    },
+    {
+      "id": "set-9-9",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-1378",
+      "order": 3,
+      "weightKg": 9.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:27:00-03:00"
+    },
+    {
+      "id": "set-9-10",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-194",
+      "order": 1,
+      "weightKg": null,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:30:00-03:00"
+    },
+    {
+      "id": "set-9-11",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-194",
+      "order": 2,
+      "weightKg": null,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:33:00-03:00"
+    },
+    {
+      "id": "set-9-12",
+      "workoutSessionId": "workout-9",
+      "exerciseId": "wger-194",
+      "order": 3,
+      "weightKg": null,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-22T19:36:00-03:00"
+    },
+    {
+      "id": "set-10-1",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-184",
+      "order": 1,
+      "weightKg": 90,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:03:00-03:00"
+    },
+    {
+      "id": "set-10-2",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-184",
+      "order": 2,
+      "weightKg": 90,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:06:00-03:00"
+    },
+    {
+      "id": "set-10-3",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-184",
+      "order": 3,
+      "weightKg": 90,
+      "reps": 5,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:09:00-03:00"
+    },
+    {
+      "id": "set-10-4",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-1698",
+      "order": 1,
+      "weightKg": 45,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:12:00-03:00"
+    },
+    {
+      "id": "set-10-5",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-1698",
+      "order": 2,
+      "weightKg": 45,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:15:00-03:00"
+    },
+    {
+      "id": "set-10-6",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-1698",
+      "order": 3,
+      "weightKg": 45,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:18:00-03:00"
+    },
+    {
+      "id": "set-10-7",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-475",
+      "order": 1,
+      "weightKg": null,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:21:00-03:00"
+    },
+    {
+      "id": "set-10-8",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-475",
+      "order": 2,
+      "weightKg": null,
+      "reps": 5,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:24:00-03:00"
+    },
+    {
+      "id": "set-10-9",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-475",
+      "order": 3,
+      "weightKg": null,
+      "reps": 4,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:27:00-03:00"
+    },
+    {
+      "id": "set-10-10",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-92",
+      "order": 1,
+      "weightKg": 12,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:30:00-03:00"
+    },
+    {
+      "id": "set-10-11",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-92",
+      "order": 2,
+      "weightKg": 12,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:33:00-03:00"
+    },
+    {
+      "id": "set-10-12",
+      "workoutSessionId": "workout-10",
+      "exerciseId": "wger-92",
+      "order": 3,
+      "weightKg": 12,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-28T19:36:00-03:00"
+    },
+    {
+      "id": "set-11-1",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-615",
+      "order": 1,
+      "weightKg": 65,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-30T19:03:00-03:00"
+    },
+    {
+      "id": "set-11-2",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-615",
+      "order": 2,
+      "weightKg": 65,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-30T19:06:00-03:00"
+    },
+    {
+      "id": "set-11-3",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-615",
+      "order": 3,
+      "weightKg": 65,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-30T19:09:00-03:00"
+    },
+    {
+      "id": "set-11-4",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-507",
+      "order": 1,
+      "weightKg": 55,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-30T19:12:00-03:00"
+    },
+    {
+      "id": "set-11-5",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-507",
+      "order": 2,
+      "weightKg": 55,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-30T19:15:00-03:00"
+    },
+    {
+      "id": "set-11-6",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-507",
+      "order": 3,
+      "weightKg": 55,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-30T19:18:00-03:00"
+    },
+    {
+      "id": "set-11-7",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-1706",
+      "order": 1,
+      "weightKg": 14,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-30T19:21:00-03:00"
+    },
+    {
+      "id": "set-11-8",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-1706",
+      "order": 2,
+      "weightKg": 14,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-30T19:24:00-03:00"
+    },
+    {
+      "id": "set-11-9",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-1706",
+      "order": 3,
+      "weightKg": 14,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-09-30T19:27:00-03:00"
+    },
+    {
+      "id": "set-11-10",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-458",
+      "order": 1,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 40,
+      "completed": true,
+      "completedAt": "2026-09-30T19:30:00-03:00"
+    },
+    {
+      "id": "set-11-11",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-458",
+      "order": 2,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 39,
+      "completed": true,
+      "completedAt": "2026-09-30T19:33:00-03:00"
+    },
+    {
+      "id": "set-11-12",
+      "workoutSessionId": "workout-11",
+      "exerciseId": "wger-458",
+      "order": 3,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 38,
+      "completed": true,
+      "completedAt": "2026-09-30T19:36:00-03:00"
+    },
+    {
+      "id": "set-12-1",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-73",
+      "order": 1,
+      "weightKg": 55,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:03:00-03:00"
+    },
+    {
+      "id": "set-12-2",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-73",
+      "order": 2,
+      "weightKg": 55,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:06:00-03:00"
+    },
+    {
+      "id": "set-12-3",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-73",
+      "order": 3,
+      "weightKg": 55,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:09:00-03:00"
+    },
+    {
+      "id": "set-12-4",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-418",
+      "order": 1,
+      "weightKg": 35,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:12:00-03:00"
+    },
+    {
+      "id": "set-12-5",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-418",
+      "order": 2,
+      "weightKg": 35,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:15:00-03:00"
+    },
+    {
+      "id": "set-12-6",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-418",
+      "order": 3,
+      "weightKg": 35,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:18:00-03:00"
+    },
+    {
+      "id": "set-12-7",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-1378",
+      "order": 1,
+      "weightKg": 9.5,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:21:00-03:00"
+    },
+    {
+      "id": "set-12-8",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-1378",
+      "order": 2,
+      "weightKg": 9.5,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:24:00-03:00"
+    },
+    {
+      "id": "set-12-9",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-1378",
+      "order": 3,
+      "weightKg": 9.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:27:00-03:00"
+    },
+    {
+      "id": "set-12-10",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-194",
+      "order": 1,
+      "weightKg": null,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:30:00-03:00"
+    },
+    {
+      "id": "set-12-11",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-194",
+      "order": 2,
+      "weightKg": null,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:33:00-03:00"
+    },
+    {
+      "id": "set-12-12",
+      "workoutSessionId": "workout-12",
+      "exerciseId": "wger-194",
+      "order": 3,
+      "weightKg": null,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-02T19:36:00-03:00"
+    },
+    {
+      "id": "set-13-1",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-184",
+      "order": 1,
+      "weightKg": 95,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:03:00-03:00"
+    },
+    {
+      "id": "set-13-2",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-184",
+      "order": 2,
+      "weightKg": 95,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:06:00-03:00"
+    },
+    {
+      "id": "set-13-3",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-184",
+      "order": 3,
+      "weightKg": 95,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:09:00-03:00"
+    },
+    {
+      "id": "set-13-4",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-1698",
+      "order": 1,
+      "weightKg": 47.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:12:00-03:00"
+    },
+    {
+      "id": "set-13-5",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-1698",
+      "order": 2,
+      "weightKg": 47.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:15:00-03:00"
+    },
+    {
+      "id": "set-13-6",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-1698",
+      "order": 3,
+      "weightKg": 47.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:18:00-03:00"
+    },
+    {
+      "id": "set-13-7",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-475",
+      "order": 1,
+      "weightKg": null,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:21:00-03:00"
+    },
+    {
+      "id": "set-13-8",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-475",
+      "order": 2,
+      "weightKg": null,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:24:00-03:00"
+    },
+    {
+      "id": "set-13-9",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-475",
+      "order": 3,
+      "weightKg": null,
+      "reps": 5,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:27:00-03:00"
+    },
+    {
+      "id": "set-13-10",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-92",
+      "order": 1,
+      "weightKg": 13,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:30:00-03:00"
+    },
+    {
+      "id": "set-13-11",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-92",
+      "order": 2,
+      "weightKg": 13,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:33:00-03:00"
+    },
+    {
+      "id": "set-13-12",
+      "workoutSessionId": "workout-13",
+      "exerciseId": "wger-92",
+      "order": 3,
+      "weightKg": 13,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-06T19:36:00-03:00"
+    },
+    {
+      "id": "set-14-1",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-615",
+      "order": 1,
+      "weightKg": 67.5,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-08T19:03:00-03:00"
+    },
+    {
+      "id": "set-14-2",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-615",
+      "order": 2,
+      "weightKg": 67.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-08T19:06:00-03:00"
+    },
+    {
+      "id": "set-14-3",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-615",
+      "order": 3,
+      "weightKg": 67.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-08T19:09:00-03:00"
+    },
+    {
+      "id": "set-14-4",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-507",
+      "order": 1,
+      "weightKg": 57.5,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-08T19:12:00-03:00"
+    },
+    {
+      "id": "set-14-5",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-507",
+      "order": 2,
+      "weightKg": 57.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-08T19:15:00-03:00"
+    },
+    {
+      "id": "set-14-6",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-507",
+      "order": 3,
+      "weightKg": 57.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-08T19:18:00-03:00"
+    },
+    {
+      "id": "set-14-7",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-1706",
+      "order": 1,
+      "weightKg": 15,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-08T19:21:00-03:00"
+    },
+    {
+      "id": "set-14-8",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-1706",
+      "order": 2,
+      "weightKg": 15,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-08T19:24:00-03:00"
+    },
+    {
+      "id": "set-14-9",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-1706",
+      "order": 3,
+      "weightKg": 15,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-08T19:27:00-03:00"
+    },
+    {
+      "id": "set-14-10",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-458",
+      "order": 1,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 45,
+      "completed": true,
+      "completedAt": "2026-10-08T19:30:00-03:00"
+    },
+    {
+      "id": "set-14-11",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-458",
+      "order": 2,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 44,
+      "completed": true,
+      "completedAt": "2026-10-08T19:33:00-03:00"
+    },
+    {
+      "id": "set-14-12",
+      "workoutSessionId": "workout-14",
+      "exerciseId": "wger-458",
+      "order": 3,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 43,
+      "completed": true,
+      "completedAt": "2026-10-08T19:36:00-03:00"
+    },
+    {
+      "id": "set-15-1",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-73",
+      "order": 1,
+      "weightKg": 57.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:03:00-03:00"
+    },
+    {
+      "id": "set-15-2",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-73",
+      "order": 2,
+      "weightKg": 57.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:06:00-03:00"
+    },
+    {
+      "id": "set-15-3",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-73",
+      "order": 3,
+      "weightKg": 57.5,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:09:00-03:00"
+    },
+    {
+      "id": "set-15-4",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-418",
+      "order": 1,
+      "weightKg": 37.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:12:00-03:00"
+    },
+    {
+      "id": "set-15-5",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-418",
+      "order": 2,
+      "weightKg": 37.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:15:00-03:00"
+    },
+    {
+      "id": "set-15-6",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-418",
+      "order": 3,
+      "weightKg": 37.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:18:00-03:00"
+    },
+    {
+      "id": "set-15-7",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-1378",
+      "order": 1,
+      "weightKg": 10.5,
+      "reps": 15,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:21:00-03:00"
+    },
+    {
+      "id": "set-15-8",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-1378",
+      "order": 2,
+      "weightKg": 10.5,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:24:00-03:00"
+    },
+    {
+      "id": "set-15-9",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-1378",
+      "order": 3,
+      "weightKg": 10.5,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:27:00-03:00"
+    },
+    {
+      "id": "set-15-10",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-194",
+      "order": 1,
+      "weightKg": null,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:30:00-03:00"
+    },
+    {
+      "id": "set-15-11",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-194",
+      "order": 2,
+      "weightKg": null,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:33:00-03:00"
+    },
+    {
+      "id": "set-15-12",
+      "workoutSessionId": "workout-15",
+      "exerciseId": "wger-194",
+      "order": 3,
+      "weightKg": null,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-10T19:36:00-03:00"
+    },
+    {
+      "id": "set-16-1",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-184",
+      "order": 1,
+      "weightKg": 95,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:03:00-03:00"
+    },
+    {
+      "id": "set-16-2",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-184",
+      "order": 2,
+      "weightKg": 95,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:06:00-03:00"
+    },
+    {
+      "id": "set-16-3",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-184",
+      "order": 3,
+      "weightKg": 95,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:09:00-03:00"
+    },
+    {
+      "id": "set-16-4",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-1698",
+      "order": 1,
+      "weightKg": 47.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:12:00-03:00"
+    },
+    {
+      "id": "set-16-5",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-1698",
+      "order": 2,
+      "weightKg": 47.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:15:00-03:00"
+    },
+    {
+      "id": "set-16-6",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-1698",
+      "order": 3,
+      "weightKg": 47.5,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:18:00-03:00"
+    },
+    {
+      "id": "set-16-7",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-475",
+      "order": 1,
+      "weightKg": null,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:21:00-03:00"
+    },
+    {
+      "id": "set-16-8",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-475",
+      "order": 2,
+      "weightKg": null,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:24:00-03:00"
+    },
+    {
+      "id": "set-16-9",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-475",
+      "order": 3,
+      "weightKg": null,
+      "reps": 5,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:27:00-03:00"
+    },
+    {
+      "id": "set-16-10",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-92",
+      "order": 1,
+      "weightKg": 13,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:30:00-03:00"
+    },
+    {
+      "id": "set-16-11",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-92",
+      "order": 2,
+      "weightKg": 13,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:33:00-03:00"
+    },
+    {
+      "id": "set-16-12",
+      "workoutSessionId": "workout-16",
+      "exerciseId": "wger-92",
+      "order": 3,
+      "weightKg": 13,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-12T19:36:00-03:00"
+    },
+    {
+      "id": "set-17-1",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-615",
+      "order": 1,
+      "weightKg": 67.5,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-14T19:03:00-03:00"
+    },
+    {
+      "id": "set-17-2",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-615",
+      "order": 2,
+      "weightKg": 67.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-14T19:06:00-03:00"
+    },
+    {
+      "id": "set-17-3",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-615",
+      "order": 3,
+      "weightKg": 67.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-14T19:09:00-03:00"
+    },
+    {
+      "id": "set-17-4",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-507",
+      "order": 1,
+      "weightKg": 57.5,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-14T19:12:00-03:00"
+    },
+    {
+      "id": "set-17-5",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-507",
+      "order": 2,
+      "weightKg": 57.5,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-14T19:15:00-03:00"
+    },
+    {
+      "id": "set-17-6",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-507",
+      "order": 3,
+      "weightKg": 57.5,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-14T19:18:00-03:00"
+    },
+    {
+      "id": "set-17-7",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-1706",
+      "order": 1,
+      "weightKg": 15,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-14T19:21:00-03:00"
+    },
+    {
+      "id": "set-17-8",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-1706",
+      "order": 2,
+      "weightKg": 15,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-14T19:24:00-03:00"
+    },
+    {
+      "id": "set-17-9",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-1706",
+      "order": 3,
+      "weightKg": 15,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-14T19:27:00-03:00"
+    },
+    {
+      "id": "set-17-10",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-458",
+      "order": 1,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 45,
+      "completed": true,
+      "completedAt": "2026-10-14T19:30:00-03:00"
+    },
+    {
+      "id": "set-17-11",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-458",
+      "order": 2,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 44,
+      "completed": true,
+      "completedAt": "2026-10-14T19:33:00-03:00"
+    },
+    {
+      "id": "set-17-12",
+      "workoutSessionId": "workout-17",
+      "exerciseId": "wger-458",
+      "order": 3,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 43,
+      "completed": true,
+      "completedAt": "2026-10-14T19:36:00-03:00"
+    },
+    {
+      "id": "set-18-1",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-73",
+      "order": 1,
+      "weightKg": 60,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:03:00-03:00"
+    },
+    {
+      "id": "set-18-2",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-73",
+      "order": 2,
+      "weightKg": 60,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:06:00-03:00"
+    },
+    {
+      "id": "set-18-3",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-73",
+      "order": 3,
+      "weightKg": 60,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:09:00-03:00"
+    },
+    {
+      "id": "set-18-4",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-418",
+      "order": 1,
+      "weightKg": 40,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:12:00-03:00"
+    },
+    {
+      "id": "set-18-5",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-418",
+      "order": 2,
+      "weightKg": 40,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:15:00-03:00"
+    },
+    {
+      "id": "set-18-6",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-418",
+      "order": 3,
+      "weightKg": 40,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:18:00-03:00"
+    },
+    {
+      "id": "set-18-7",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-1378",
+      "order": 1,
+      "weightKg": 11.5,
+      "reps": 16,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:21:00-03:00"
+    },
+    {
+      "id": "set-18-8",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-1378",
+      "order": 2,
+      "weightKg": 11.5,
+      "reps": 15,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:24:00-03:00"
+    },
+    {
+      "id": "set-18-9",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-1378",
+      "order": 3,
+      "weightKg": 11.5,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:27:00-03:00"
+    },
+    {
+      "id": "set-18-10",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-194",
+      "order": 1,
+      "weightKg": null,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:30:00-03:00"
+    },
+    {
+      "id": "set-18-11",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-194",
+      "order": 2,
+      "weightKg": null,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:33:00-03:00"
+    },
+    {
+      "id": "set-18-12",
+      "workoutSessionId": "workout-18",
+      "exerciseId": "wger-194",
+      "order": 3,
+      "weightKg": null,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-19T19:36:00-03:00"
+    },
+    {
+      "id": "set-19-1",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-184",
+      "order": 1,
+      "weightKg": 100,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:03:00-03:00"
+    },
+    {
+      "id": "set-19-2",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-184",
+      "order": 2,
+      "weightKg": 100,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:06:00-03:00"
+    },
+    {
+      "id": "set-19-3",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-184",
+      "order": 3,
+      "weightKg": 100,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:09:00-03:00"
+    },
+    {
+      "id": "set-19-4",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-1698",
+      "order": 1,
+      "weightKg": 50,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:12:00-03:00"
+    },
+    {
+      "id": "set-19-5",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-1698",
+      "order": 2,
+      "weightKg": 50,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:15:00-03:00"
+    },
+    {
+      "id": "set-19-6",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-1698",
+      "order": 3,
+      "weightKg": 50,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:18:00-03:00"
+    },
+    {
+      "id": "set-19-7",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-475",
+      "order": 1,
+      "weightKg": null,
+      "reps": 8,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:21:00-03:00"
+    },
+    {
+      "id": "set-19-8",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-475",
+      "order": 2,
+      "weightKg": null,
+      "reps": 7,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:24:00-03:00"
+    },
+    {
+      "id": "set-19-9",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-475",
+      "order": 3,
+      "weightKg": null,
+      "reps": 6,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:27:00-03:00"
+    },
+    {
+      "id": "set-19-10",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-92",
+      "order": 1,
+      "weightKg": 14,
+      "reps": 15,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:30:00-03:00"
+    },
+    {
+      "id": "set-19-11",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-92",
+      "order": 2,
+      "weightKg": 14,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:33:00-03:00"
+    },
+    {
+      "id": "set-19-12",
+      "workoutSessionId": "workout-19",
+      "exerciseId": "wger-92",
+      "order": 3,
+      "weightKg": 14,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-21T19:36:00-03:00"
+    },
+    {
+      "id": "set-20-1",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-615",
+      "order": 1,
+      "weightKg": 70,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-23T19:03:00-03:00"
+    },
+    {
+      "id": "set-20-2",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-615",
+      "order": 2,
+      "weightKg": 70,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-23T19:06:00-03:00"
+    },
+    {
+      "id": "set-20-3",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-615",
+      "order": 3,
+      "weightKg": 70,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-23T19:09:00-03:00"
+    },
+    {
+      "id": "set-20-4",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-507",
+      "order": 1,
+      "weightKg": 60,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-23T19:12:00-03:00"
+    },
+    {
+      "id": "set-20-5",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-507",
+      "order": 2,
+      "weightKg": 60,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-23T19:15:00-03:00"
+    },
+    {
+      "id": "set-20-6",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-507",
+      "order": 3,
+      "weightKg": 60,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-23T19:18:00-03:00"
+    },
+    {
+      "id": "set-20-7",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-1706",
+      "order": 1,
+      "weightKg": 16,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-23T19:21:00-03:00"
+    },
+    {
+      "id": "set-20-8",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-1706",
+      "order": 2,
+      "weightKg": 16,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-23T19:24:00-03:00"
+    },
+    {
+      "id": "set-20-9",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-1706",
+      "order": 3,
+      "weightKg": 16,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-23T19:27:00-03:00"
+    },
+    {
+      "id": "set-20-10",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-458",
+      "order": 1,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 50,
+      "completed": true,
+      "completedAt": "2026-10-23T19:30:00-03:00"
+    },
+    {
+      "id": "set-20-11",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-458",
+      "order": 2,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 49,
+      "completed": true,
+      "completedAt": "2026-10-23T19:33:00-03:00"
+    },
+    {
+      "id": "set-20-12",
+      "workoutSessionId": "workout-20",
+      "exerciseId": "wger-458",
+      "order": 3,
+      "weightKg": null,
+      "reps": null,
+      "seconds": 48,
+      "completed": true,
+      "completedAt": "2026-10-23T19:36:00-03:00"
+    },
+    {
+      "id": "set-21-1",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-73",
+      "order": 1,
+      "weightKg": 60,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:03:00-03:00"
+    },
+    {
+      "id": "set-21-2",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-73",
+      "order": 2,
+      "weightKg": 60,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:06:00-03:00"
+    },
+    {
+      "id": "set-21-3",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-73",
+      "order": 3,
+      "weightKg": 60,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:09:00-03:00"
+    },
+    {
+      "id": "set-21-4",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-418",
+      "order": 1,
+      "weightKg": 40,
+      "reps": 13,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:12:00-03:00"
+    },
+    {
+      "id": "set-21-5",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-418",
+      "order": 2,
+      "weightKg": 40,
+      "reps": 12,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:15:00-03:00"
+    },
+    {
+      "id": "set-21-6",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-418",
+      "order": 3,
+      "weightKg": 40,
+      "reps": 11,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:18:00-03:00"
+    },
+    {
+      "id": "set-21-7",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-1378",
+      "order": 1,
+      "weightKg": 11.5,
+      "reps": 16,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:21:00-03:00"
+    },
+    {
+      "id": "set-21-8",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-1378",
+      "order": 2,
+      "weightKg": 11.5,
+      "reps": 15,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:24:00-03:00"
+    },
+    {
+      "id": "set-21-9",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-1378",
+      "order": 3,
+      "weightKg": 11.5,
+      "reps": 14,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:27:00-03:00"
+    },
+    {
+      "id": "set-21-10",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-194",
+      "order": 1,
+      "weightKg": null,
+      "reps": 10,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:30:00-03:00"
+    },
+    {
+      "id": "set-21-11",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-194",
+      "order": 2,
+      "weightKg": null,
+      "reps": 9,
+      "seconds": null,
+      "completed": true,
+      "completedAt": "2026-10-26T19:33:00-03:00"
+    },
+    {
+      "id": "set-21-12",
+      "workoutSessionId": "workout-21",
+      "exerciseId": "wger-194",
+      "order": 3,
+      "weightKg": null,
+      "reps": 8,
+      "seconds": null,
+      "completed": false,
+      "completedAt": null
+    }
+  ],
   "exercises": [
     {
       "id": "wger-9",
@@ -11759,10 +15793,5 @@
       "source": "wger",
       "sourceId": "2696"
     }
-  ],
-  "routines": [],
-  "routineDays": [],
-  "routineExercises": [],
-  "workoutSessions": [],
-  "workoutSets": []
+  ]
 }
