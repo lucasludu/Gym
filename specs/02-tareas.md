@@ -44,7 +44,7 @@
 
 📄 `specs/01-modelo-datos.md` · Todo en `src/domain/`, sin React, con tests exhaustivos.
 
-- [ ] **T1.1 · Schemas Zod** → T0.3
+- [x] **T1.1 · Schemas Zod** → T0.3
   Un schema por entidad con su tipo derivado (`z.infer`). Incluye enums y validaciones de rangos.
   ✅ Tests de datos válidos e inválidos por entidad.
 
