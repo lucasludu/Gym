@@ -144,7 +144,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
   Store de sesión (Zustand) persistida con `expo-secure-store`; rutas protegidas.
 - [x] **T5.3 · Login** → T5.2
   Formulario con React Hook Form + Zod, login mock por email contra `users` (la contraseña solo se valida en formato), errores de validación y de credenciales.
-- [ ] **T5.4 · Registro** → T5.3
+- [x] **T5.4 · Registro** → T5.3
   Crea solo el `User` (sin membresía); el socio ve "Sin membresía activa" hasta que el gimnasio le dé de alta una.
 - [ ] **T5.5 · Logout** desde Perfil → T5.2
 
