@@ -1,5 +1,5 @@
-import { ComingSoon } from '../../src/components/ComingSoon';
+import { HomeScreen } from '../../src/components/home/HomeScreen';
 
-export default function HomeScreen() {
-  return <ComingSoon feature="Inicio" />;
+export default function Home() {
+  return <HomeScreen />;
 }

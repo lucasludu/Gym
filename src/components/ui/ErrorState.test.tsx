@@ -48,6 +48,27 @@ describe('ErrorState', () => {
     expect(onRetry).not.toHaveBeenCalled();
   });
 
+  describe('compact (inside a card)', () => {
+    it('does not take the whole screen and uses a smaller title (not a header)', async () => {
+      await render(<ErrorState error={networkError} onRetry={jest.fn()} compact testID="error" />);
+      expect(screen.getByTestId('error')).not.toHaveStyle({ flex: 1 });
+      expect(screen.queryByRole('header')).toBeNull();
+      expect(screen.getByText('Sin conexión')).toBeOnTheScreen();
+    });
+
+    it('still offers the retry button', async () => {
+      const onRetry = jest.fn();
+      await render(<ErrorState error={networkError} onRetry={onRetry} compact />);
+      await userEvent.setup().press(screen.getByRole('button', { name: 'Reintentar' }));
+      expect(onRetry).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  it('takes the whole screen by default', async () => {
+    await render(<ErrorState error={networkError} onRetry={jest.fn()} testID="error" />);
+    expect(screen.getByTestId('error')).toHaveStyle({ flex: 1 });
+  });
+
   it('is announced to screen readers', async () => {
     await render(<ErrorState error={networkError} onRetry={jest.fn()} testID="error" />);
     expect(screen.getByTestId('error').props.accessibilityLiveRegion).toBe('polite');
