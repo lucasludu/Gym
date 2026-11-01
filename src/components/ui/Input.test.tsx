@@ -1,8 +1,9 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { createRef, useState, type ComponentRef } from 'react';
-import type { TextInput } from 'react-native';
+import { Text, type TextInput } from 'react-native';
 
 import { MIN_TOUCH_TARGET, lightColors } from '../../theme';
+import { IconButton } from './IconButton';
 import { Input } from './Input';
 
 describe('Input', () => {
@@ -92,6 +93,23 @@ describe('Input', () => {
     const ref = createRef<ComponentRef<typeof TextInput>>();
     await render(<Input ref={ref} label="Email" value="" onChangeText={jest.fn()} />);
     expect(ref.current).not.toBeNull();
+  });
+
+  it('renders an accessory inside the field (e.g. show password)', async () => {
+    const onPress = jest.fn();
+    await render(
+      <Input
+        label="Contraseña"
+        value=""
+        onChangeText={jest.fn()}
+        accessory={
+          <IconButton icon={<Text>👁</Text>} accessibilityLabel="Mostrar" onPress={onPress} />
+        }
+      />,
+    );
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Mostrar' }));
+    expect(onPress).toHaveBeenCalledTimes(1);
+    expect(screen.getByLabelText('Contraseña')).toHaveStyle({ paddingRight: MIN_TOUCH_TARGET });
   });
 
   it('passes TextInput props through', async () => {

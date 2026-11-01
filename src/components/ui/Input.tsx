@@ -1,4 +1,4 @@
-import type { ComponentRef, Ref } from 'react';
+import type { ComponentRef, ReactNode, Ref } from 'react';
 import { StyleSheet, TextInput, View, type TextInputProps } from 'react-native';
 
 import { MIN_TOUCH_TARGET, useTheme } from '../../theme';
@@ -13,35 +13,49 @@ export interface InputProps extends Omit<TextInputProps, 'accessibilityLabel' | 
   error?: string;
   /** Forwarded to the TextInput (React Hook Form uses it to focus the first error). */
   ref?: Ref<ComponentRef<typeof TextInput>>;
+  /** Element at the right end of the field, e.g. a show-password IconButton (44 px wide). */
+  accessory?: ReactNode;
 }
 
-export function Input({ label, hint, error, ref, editable = true, ...props }: InputProps) {
+export function Input({
+  label,
+  hint,
+  error,
+  ref,
+  accessory,
+  editable = true,
+  ...props
+}: InputProps) {
   const theme = useTheme();
   const message = error ?? hint;
 
   return (
     <View style={{ gap: theme.spacing.xs }}>
       <Text variant="label">{label}</Text>
-      <TextInput
-        ref={ref}
-        accessibilityLabel={label}
-        accessibilityHint={message}
-        accessibilityState={{ disabled: !editable }}
-        editable={editable}
-        placeholderTextColor={theme.colors.textMuted}
-        {...props}
-        style={[
-          styles.input,
-          theme.typography.body,
-          {
-            color: theme.colors.text,
-            backgroundColor: editable ? theme.colors.surface : theme.colors.surfaceAlt,
-            borderColor: error === undefined ? theme.colors.borderStrong : theme.colors.danger,
-            borderRadius: theme.radii.md,
-            paddingHorizontal: theme.spacing.md,
-          },
-        ]}
-      />
+      <View style={styles.field}>
+        <TextInput
+          ref={ref}
+          accessibilityLabel={label}
+          accessibilityHint={message}
+          accessibilityState={{ disabled: !editable }}
+          editable={editable}
+          placeholderTextColor={theme.colors.textMuted}
+          {...props}
+          style={[
+            styles.input,
+            theme.typography.body,
+            {
+              color: theme.colors.text,
+              backgroundColor: editable ? theme.colors.surface : theme.colors.surfaceAlt,
+              borderColor: error === undefined ? theme.colors.borderStrong : theme.colors.danger,
+              borderRadius: theme.radii.md,
+              paddingHorizontal: theme.spacing.md,
+            },
+            accessory !== undefined && { paddingRight: MIN_TOUCH_TARGET },
+          ]}
+        />
+        {accessory !== undefined && <View style={styles.accessory}>{accessory}</View>}
+      </View>
       {message !== undefined && (
         <Text
           variant="caption"
@@ -56,6 +70,8 @@ export function Input({ label, hint, error, ref, editable = true, ...props }: In
 }
 
 const styles = StyleSheet.create({
+  field: { justifyContent: 'center' },
+  accessory: { position: 'absolute', right: 0 },
   input: {
     minHeight: MIN_TOUCH_TARGET,
     borderWidth: 1,

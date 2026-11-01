@@ -142,7 +142,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
   Grupo `(auth)` y grupo `(tabs)` con Inicio, Clases, Rutina, Progreso y Perfil.
 - [x] **T5.2 · Sesión** → T5.1, T4.1
   Store de sesión (Zustand) persistida con `expo-secure-store`; rutas protegidas.
-- [ ] **T5.3 · Login** → T5.2
+- [x] **T5.3 · Login** → T5.2
   Formulario con React Hook Form + Zod, login mock por email contra `users` (la contraseña solo se valida en formato), errores de validación y de credenciales.
 - [ ] **T5.4 · Registro** → T5.3
   Crea solo el `User` (sin membresía); el socio ve "Sin membresía activa" hasta que el gimnasio le dé de alta una.
