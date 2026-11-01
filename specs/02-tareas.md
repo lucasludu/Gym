@@ -127,7 +127,7 @@
 Escribir cada spec **antes** de implementar la feature. Formato: objetivo, pantallas, requisitos, criterios de aceptación (Dado / Cuando / Entonces), estados de carga/error/vacío y casos borde.
 
 - [x] **T4.1** · `specs/features/auth.md`
-- [ ] **T4.2** · `specs/features/home.md`
+- [x] **T4.2** · `specs/features/home.md`
 - [ ] **T4.3** · `specs/features/reservas.md`
 - [ ] **T4.4** · `specs/features/rutina.md`
 - [ ] **T4.5** · `specs/features/workout-logger.md`
@@ -152,7 +152,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 - [ ] **T5.6 · Tarjeta de membresía** (estado, días restantes, aviso si está por vencer) → T1.3, T2.5, T4.2
 - [ ] **T5.7 · Próxima clase reservada** con acceso directo al detalle → T2.5
 - [ ] **T5.8 · Racha semanal y progreso hacia el objetivo** → T1.8
-- [ ] **T5.9 · Acceso rápido** "Empezar entrenamiento de hoy" → T5.6
+- [ ] **T5.9 · Acceso rápido** "Empezar entrenamiento de hoy": el siguiente día de la rotación (`getNextRoutineDay`, función pura nueva) → T5.6
 
 ### Reservas · 📄 `features/reservas.md`
 - [ ] **T5.10 · Selector de semana y día** → T4.3

@@ -99,7 +99,7 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 
 **Fase 4 · Specs de features** (bloquean la Fase 5)
 - ~~T4.1 `auth.md`~~ ✅
-- T4.2 `home.md`
+- ~~T4.2 `home.md`~~ ✅
 - T4.3 `reservas.md`
 - T4.4 `rutina.md`
 - T4.5 `workout-logger.md`
@@ -123,4 +123,4 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. T4.2 (`specs/features/home.md`). Después de cada spec de Fase 4 se puede implementar su feature (auth: T5.1–T5.5).
+1. T4.3 (`specs/features/reservas.md`). Después de cada spec de Fase 4 se puede implementar su feature (auth: T5.1–T5.5).
