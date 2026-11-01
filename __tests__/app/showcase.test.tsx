@@ -1,11 +1,11 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 
-import HomeScreen from '../../app/index';
+import ShowcaseScreen from '../../app/showcase';
 
-// Temporary design-system showcase (removed when the real screens arrive in T5.1).
+// Temporary design-system showcase, reachable from Perfil while in development.
 describe('showcase screen', () => {
   it('shows every section of the design system', async () => {
-    await render(<HomeScreen />);
+    await render(<ShowcaseScreen />);
     for (const title of [
       'Componentes',
       'Texto',
@@ -21,27 +21,27 @@ describe('showcase screen', () => {
   });
 
   it('shows the 6 class accents', async () => {
-    await render(<HomeScreen />);
+    await render(<ShowcaseScreen />);
     for (const name of ['Funcional', 'Spinning', 'Yoga', 'Pilates', 'Zumba', 'HIIT']) {
       expect(screen.getByText(name)).toBeOnTheScreen();
     }
   });
 
   it('puts a button in loading when pressed', async () => {
-    await render(<HomeScreen />);
+    await render(<ShowcaseScreen />);
     const button = screen.getByRole('button', { name: 'Probar loading' });
     await userEvent.setup().press(button);
     expect(button).toBeBusy();
   });
 
   it('validates the sample email field', async () => {
-    await render(<HomeScreen />);
+    await render(<ShowcaseScreen />);
     await userEvent.setup().type(screen.getByLabelText('Email'), 'no-es-email');
     expect(screen.getByText('Ingresá un email válido')).toBeOnTheScreen();
   });
 
   it('shows an exercise with image and one with the placeholder', async () => {
-    await render(<HomeScreen />);
+    await render(<ShowcaseScreen />);
     expect(
       screen.getByRole('image', { name: 'Imagen de Aducción de Cadera en Máquina' }),
     ).toBeOnTheScreen();
