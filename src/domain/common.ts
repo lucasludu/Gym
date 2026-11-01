@@ -25,6 +25,22 @@ export const weightKgSchema = z
   .nonnegative()
   .refine(hasAtMostOneDecimal, { message: 'Weight must have at most 1 decimal' });
 
+/**
+ * Milliseconds since epoch of an ISO datetime with timezone or a Date.
+ * Throws on invalid input instead of returning NaN.
+ */
+export const toInstantMs = (value: string | Date): number => {
+  if (value instanceof Date) {
+    const ms = value.getTime();
+    if (Number.isNaN(ms)) throw new Error('Invalid Date object');
+    return ms;
+  }
+  if (!isoDateTimeSchema.safeParse(value).success) {
+    throw new Error(`Invalid instant: "${value}". Use an ISO datetime with timezone.`);
+  }
+  return Date.parse(value);
+};
+
 /** True if `later` is the same instant as `earlier` or after it. Works across offsets. */
 export const isSameOrAfterInstant = (earlier: string, later: string): boolean =>
   Date.parse(later) >= Date.parse(earlier);

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { idSchema, isoDateTimeSchema, positiveIntSchema } from './common';
+import { idSchema, isoDateTimeSchema, positiveIntSchema, toInstantMs } from './common';
 
 /**
  * Stored fields only; `spotsLeft`, `isFull` and `hasStarted` are derived below.
@@ -28,18 +28,6 @@ export function getSpotsLeft(session: Occupancy): number {
 export function isFull(session: Occupancy): boolean {
   return getSpotsLeft(session) === 0;
 }
-
-const toInstantMs = (value: string | Date): number => {
-  if (value instanceof Date) {
-    const ms = value.getTime();
-    if (Number.isNaN(ms)) throw new Error('Invalid Date object');
-    return ms;
-  }
-  if (!isoDateTimeSchema.safeParse(value).success) {
-    throw new Error(`Invalid instant: "${value}". Use an ISO datetime with timezone.`);
-  }
-  return Date.parse(value);
-};
 
 /** True once `now` reaches the start time (a class starting right now has started). */
 export function hasStarted(session: Pick<ClassSession, 'startsAt'>, now: string | Date): boolean {

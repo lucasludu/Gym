@@ -60,7 +60,7 @@
   `getSpotsLeft`, `isFull`, `hasStarted`.
   ✅ Tests de casos borde (cupo 0, sobrecupo, clase empezando justo ahora).
 
-- [ ] **T1.5 · Reglas de reserva** → T1.3, T1.4
+- [x] **T1.5 · Reglas de reserva** → T1.3, T1.4
   `canBookClass(...)` que devuelve `{ ok: true }` o `{ ok: false, reason: BookingBlockReason }`, y `canCancelBooking(...)` (límite de 2 horas).
   ✅ Un test por cada una de las 7 reglas y por cada motivo de bloqueo.
 
