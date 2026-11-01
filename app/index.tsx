@@ -1,21 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Showcase } from '../src/components/dev/Showcase';
 
-import { useTheme } from '@/theme';
-
+// Temporary: design-system showcase until the real screens arrive (T5.1).
 export default function HomeScreen() {
-  const { colors, spacing, typography } = useTheme();
-
-  return (
-    <View style={[styles.container, { padding: spacing.md, backgroundColor: colors.background }]}>
-      <Text style={[typography.title, { color: colors.text }]}>Gym</Text>
-    </View>
-  );
+  return <Showcase />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

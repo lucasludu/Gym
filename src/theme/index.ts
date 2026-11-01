@@ -10,3 +10,4 @@ export {
   type Theme,
 } from './theme';
 export { useTheme } from './useTheme';
+export { toNavigationTheme } from './navigationTheme';
