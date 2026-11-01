@@ -146,7 +146,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
   Formulario con React Hook Form + Zod, login mock por email contra `users` (la contraseña solo se valida en formato), errores de validación y de credenciales.
 - [x] **T5.4 · Registro** → T5.3
   Crea solo el `User` (sin membresía); el socio ve "Sin membresía activa" hasta que el gimnasio le dé de alta una.
-- [ ] **T5.5 · Logout** desde Perfil → T5.2
+- [x] **T5.5 · Logout** desde Perfil → T5.2
 
 ### Home · 📄 `features/home.md`
 - [ ] **T5.6 · Tarjeta de membresía** (estado, días restantes, aviso si está por vencer) → T1.3, T2.5, T4.2
@@ -174,7 +174,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 - [ ] **T5.22 · Registrar series** precargando el peso de la vez anterior; completar con 1 toque → T5.21
 - [ ] **T5.23 · Agregar y quitar series y ejercicios** → T5.22
 - [ ] **T5.24 · Timer de descanso** con notificación local y haptics al terminar → T5.22
-- [ ] **T5.25 · Persistir el entrenamiento en curso** en el celular (store de Zustand persistido) para no perderlo si se cierra la app; se envía al servidor recién al finalizar → T5.21
+- [ ] **T5.25 · Persistir el entrenamiento en curso** en el celular (store de Zustand persistido) para no perderlo si se cierra la app; se envía al servidor recién al finalizar. Incluye conectar el aviso y el borrado al cerrar sesión (`getSignOutConfirmation(true)` y `useSignOut`) → T5.21
 - [ ] **T5.26 · Finalizar** con resumen (duración, volumen, récords nuevos); descartar si está vacía → T1.7
 
 ### Progreso · 📄 `features/progreso.md`

@@ -123,4 +123,4 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. T4.3 (`specs/features/reservas.md`). Después de cada spec de Fase 4 se puede implementar su feature (auth: T5.1–T5.5).
+1. Auth (T5.1–T5.5) ✅ implementada. Sigue T4.3 (`specs/features/reservas.md`) o implementar Home (T5.6–T5.9, spec lista).
