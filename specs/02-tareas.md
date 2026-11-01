@@ -112,7 +112,7 @@
   `Text`, `Button` (variantes y estado loading/disabled), `Card`, `Badge`, `Input`, `IconButton`.
   ✅ Tests de comportamiento y `accessibilityLabel`; área táctil ≥ 44 px.
 
-- [ ] **T3.3 · Estados de pantalla** → T3.2
+- [x] **T3.3 · Estados de pantalla** → T3.2
   `LoadingSkeleton`, `ErrorState` (con botón reintentar), `EmptyState`.
   ✅ Tests de cada estado.
 
