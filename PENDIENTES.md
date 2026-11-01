@@ -85,7 +85,7 @@ Fase 1 terminada; el resto, sin empezar.
 **Fase 2 · Datos y API**
 - ~~T2.1 Importador de ejercicios (wger)~~ ✅ 904 ejercicios en `mock/db.json`
 - ~~T2.2 Seed del mock~~ ✅ `npm run seed`
-- T2.3 Cliente HTTP
+- ~~T2.3 Cliente HTTP~~ ✅ `src/api/client.ts`
 - T2.4 Funciones de API por recurso
 - T2.5 TanStack Query
 
@@ -121,4 +121,4 @@ Fase 1 terminada; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. T2.3 (cliente HTTP): wrapper de `fetch` con URL base, timeout, errores tipados y validación con Zod.
+1. T2.4 (funciones de API por recurso) sobre `src/api/client.ts`.

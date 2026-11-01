@@ -88,7 +88,7 @@
   `mock/seed.ts` que genera usuarios (incluido uno sin membresía), planes, membresías, entrenadores, tipos de clase, clases de las próximas 2 semanas (relativas a hoy), reservas, una rutina y un historial de entrenamientos de 8 semanas.
   ✅ Cubre todos los casos borde listados en la sección "API mock".
 
-- [ ] **T2.3 · Cliente HTTP** → T0.6, T1.1
+- [x] **T2.3 · Cliente HTTP** → T0.6, T1.1
   `src/api/client.ts`: wrapper de `fetch` con URL base, timeout, manejo de errores tipado y validación de respuestas con Zod.
   ✅ Tests con `fetch` mockeado: éxito, error HTTP, timeout, respuesta inválida.
 
