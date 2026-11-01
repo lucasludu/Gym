@@ -40,6 +40,7 @@ describe('bookingSchema', () => {
 
 describe('bookingBlockReasonSchema', () => {
   it.each([
+    'no_membership',
     'membership_expired',
     'class_full',
     'class_started',

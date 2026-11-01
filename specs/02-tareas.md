@@ -85,7 +85,7 @@
   📄 sección "Fuente de datos de ejercicios" · ✅ Tests sin red en verde y `mock/db.json` con ejercicios reales.
 
 - [ ] **T2.2 · Seed del mock** → T2.1
-  `mock/seed.ts` que genera usuarios, planes, membresías, entrenadores, tipos de clase, clases de las próximas 2 semanas (relativas a hoy), reservas, una rutina y un historial de entrenamientos de 8 semanas.
+  `mock/seed.ts` que genera usuarios (incluido uno sin membresía), planes, membresías, entrenadores, tipos de clase, clases de las próximas 2 semanas (relativas a hoy), reservas, una rutina y un historial de entrenamientos de 8 semanas.
   ✅ Cubre todos los casos borde listados en la sección "API mock".
 
 - [ ] **T2.3 · Cliente HTTP** → T0.6, T1.1
@@ -105,7 +105,7 @@
 ## Fase 3 · Design system
 
 - [ ] **T3.1 · Theme** → T0.2
-  Colores (claro y oscuro), tipografía, espaciados, radios, sombras. Hook `useTheme`.
+  Colores (claro y oscuro, incluidos los 6 acentos de `ClassType`), tipografía, espaciados, radios, sombras. Hook `useTheme`.
   ✅ Tokens tipados; cambiar el esquema del sistema cambia el tema.
 
 - [ ] **T3.2 · Componentes base** → T3.1
@@ -143,8 +143,9 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 - [ ] **T5.2 · Sesión** → T5.1, T4.1
   Store de sesión (Zustand) persistida con `expo-secure-store`; rutas protegidas.
 - [ ] **T5.3 · Login** → T5.2
-  Formulario con React Hook Form + Zod, login mock contra `users`, errores de validación y de credenciales.
+  Formulario con React Hook Form + Zod, login mock por email contra `users` (la contraseña solo se valida en formato), errores de validación y de credenciales.
 - [ ] **T5.4 · Registro** → T5.3
+  Crea solo el `User` (sin membresía); el socio ve "Sin membresía activa" hasta que el gimnasio le dé de alta una.
 - [ ] **T5.5 · Logout** desde Perfil → T5.2
 
 ### Home · 📄 `features/home.md`
@@ -169,11 +170,11 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 - [ ] **T5.20 · Estado vacío** si no tiene rutina asignada → T3.3
 
 ### Workout logger · 📄 `features/workout-logger.md`
-- [ ] **T5.21 · Iniciar sesión** desde un día de la rutina o libre (solo una en curso) → T4.5
+- [ ] **T5.21 · Iniciar entrenamiento** desde un día de la rutina o libre (solo una en curso) → T4.5
 - [ ] **T5.22 · Registrar series** precargando el peso de la vez anterior; completar con 1 toque → T5.21
 - [ ] **T5.23 · Agregar y quitar series y ejercicios** → T5.22
 - [ ] **T5.24 · Timer de descanso** con notificación local y haptics al terminar → T5.22
-- [ ] **T5.25 · Persistir la sesión en curso** para no perderla si se cierra la app → T5.21
+- [ ] **T5.25 · Persistir el entrenamiento en curso** en el celular (store de Zustand persistido) para no perderlo si se cierra la app; se envía al servidor recién al finalizar → T5.21
 - [ ] **T5.26 · Finalizar** con resumen (duración, volumen, récords nuevos); descartar si está vacía → T1.7
 
 ### Progreso · 📄 `features/progreso.md`

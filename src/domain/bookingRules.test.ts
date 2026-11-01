@@ -48,6 +48,30 @@ describe('canBookClass', () => {
     expect(check({})).toEqual({ ok: true });
   });
 
+  describe('rule 1: user must have a membership', () => {
+    it('blocks with no_membership when the user has no membership (just registered)', () => {
+      expect(check({ membership: null, plan: null })).toEqual({
+        ok: false,
+        reason: 'no_membership',
+      });
+    });
+
+    it('reports no_membership before any class rule', () => {
+      expect(
+        check({
+          membership: null,
+          plan: null,
+          classSession: { ...target, bookedCount: 20 },
+          now: target.startsAt,
+        }),
+      ).toEqual({ ok: false, reason: 'no_membership' });
+    });
+
+    it('throws when there is a membership but its plan is missing (inconsistent data)', () => {
+      expect(() => check({ plan: null })).toThrow();
+    });
+  });
+
   describe('rule 1: membership must not be expired', () => {
     it('blocks with membership_expired when today is after endDate', () => {
       expect(check({ membership: { endDate: '2026-11-01' } })).toEqual({

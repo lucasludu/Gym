@@ -6,6 +6,7 @@ export const bookingStatusSchema = z.enum(['confirmed', 'cancelled', 'attended',
 
 /** Reasons shown in the UI when a class cannot be booked. */
 export const bookingBlockReasonSchema = z.enum([
+  'no_membership',
   'membership_expired',
   'class_full',
   'class_started',

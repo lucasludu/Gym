@@ -59,7 +59,7 @@ erDiagram
 | Campo | Tipo | Notas |
 |---|---|---|
 | id | string | |
-| userId | string | un socio tiene una sola membresía vigente |
+| userId | string | un socio tiene como máximo una membresía vigente; puede no tener ninguna |
 | planId | string | |
 | startDate | string | fecha |
 | endDate | string | fecha de vencimiento de la cuota |
@@ -70,6 +70,7 @@ erDiagram
 - `expired` si hoy > `endDate`.
 - `expiring` si faltan 5 días o menos (inclusive) para `endDate`.
 - `active` en cualquier otro caso.
+- El registro en la app crea solo el `User`, sin membresía. La membresía la da de alta el gimnasio (en recepción). Mientras no tenga, el socio ve "Sin membresía activa" y no puede reservar.
 
 ---
 
@@ -84,7 +85,7 @@ Tipo de clase (catálogo).
 | description | string | |
 | durationMinutes | number | |
 | intensity | `"low" \| "medium" \| "high"` | |
-| color | string | token del theme (ej. `"accentOrange"`), no un hex |
+| color | `"accentOrange" \| "accentBlue" \| "accentGreen" \| "accentPurple" \| "accentPink" \| "accentTeal"` | token de acento del theme, no un hex. Cada uno tiene valor para modo claro y oscuro |
 
 ### Trainer
 | Campo | Tipo | Notas |
@@ -119,7 +120,7 @@ Una clase concreta en una fecha y hora.
 | cancelledAt | string \| null | ISO |
 
 **Reglas de reserva**
-1. Solo se puede reservar si la membresía **no** está `expired`.
+1. Solo se puede reservar si el socio **tiene** membresía y **no** está `expired`.
 2. No se puede reservar una clase llena (`isFull`) ni una que ya empezó (`hasStarted`).
 3. Un socio no puede tener dos reservas `confirmed` para la misma `ClassSession`.
 4. Un socio no puede tener dos reservas `confirmed` que se superpongan en horario.
@@ -130,7 +131,9 @@ Una clase concreta en una fecha y hora.
 > En el backend, las reglas 2 a 5 se validan del lado del servidor y la regla 2 con control de concurrencia. En el front se validan para la UI (deshabilitar botones, mostrar motivo), pero el front no es la fuente de verdad.
 
 **Motivos para mostrar en la UI** cuando no se puede reservar (enum `BookingBlockReason`):
-`"membership_expired" | "class_full" | "class_started" | "already_booked" | "schedule_overlap" | "weekly_limit_reached"`
+`"no_membership" | "membership_expired" | "class_full" | "class_started" | "already_booked" | "schedule_overlap" | "weekly_limit_reached"`
+
+Si se bloquea por varios motivos, se muestra uno solo, con esta prioridad: `no_membership`, `membership_expired`, `class_started`, `class_full`, `already_booked`, `schedule_overlap`, `weekly_limit_reached`.
 
 ---
 
@@ -211,7 +214,9 @@ Un entrenamiento realizado por el socio.
 
 **Reglas**
 - Solo puede haber **una** `WorkoutSession` en curso (`finishedAt === null`) por usuario.
-- Una sesión sin ninguna serie completada no se guarda al finalizar (se descarta).
+- La sesión en curso vive **solo en el celular** (store persistido localmente) y la regla anterior se valida ahí. No se envía al servidor hasta finalizar; así se puede entrenar sin conexión.
+- Al finalizar, la sesión y sus series se envían al servidor ya con `finishedAt`. En el servidor, por lo tanto, todas las `WorkoutSession` están finalizadas.
+- Una sesión sin ninguna serie completada no se guarda al finalizar (se descarta localmente, sin llamar a la API).
 
 ### WorkoutSet
 | Campo | Tipo | Notas |
@@ -282,11 +287,13 @@ El catálogo de `Exercise` se importa de la API pública de **wger** (`https://w
 3. Limpiar el HTML de las instrucciones y dejar texto plano.
 4. Tomar la imagen marcada como principal (`is_main`); si no hay, la primera disponible; si no hay ninguna, `imageUrl: null`. Guardar autor y licencia de la imagen.
 5. Mapear categorías y equipamiento de wger a nuestros enums (tabla de mapeo en `scripts/wger-mapping.ts`). Lo que no tenga equivalente va a `"other"` (equipamiento) o se descarta (grupo muscular), y se informa en la salida del script.
-6. Inferir `trackingType`:
-   - equipamiento barra, mancuerna, máquina, polea o kettlebell → `"weight_reps"`
-   - sin equipamiento → `"reps"`
-   - nombre que contenga "plank", "plancha", "hold" o "isométric" → `"time"`
-   - se puede corregir a mano con una lista de excepciones en `scripts/wger-mapping.ts`.
+6. Inferir `trackingType` aplicando estas reglas **en orden** (gana la primera que se cumple):
+   1. el ejercicio está en la lista de excepciones de `scripts/wger-mapping.ts` → el valor de la lista
+   2. nombre que contenga "plank", "plancha", "hold" o "isométric" (sin distinguir mayúsculas) → `"time"`
+   3. equipamiento barra, mancuerna, máquina, polea o kettlebell → `"weight_reps"`
+   4. cualquier otro caso (sin equipamiento u `"other"`) → `"reps"`
+
+   Ejemplo: una plancha sin equipamiento cumple las reglas 2 y 4; gana la 2 → `"time"`.
 7. Escribir el resultado en la colección `exercises` de `mock/db.json` sin pisar las demás colecciones.
 8. Al final, mostrar un resumen: importados, actualizados, descartados (con motivo) y sin imagen.
 
@@ -310,10 +317,12 @@ workoutSessions, workoutSets
 ```
 
 - Usuario logueado de prueba: `user-1`.
+- **Login mock:** `User` no tiene contraseña. El formulario pide email y contraseña (validados con Zod), pero el mock solo busca el usuario por email; cualquier contraseña válida sirve. La contraseña no se guarda en el mock ni se agrega al modelo; la valida recién el backend real (Fase 9).
+- El seed incluye un usuario sin membresía para probar el estado "Sin membresía activa".
 - Los datos deben cubrir los casos borde de las reglas: una clase llena, una clase que ya empezó, una membresía por vencer, una semana con racha cortada, ejercicios de los tres `trackingType` y al menos un récord personal en el historial.
 - La colección `exercises` la genera `scripts/import-exercises.ts`; las rutinas y entrenamientos del mock referencian ejercicios importados, incluyendo al menos uno sin imagen para probar el placeholder.
 - Las fechas de clases se generan relativas a "hoy" con un script (`mock/seed.ts`) para que el mock no quede viejo.
-- json-server no valida reglas de negocio: en esta etapa, las reglas de reserva se aplican en el front (`src/domain/bookings.ts`) y quedan cubiertas por tests.
+- json-server no valida reglas de negocio: en esta etapa, las reglas de reserva se aplican en el front (`src/domain/bookingRules.ts`) y quedan cubiertas por tests.
 
 ## Implementación en el front
 

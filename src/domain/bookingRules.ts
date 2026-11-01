@@ -34,8 +34,10 @@ export interface UserBooking {
 
 export interface CanBookClassInput {
   classSession: BookableClass;
-  membership: Pick<Membership, 'endDate'>;
-  plan: Pick<Plan, 'weeklyClassLimit'>;
+  /** `null` when the user has no membership yet (e.g. just registered). */
+  membership: Pick<Membership, 'endDate'> | null;
+  /** Plan of the membership; `null` only when there is no membership. */
+  plan: Pick<Plan, 'weeklyClassLimit'> | null;
   /** All bookings of the user, any status. */
   userBookings: readonly UserBooking[];
   now: string | Date;
@@ -59,13 +61,15 @@ const overlaps = (a: ScheduledClass, b: ScheduledClass): boolean => {
 
 /**
  * Checks whether the user can book a class. When several rules block, the reason
- * follows this priority: membership_expired, class_started, class_full,
+ * follows this priority: no_membership, membership_expired, class_started, class_full,
  * already_booked, schedule_overlap, weekly_limit_reached.
  */
 export function canBookClass(input: CanBookClassInput): CanBookClassResult {
   const { classSession, membership, plan, userBookings, now } = input;
 
   // Rule 1
+  if (membership === null) return blocked('no_membership');
+  if (plan === null) throw new Error('A membership must come with its plan');
   if (getMembershipStatus(membership, now) === 'expired') return blocked('membership_expired');
 
   // Rule 2

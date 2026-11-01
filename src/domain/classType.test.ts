@@ -1,4 +1,4 @@
-import { classTypeSchema } from './classType';
+import { classColorSchema, classTypeSchema } from './classType';
 
 const validClassType = {
   id: 'class-type-1',
@@ -19,11 +19,28 @@ describe('classTypeSchema', () => {
   });
 
   it.each([
+    'accentOrange',
+    'accentBlue',
+    'accentGreen',
+    'accentPurple',
+    'accentPink',
+    'accentTeal',
+  ])('accepts color token %p', (color) => {
+    expect(classTypeSchema.safeParse({ ...validClassType, color }).success).toBe(true);
+  });
+
+  it('exposes the 6 accent tokens', () => {
+    expect(classColorSchema.options).toHaveLength(6);
+  });
+
+  it.each([
     ['unknown intensity', { intensity: 'extreme' }],
     ['durationMinutes 0', { durationMinutes: 0 }],
     ['non-integer durationMinutes', { durationMinutes: 45.5 }],
     ['hex color instead of a theme token', { color: '#FF8800' }],
     ['empty color', { color: '' }],
+    ['a camelCase token outside the accent list', { color: 'accentYellow' }],
+    ['a non-accent theme token', { color: 'background' }],
     ['empty name', { name: '' }],
   ])('rejects %s', (_label, patch) => {
     expect(classTypeSchema.safeParse({ ...validClassType, ...patch }).success).toBe(false);
