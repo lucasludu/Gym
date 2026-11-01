@@ -34,7 +34,7 @@
   `EXPO_PUBLIC_API_URL` en `.env` (con `.env.example` versionado), módulo `src/api/config.ts` que la lee.
   ✅ Cambiar la variable cambia la URL usada.
 
-- [ ] **T0.7 · Git y CI**
+- [x] **T0.7 · Git y CI**
   Repo en GitHub, `.gitignore`, GitHub Actions que corre lint, tests y chequeo de tipos en cada push.
   ✅ El badge de CI está en verde.
 
