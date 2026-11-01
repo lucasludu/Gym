@@ -52,7 +52,7 @@
   Inicio y fin de semana (lunes a domingo), diferencia en días, todo con zona `America/Argentina/Buenos_Aires`. La fecha actual siempre se recibe por parámetro.
   ✅ Tests con casos de cambio de semana y de mes.
 
-- [ ] **T1.3 · Membresía** → T1.2
+- [x] **T1.3 · Membresía** → T1.2
   `getMembershipStatus` y `getDaysLeft`.
   ✅ Tests de `active`, `expiring` (límite de 5 días inclusive) y `expired`.
 
