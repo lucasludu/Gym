@@ -331,6 +331,7 @@ workoutSessions, workoutSets
 - Las fechas de clases se generan relativas a "hoy" con un script para que el mock no quede viejo: `mock/seed.ts` arma los datos (función pura `buildSeed(now, exercises)`, testeada) y `npm run seed` reescribe todas las colecciones de `mock/db.json` salvo `exercises`. Conviene correrlo antes de cada sesión de prueba.
 - El usuario principal (`user-1`) tiene la membresía por vencer, un plan de 3 clases por semana y reservas que permiten ver todos los motivos de bloqueo (clase llena, empezada, ya reservada, superposición y límite semanal), una reserva a menos de 2 horas (no se puede cancelar), y 8 semanas de historial con una racha de 4 semanas cortada hace 5.
 - json-server no valida reglas de negocio: en esta etapa, las reglas de reserva se aplican en el front (`src/domain/bookingRules.ts`) y quedan cubiertas por tests.
+- json-server tampoco actualiza `bookedCount` al reservar o cancelar (en el backend real lo hace el servidor). Decisión: la capa de API no lo compensa, para quedar igual a la del backend real; la UI refleja el cambio con la actualización optimista de T5.14.
 
 ## Implementación en el front
 
