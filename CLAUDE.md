@@ -48,7 +48,7 @@ specs/                # Specs del producto y de cada feature
    - **Verde:** implementá el código mínimo para que pasen.
    - **Refactor:** mejorá el código sin romper los tests.
 4. **No modifiques un test para que pase**, salvo que esté mal respecto de la spec; en ese caso, explicá por qué.
-5. Al terminar cada tarea: `npm test` y `npx tsc --noEmit` sin errores, y un commit.
+5. Al terminar cada tarea: `npm test` y `npm run typecheck` sin errores, y un commit.
 
 ## Tests
 - Lógica de `domain/`: tests unitarios exhaustivos, incluyendo casos borde.
@@ -69,7 +69,8 @@ specs/                # Specs del producto y de cada feature
 ```bash
 npx expo start          # Levantar la app (escanear el QR con Expo Go)
 npm test                # Correr los tests
-npx tsc --noEmit        # Chequear tipos
+npm run typecheck       # Chequear tipos (app + scripts/)
 npm run mock            # Levantar json-server en el puerto 3000
+npm run import:exercises  # Reimportar el catálogo de ejercicios de wger a mock/db.json
 ```
 Recordatorio: desde el celular, la API mock se accede con la IP local de la PC, no con `localhost`.
