@@ -128,7 +128,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 
 - [x] **T4.1** · `specs/features/auth.md`
 - [x] **T4.2** · `specs/features/home.md`
-- [ ] **T4.3** · `specs/features/reservas.md`
+- [x] **T4.3** · `specs/features/reservas.md`
 - [ ] **T4.4** · `specs/features/rutina.md`
 - [ ] **T4.5** · `specs/features/workout-logger.md`
 - [ ] **T4.6** · `specs/features/progreso.md`
@@ -158,7 +158,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 - [ ] **T5.10 · Selector de semana y día** → T4.3
 - [ ] **T5.11 · `ClassCard`** con estados disponible / lleno / reservado / empezada → T1.4
 - [ ] **T5.12 · Lista de clases del día** con filtros por tipo → T5.10, T5.11
-- [ ] **T5.13 · Detalle de clase** (descripción, entrenador, cupos, intensidad) → T5.12
+- [ ] **T5.13 · Detalle de clase** (descripción, entrenador, cupos, intensidad). Incluye conectar la tarjeta "Próxima clase" de Inicio al detalle (criterio 11 de home.md) → T5.12
 - [ ] **T5.14 · Reservar** con actualización optimista (también de `spotsLeft`, porque json-server no actualiza `bookedCount`) y motivo de bloqueo visible → T1.5
 - [ ] **T5.15 · Cancelar** con confirmación y límite de 2 horas → T1.5
 - [ ] **T5.16 · Mis reservas** (próximas e historial) → T5.14
