@@ -1,1 +1,15 @@
-{}
+{
+  "users": [],
+  "plans": [],
+  "memberships": [],
+  "classTypes": [],
+  "trainers": [],
+  "classSessions": [],
+  "bookings": [],
+  "exercises": [],
+  "routines": [],
+  "routineDays": [],
+  "routineExercises": [],
+  "workoutSessions": [],
+  "workoutSets": []
+}
