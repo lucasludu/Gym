@@ -8,6 +8,7 @@ import { useSession } from '../../store/appSession';
 import { useTheme } from '../../theme';
 import { Text } from '../ui';
 import { MembershipCard } from './MembershipCard';
+import { NextClassCard } from './NextClassCard';
 
 /** Inicio (specs/features/home.md): what the member needs for today, each card on its own. */
 export function HomeScreen() {
@@ -46,6 +47,7 @@ export function HomeScreen() {
     >
       <Text variant="title">{greeting}</Text>
       <MembershipCard userId={userId} now={now} />
+      <NextClassCard userId={userId} now={now} />
     </ScrollView>
   );
 }

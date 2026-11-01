@@ -42,3 +42,16 @@ export async function getClassSessions(
 export function getClassSession(id: string, options: ReadOptions = {}): Promise<ClassSession> {
   return api.request(`/classSessions/${encodeURIComponent(id)}`, classSessionSchema, options);
 }
+
+/** The sessions with those ids, in one request (json-server: repeated `id` = OR). */
+export async function getClassSessionsByIds(
+  ids: readonly string[],
+  options: ReadOptions = {},
+): Promise<ClassSession[]> {
+  const unique = [...new Set(ids)];
+  if (unique.length === 0) return [];
+  return api.request('/classSessions', z.array(classSessionSchema), {
+    ...options,
+    query: { id: unique },
+  });
+}

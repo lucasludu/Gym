@@ -1,5 +1,11 @@
 import { isApiError } from './client';
-import { getClassSession, getClassSessions, getClassTypes, getTrainers } from './classes';
+import {
+  getClassSession,
+  getClassSessions,
+  getClassSessionsByIds,
+  getClassTypes,
+  getTrainers,
+} from './classes';
 import { mockApi, notFound } from './testing';
 
 const classType = {
@@ -103,5 +109,25 @@ describe('getClassSession', () => {
   it('throws an http 404 error when it does not exist', async () => {
     server.respond(notFound());
     await expect(getClassSession('nope')).rejects.toMatchObject({ kind: 'http', status: 404 });
+  });
+});
+
+describe('getClassSessionsByIds', () => {
+  it('fetches the sessions with those ids in a single request', async () => {
+    server.respond([session]);
+    await expect(getClassSessionsByIds(['class-1', 'class-2'])).resolves.toEqual([session]);
+    expect(server.lastCall.path).toBe('/classSessions');
+    expect(server.lastCall.query.getAll('id')).toEqual(['class-1', 'class-2']);
+  });
+
+  it('does not repeat ids', async () => {
+    server.respond([session]);
+    await getClassSessionsByIds(['class-1', 'class-1']);
+    expect(server.lastCall.query.getAll('id')).toEqual(['class-1']);
+  });
+
+  it('does not call the API without ids', async () => {
+    await expect(getClassSessionsByIds([])).resolves.toEqual([]);
+    expect(server.calls).toHaveLength(0);
   });
 });

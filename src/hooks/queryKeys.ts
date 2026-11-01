@@ -13,6 +13,8 @@ export const queryKeys = {
   classSessions: (range: { from: LocalDate; to: LocalDate }) =>
     [...queryKeys.allClassSessions(), range.from, range.to] as const,
   bookings: (userId: string | null) => ['bookings', userId] as const,
+  /** Bookings joined with their classes; under the bookings key so it is invalidated with them. */
+  bookedClasses: (userId: string | null) => [...queryKeys.bookings(userId), 'classes'] as const,
   membership: (userId: string | null) => ['membership', userId] as const,
   routine: (userId: string | null) => ['routine', userId] as const,
   exercises: () => ['exercises'] as const,

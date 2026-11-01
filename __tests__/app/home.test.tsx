@@ -88,6 +88,100 @@ describe('Inicio', () => {
     });
   });
 
+  describe('next class card (T5.7)', () => {
+    const yoga = {
+      id: 'ct-yoga',
+      name: 'Yoga',
+      description: '',
+      durationMinutes: 60,
+      intensity: 'low',
+      color: 'accentGreen',
+    };
+    const camila = { id: 't1', firstName: 'Camila', lastName: 'Rodríguez', avatarUrl: null };
+    const session = (id: string, startsAt: string) => ({
+      id,
+      classTypeId: yoga.id,
+      trainerId: camila.id,
+      startsAt,
+      capacity: 12,
+      bookedCount: 5,
+    });
+    const booking = (id: string, classSessionId: string, status = 'confirmed') => ({
+      id,
+      userId: SOFIA.id,
+      classSessionId,
+      status,
+      createdAt: '2026-11-01T10:00:00-03:00',
+      cancelledAt: status === 'cancelled' ? '2026-11-02T10:00:00-03:00' : null,
+    });
+    const withClasses = (
+      bookings: ReturnType<typeof booking>[],
+      sessions: ReturnType<typeof session>[],
+    ) => ({ bookings, classSessions: sessions, classTypes: [yoga], trainers: [camila] });
+
+    it('shows the soonest confirmed class with day, time, duration and trainer (criteria 7 and 10)', async () => {
+      routeHomeApi(
+        api,
+        withClasses(
+          [booking('b1', 's-later'), booking('b2', 's-today')],
+          [
+            session('s-later', '2026-11-05T19:00:00-03:00'),
+            session('s-today', '2026-11-03T19:00:00-03:00'),
+          ],
+        ),
+      );
+      await openHome();
+      const next = await screen.findByRole('button', { name: /^Próxima clase: Yoga/ });
+      expect(next).toHaveAccessibleName('Próxima clase: Yoga, Hoy · 19:00, con Camila Rodríguez');
+      expect(within(next).getByText('Hoy · 19:00')).toBeOnTheScreen();
+      expect(within(next).getByText('60 min · con Camila Rodríguez')).toBeOnTheScreen();
+      expect(within(next).getByText('Podés cancelar hasta las 17:00')).toBeOnTheScreen();
+    });
+
+    it('does not offer to cancel once inside the 2-hour limit (criterion 10)', async () => {
+      fakeNow('2026-11-03T17:30:00-03:00');
+      routeHomeApi(
+        api,
+        withClasses([booking('b1', 's1')], [session('s1', '2026-11-03T19:00:00-03:00')]),
+      );
+      await openHome();
+      await screen.findByText('Hoy · 19:00');
+      expect(screen.queryByText(/Podés cancelar/)).toBeNull();
+    });
+
+    it('marks a class in progress (criterion 8)', async () => {
+      routeHomeApi(
+        api,
+        withClasses([booking('b1', 's1')], [session('s1', '2026-11-03T09:30:00-03:00')]),
+      );
+      await openHome();
+      expect(await screen.findByText('En curso')).toBeOnTheScreen();
+    });
+
+    it.each([
+      ['ended', booking('b1', 's1'), session('s1', '2026-11-03T08:00:00-03:00')],
+      ['cancelled', booking('b1', 's1', 'cancelled'), session('s1', '2026-11-04T19:00:00-03:00')],
+    ])('shows the empty state when the only booking is %s (criterion 9)', async (_c, b, s) => {
+      routeHomeApi(api, withClasses([b], [s]));
+      const router = await openHome();
+      expect(await screen.findByText('No tenés clases reservadas')).toBeOnTheScreen();
+      await userEvent.setup().press(screen.getByRole('button', { name: 'Ver clases' }));
+      await waitFor(() => expect(router.getPathname()).toBe('/classes'));
+    });
+
+    it('opens the classes when tapped (criterion 11; the class detail arrives in T5.13)', async () => {
+      routeHomeApi(
+        api,
+        withClasses([booking('b1', 's1')], [session('s1', '2026-11-05T19:00:00-03:00')]),
+      );
+      const router = await openHome();
+      await userEvent
+        .setup()
+        .press(await screen.findByRole('button', { name: /^Próxima clase: Yoga, Jueves 5\/11/ }));
+      await waitFor(() => expect(router.getPathname()).toBe('/classes'));
+    });
+  });
+
   it('still greets with "Hola" when the profile cannot be loaded', async () => {
     routeHomeApi(api, { user: () => new Response('{}', { status: 400 }) });
     await openHome();
