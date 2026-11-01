@@ -246,9 +246,17 @@ Por ejercicio, se calculan:
 | maxWeightKg | number \| null | mayor peso levantado en una serie completada |
 | bestEstimated1RmKg | number \| null | mayor 1RM estimado |
 | maxReps | number \| null | más repeticiones en una serie (útil para `reps`) |
-| achievedAt | string | fecha de la serie que estableció el récord de `bestEstimated1RmKg` (o `maxReps` si no aplica) |
+| maxSeconds | number \| null | mayor duración en una serie (útil para `time`) |
+| achievedAt | string | `completedAt` de la serie que estableció el récord principal: `bestEstimated1RmKg`; si no hay, `maxReps`; si no hay, `maxSeconds`. Ante un empate, la primera serie en lograrlo |
 
-Una serie es **nuevo récord** si supera estrictamente el valor previo. Un empate no cuenta como récord.
+Solo se calcula el récord de un ejercicio que tenga al menos una serie completada con algún valor.
+
+Una serie es **nuevo récord** si supera estrictamente el valor previo. Un empate no cuenta como récord. Se comparan las métricas principales según los datos de la serie:
+- con peso y reps → `maxWeightKg` o `bestEstimated1RmKg`
+- solo reps → `maxReps`
+- solo segundos → `maxSeconds`
+
+Si no hay valor previo para esa métrica (primera vez que se hace el ejercicio), no cuenta como récord.
 
 ### WeeklyStreak*
 - La semana va de lunes a domingo.

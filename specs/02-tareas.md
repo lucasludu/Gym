@@ -68,7 +68,7 @@
   `getWorkoutDuration`, `getTotalVolume` (solo series completadas).
   ✅ Tests con sesiones en curso, vacías y con series sin completar.
 
-- [ ] **T1.7 · 1RM y récords** → T1.6
+- [x] **T1.7 · 1RM y récords** → T1.6
   `estimate1Rm` (Epley, rango 1–12 reps, redondeo a 0,5 kg), `getPersonalRecords`, `isNewRecord` (empate no cuenta).
   ✅ Tests de la fórmula, límites del rango y empates.
 
