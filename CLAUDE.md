@@ -55,6 +55,7 @@ specs/                # Specs del producto y de cada feature
 - Componentes: testear comportamiento visible para el usuario (texto, estados, interacciones), no detalles de implementación.
 - Buscar elementos por rol, texto o `accessibilityLabel`; usar `testID` solo como último recurso.
 - Los tests van junto al archivo: `ClassCard.tsx` → `ClassCard.test.tsx`.
+- Excepción: los tests de pantallas van en `__tests__/app/`, porque Expo Router trata todo archivo dentro de `app/` como ruta.
 
 ## Convenciones
 - Componentes en PascalCase, hooks con prefijo `use`, archivos de lógica en camelCase.
