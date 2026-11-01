@@ -126,7 +126,7 @@
 
 Escribir cada spec **antes** de implementar la feature. Formato: objetivo, pantallas, requisitos, criterios de aceptación (Dado / Cuando / Entonces), estados de carga/error/vacío y casos borde.
 
-- [ ] **T4.1** · `specs/features/auth.md`
+- [x] **T4.1** · `specs/features/auth.md`
 - [ ] **T4.2** · `specs/features/home.md`
 - [ ] **T4.3** · `specs/features/reservas.md`
 - [ ] **T4.4** · `specs/features/rutina.md`

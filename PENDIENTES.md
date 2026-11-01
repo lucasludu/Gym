@@ -98,7 +98,7 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 - ~~T3.4 Imagen de ejercicio~~ ✅ `ExerciseImage`, `ImageAttribution`
 
 **Fase 4 · Specs de features** (bloquean la Fase 5)
-- T4.1 `auth.md`
+- ~~T4.1 `auth.md`~~ ✅
 - T4.2 `home.md`
 - T4.3 `reservas.md`
 - T4.4 `rutina.md`
@@ -123,4 +123,4 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 
 ## Próximo paso sugerido
 
-1. Fase 4: T4.1 (`specs/features/auth.md`), escribir la spec antes de implementar.
+1. T4.2 (`specs/features/home.md`). Después de cada spec de Fase 4 se puede implementar su feature (auth: T5.1–T5.5).
