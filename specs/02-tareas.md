@@ -151,7 +151,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 ### Home · 📄 `features/home.md`
 - [x] **T5.6 · Tarjeta de membresía** (estado, días restantes, aviso si está por vencer) → T1.3, T2.5, T4.2
 - [x] **T5.7 · Próxima clase reservada** con acceso directo al detalle → T2.5
-- [ ] **T5.8 · Racha semanal y progreso hacia el objetivo** → T1.8
+- [x] **T5.8 · Racha semanal y progreso hacia el objetivo** → T1.8
 - [ ] **T5.9 · Acceso rápido** "Empezar entrenamiento de hoy": el siguiente día de la rotación (`getNextRoutineDay`, función pura nueva) → T5.6
 
 ### Reservas · 📄 `features/reservas.md`

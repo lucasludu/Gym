@@ -1,17 +1,14 @@
-import type { UseQueryResult } from '@tanstack/react-query';
 import type { ReactNode } from 'react';
 import { View } from 'react-native';
 
+import type { QueryState } from '../../hooks/combineQueries';
 import { useTheme } from '../../theme';
 import { Card, ErrorState, LoadingSkeleton, Text } from '../ui';
 
 interface HomeCardProps<T> {
   /** Card heading, announced as a header. */
   title: string;
-  query: Pick<
-    UseQueryResult<T>,
-    'data' | 'isPending' | 'isError' | 'error' | 'refetch' | 'isRefetching'
-  >;
+  query: QueryState<T>;
   children: (data: T) => ReactNode;
 }
 

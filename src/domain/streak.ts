@@ -72,3 +72,20 @@ export function getWeeklyStreak(input: WeeklyStreakInput): number {
 
   return isFulfilled(currentWeek) ? streak + 1 : streak;
 }
+
+export interface WeekDayActivity {
+  date: LocalDate;
+  active: boolean;
+  isToday: boolean;
+}
+
+/** Monday to Sunday of the week of `today`, marking the days with activity. */
+export function getWeekActivity(activity: ActivityInput, today: string | Date): WeekDayActivity[] {
+  const active = getActiveDates(activity);
+  const todayDate = toLocalDate(today);
+  const monday = getWeekStart(todayDate);
+  return Array.from({ length: 7 }, (_, i) => {
+    const date = addDays(monday, i);
+    return { date, active: active.has(date), isToday: date === todayDate };
+  });
+}

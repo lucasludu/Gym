@@ -1,5 +1,6 @@
 import {
   getActiveDaysInWeek,
+  getWeekActivity,
   getWeeklyStreak,
   type WeeklyStreakInput,
   type StreakBooking,
@@ -243,5 +244,54 @@ describe('getWeeklyStreak', () => {
 
   it.each([0, 8, 2.5])('throws with an invalid weekly goal (%s)', (weeklyGoal) => {
     expect(() => getWeeklyStreak(input({ weeklyGoal }))).toThrow();
+  });
+});
+
+describe('getWeekActivity', () => {
+  const noActivity = { workoutSessions: [], bookings: [] };
+
+  it('lists Monday to Sunday of the week of today', () => {
+    expect(getWeekActivity(noActivity, TODAY).map((d) => d.date)).toEqual([
+      '2026-11-02',
+      '2026-11-03',
+      '2026-11-04',
+      '2026-11-05',
+      '2026-11-06',
+      '2026-11-07',
+      '2026-11-08',
+    ]);
+  });
+
+  it('marks today', () => {
+    expect(getWeekActivity(noActivity, TODAY).map((d) => d.isToday)).toEqual([
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+    ]);
+  });
+
+  it('marks the days with a finished workout or an attended class', () => {
+    const days = getWeekActivity(
+      {
+        workoutSessions: [workout('2026-11-02'), workout('2026-10-30')],
+        bookings: [booking('2026-11-04'), booking('2026-11-05', 'confirmed')],
+      },
+      TODAY,
+    );
+    expect(days.filter((d) => d.active).map((d) => d.date)).toEqual(['2026-11-02', '2026-11-04']);
+  });
+
+  it('agrees with getActiveDaysInWeek', () => {
+    const activity = {
+      workoutSessions: [workout('2026-11-02'), workout('2026-11-02', '20:00:00')],
+      bookings: [booking('2026-11-03')],
+    };
+    expect(getWeekActivity(activity, TODAY).filter((d) => d.active)).toHaveLength(
+      getActiveDaysInWeek(activity, TODAY),
+    );
   });
 });

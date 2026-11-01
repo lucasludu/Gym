@@ -35,6 +35,36 @@ const membershipEnding = (endDate: string) => ({
   plans: { [PLAN.id]: PLAN },
 });
 
+const yoga = {
+  id: 'ct-yoga',
+  name: 'Yoga',
+  description: '',
+  durationMinutes: 60,
+  intensity: 'low',
+  color: 'accentGreen',
+};
+const camila = { id: 't1', firstName: 'Camila', lastName: 'Rodríguez', avatarUrl: null };
+const session = (id: string, startsAt: string) => ({
+  id,
+  classTypeId: yoga.id,
+  trainerId: camila.id,
+  startsAt,
+  capacity: 12,
+  bookedCount: 5,
+});
+const booking = (id: string, classSessionId: string, status = 'confirmed') => ({
+  id,
+  userId: SOFIA.id,
+  classSessionId,
+  status,
+  createdAt: '2026-11-01T10:00:00-03:00',
+  cancelledAt: status === 'cancelled' ? '2026-11-02T10:00:00-03:00' : null,
+});
+const withClasses = (
+  bookings: ReturnType<typeof booking>[],
+  sessions: ReturnType<typeof session>[],
+) => ({ bookings, classSessions: sessions, classTypes: [yoga], trainers: [camila] });
+
 describe('Inicio', () => {
   it('greets the member by name', async () => {
     routeHomeApi(api);
@@ -89,36 +119,6 @@ describe('Inicio', () => {
   });
 
   describe('next class card (T5.7)', () => {
-    const yoga = {
-      id: 'ct-yoga',
-      name: 'Yoga',
-      description: '',
-      durationMinutes: 60,
-      intensity: 'low',
-      color: 'accentGreen',
-    };
-    const camila = { id: 't1', firstName: 'Camila', lastName: 'Rodríguez', avatarUrl: null };
-    const session = (id: string, startsAt: string) => ({
-      id,
-      classTypeId: yoga.id,
-      trainerId: camila.id,
-      startsAt,
-      capacity: 12,
-      bookedCount: 5,
-    });
-    const booking = (id: string, classSessionId: string, status = 'confirmed') => ({
-      id,
-      userId: SOFIA.id,
-      classSessionId,
-      status,
-      createdAt: '2026-11-01T10:00:00-03:00',
-      cancelledAt: status === 'cancelled' ? '2026-11-02T10:00:00-03:00' : null,
-    });
-    const withClasses = (
-      bookings: ReturnType<typeof booking>[],
-      sessions: ReturnType<typeof session>[],
-    ) => ({ bookings, classSessions: sessions, classTypes: [yoga], trainers: [camila] });
-
     it('shows the soonest confirmed class with day, time, duration and trainer (criteria 7 and 10)', async () => {
       routeHomeApi(
         api,
@@ -179,6 +179,85 @@ describe('Inicio', () => {
         .setup()
         .press(await screen.findByRole('button', { name: /^Próxima clase: Yoga, Jueves 5\/11/ }));
       await waitFor(() => expect(router.getPathname()).toBe('/classes'));
+    });
+  });
+
+  describe('streak card (T5.8)', () => {
+    const workout = (id: string, startedAt: string) => ({
+      id,
+      userId: SOFIA.id,
+      routineDayId: null,
+      startedAt,
+      finishedAt: startedAt.replace('T08:', 'T09:'),
+      notes: null,
+    });
+
+    it('shows the progress of the week with a progress bar (criterion 12)', async () => {
+      routeHomeApi(api, {
+        workoutSessions: [
+          workout('w1', '2026-11-02T08:00:00-03:00'),
+          workout('w2', '2026-11-03T08:00:00-03:00'),
+        ],
+      });
+      await openHome();
+      expect(await screen.findByText('2 de 3 días esta semana')).toBeOnTheScreen();
+      const bar = screen.getByRole('progressbar', { name: 'Objetivo semanal' });
+      expect(bar.props.accessibilityValue).toEqual({ min: 0, max: 3, now: 2 });
+    });
+
+    it('counts Sunday in the week it belongs to (the previous one)', async () => {
+      routeHomeApi(api, {
+        workoutSessions: ['2026-11-01', '2026-11-02', '2026-11-03'].map((d, i) =>
+          workout(`w${i}`, `${d}T08:00:00-03:00`),
+        ),
+      });
+
+      await openHome();
+      expect(await screen.findByText('2 de 3 días esta semana')).toBeOnTheScreen();
+      expect(screen.queryByText('¡Objetivo cumplido esta semana!')).toBeNull();
+    });
+
+    it('counts a workout and an attended class on the same day once (criterion 14)', async () => {
+      routeHomeApi(api, {
+        ...withClasses(
+          [booking('b1', 's1', 'attended')],
+          [session('s1', '2026-11-02T19:00:00-03:00')],
+        ),
+        workoutSessions: [
+          workout('w1', '2026-11-02T08:00:00-03:00'),
+          workout('w2', '2026-11-03T08:00:00-03:00'),
+          workout('w3', '2026-11-03T08:30:00-03:00'),
+        ],
+      });
+      await openHome();
+      expect(await screen.findByText('2 de 3 días esta semana')).toBeOnTheScreen();
+    });
+
+    it('describes each day of the week for screen readers', async () => {
+      routeHomeApi(api, { workoutSessions: [workout('w1', '2026-11-02T08:00:00-03:00')] });
+      await openHome();
+      expect(await screen.findByLabelText('Lunes, con actividad')).toBeOnTheScreen();
+      expect(screen.getByLabelText('Martes, hoy, sin actividad')).toBeOnTheScreen();
+    });
+
+    it('invites to start when there is no activity (criterion 16)', async () => {
+      routeHomeApi(api);
+      await openHome();
+      expect(await screen.findByText('Empezá tu racha esta semana')).toBeOnTheScreen();
+      expect(screen.getByText('0 de 3 días esta semana')).toBeOnTheScreen();
+    });
+
+    it('celebrates a fulfilled week (criterion 13)', async () => {
+      routeHomeApi(api, {
+        user: { ...SOFIA, weeklyGoal: 2 },
+        workoutSessions: [
+          workout('w1', '2026-11-02T08:00:00-03:00'),
+          workout('w2', '2026-11-03T08:00:00-03:00'),
+        ],
+      });
+      await openHome();
+      expect(await screen.findByText('¡Objetivo cumplido esta semana!')).toBeOnTheScreen();
+      expect(screen.getByText('1 semana seguida')).toBeOnTheScreen();
     });
   });
 
