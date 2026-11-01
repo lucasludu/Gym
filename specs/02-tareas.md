@@ -10,7 +10,7 @@
 
 ## Fase 0 · Setup del proyecto
 
-- [ ] **T0.1 · Crear el proyecto**
+- [x] **T0.1 · Crear el proyecto**
   `npx create-expo-app@latest`, TypeScript en modo estricto, borrar el contenido de ejemplo del template.
   ✅ La app abre en Expo Go con una pantalla vacía.
 
