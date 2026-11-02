@@ -5,6 +5,7 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { ApiError } from '../../api/client';
 import { classColorSchema, type ClassColor } from '../../domain/classType';
 import { useTheme } from '../../theme';
+import { ClassCard } from '../classes/ClassCard';
 import { ExerciseImage, ImageAttribution } from '../exercise';
 import {
   Badge,
@@ -171,6 +172,10 @@ export function Showcase() {
         </Row>
       </Section>
 
+      <Section title="Clases">
+        <ClassCards />
+      </Section>
+
       <Section title="Estados">
         <Card>
           <LoadingSkeleton rows={2} />
@@ -193,3 +198,49 @@ export function Showcase() {
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center' },
 });
+
+const DEMO_TYPE = {
+  id: 'demo-spinning',
+  name: 'Ciclismo indoor',
+  description: '',
+  durationMinutes: 45,
+  intensity: 'high',
+  color: 'accentOrange',
+} as const;
+const DEMO_TRAINER = { id: 'demo-t', firstName: 'Camila', lastName: 'Rodríguez', avatarUrl: null };
+
+/** One ClassCard per state: available, last spots, full, booked and started. */
+function ClassCards() {
+  const { spacing } = useTheme();
+  const [now] = useState(() => new Date());
+  const inHours = (h: number) => new Date(now.getTime() + h * 3_600_000).toISOString();
+  const cards = [
+    { id: 'a', startsAt: inHours(3), bookedCount: 6, booked: false },
+    { id: 'b', startsAt: inHours(4), bookedCount: 10, booked: false },
+    { id: 'c', startsAt: inHours(5), bookedCount: 12, booked: false },
+    { id: 'd', startsAt: inHours(6), bookedCount: 12, booked: true },
+    { id: 'e', startsAt: inHours(-0.25), bookedCount: 9, booked: false },
+  ];
+  return (
+    <View style={{ gap: spacing.sm }}>
+      {cards.map((c) => (
+        <ClassCard
+          key={c.id}
+          session={{
+            id: c.id,
+            classTypeId: DEMO_TYPE.id,
+            trainerId: DEMO_TRAINER.id,
+            startsAt: c.startsAt,
+            capacity: 12,
+            bookedCount: c.bookedCount,
+          }}
+          classType={DEMO_TYPE}
+          trainer={DEMO_TRAINER}
+          booked={c.booked}
+          now={now}
+          onPress={() => undefined}
+        />
+      ))}
+    </View>
+  );
+}
