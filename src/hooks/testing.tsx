@@ -10,7 +10,8 @@ export const createTestQueryClient = () =>
   new QueryClient({
     defaultOptions: {
       queries: { retry: false, gcTime: Infinity },
-      mutations: { retry: false },
+      // gcTime Infinity: no cache-cleanup timers left running after a test.
+      mutations: { retry: false, gcTime: Infinity },
     },
   });
 

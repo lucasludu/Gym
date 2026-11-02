@@ -4,6 +4,7 @@ import {
   canBookClass,
   canCancelBooking,
   cancelBooking,
+  findOverlappingBooking,
   type BookableClass,
   type CanBookClassInput,
   type UserBooking,
@@ -414,5 +415,34 @@ describe('cancelBooking (rule 7)', () => {
 
   it('throws on an invalid now', () => {
     expect(() => cancelBooking(booking, 'not-a-date')).toThrow();
+  });
+});
+
+describe('findOverlappingBooking', () => {
+  it('returns the confirmed booking that overlaps the class', () => {
+    const overlapping = userBooking('other', '2026-11-04T17:30:00-03:00');
+    const bookings = [userBooking('before', '2026-11-04T16:00:00-03:00'), overlapping];
+    expect(findOverlappingBooking(target, bookings)).toBe(overlapping);
+  });
+
+  it('ignores bookings that are not confirmed', () => {
+    const bookings = [userBooking('other', '2026-11-04T18:00:00-03:00', 'cancelled')];
+    expect(findOverlappingBooking(target, bookings)).toBeNull();
+  });
+
+  it('ignores the booking of the same class', () => {
+    const bookings = [userBooking(target.id, target.startsAt)];
+    expect(findOverlappingBooking(target, bookings)).toBeNull();
+  });
+
+  it('does not count a class ending exactly when the other starts', () => {
+    const bookings = [userBooking('before', '2026-11-04T17:00:00-03:00')];
+    expect(findOverlappingBooking(target, bookings)).toBeNull();
+  });
+
+  it('agrees with canBookClass', () => {
+    const bookings = [userBooking('other', '2026-11-04T18:30:00-03:00')];
+    expect(findOverlappingBooking(target, bookings)).not.toBeNull();
+    expect(check({ userBookings: bookings })).toEqual({ ok: false, reason: 'schedule_overlap' });
   });
 });

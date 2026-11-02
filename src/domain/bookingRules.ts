@@ -84,7 +84,7 @@ export function canBookClass(input: CanBookClassInput): CanBookClassResult {
   }
 
   // Rule 4
-  if (confirmed.some((b) => overlaps(b.classSession, classSession))) {
+  if (findOverlappingBooking(classSession, userBookings) !== null) {
     return blocked('schedule_overlap');
   }
 
@@ -127,4 +127,22 @@ export function cancelBooking(booking: Booking, now: string | Date): Booking {
   }
   const cancelledAt = toIsoDateTime(now); // throws on invalid input
   return { ...booking, status: 'cancelled', cancelledAt };
+}
+
+/**
+ * Rule 4: the user's confirmed booking of another class that overlaps this one in time,
+ * or `null`. Used to say which class is in the way ("Ya tenés reservada Yoga a las 19:00").
+ */
+export function findOverlappingBooking<T extends UserBooking>(
+  classSession: ScheduledClass,
+  userBookings: readonly T[],
+): T | null {
+  return (
+    userBookings.find(
+      (b) =>
+        b.status === 'confirmed' &&
+        b.classSession.id !== classSession.id &&
+        overlaps(b.classSession, classSession),
+    ) ?? null
+  );
 }

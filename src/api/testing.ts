@@ -32,7 +32,7 @@ export function mockApi() {
 
   /**
    * Answers every request to `path` (pathname, query ignored), before the queue.
-   * Pass a function to build each response, e.g. `() => notFound()`.
+   * Pass a function to build each response, e.g. `() => notFound()`; it may return a promise.
    */
   function route(path: string, response: (call: RecordedCall) => MockResponse): void;
   function route(path: string, response: MockResponse): void;
@@ -51,7 +51,9 @@ export function mockApi() {
     };
     calls.push(call);
     const route = routes.get(url.pathname);
-    if (route !== undefined) return toResponse(typeof route === 'function' ? route(call) : route);
+    // A route may answer with a promise, to test what the UI does while it waits.
+    if (route !== undefined)
+      return toResponse(await (typeof route === 'function' ? route(call) : route));
     if (queue.length === 0) throw new Error(`Unexpected request to ${url.href}`);
     const next = queue.shift();
     return toResponse(next);

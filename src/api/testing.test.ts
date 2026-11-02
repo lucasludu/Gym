@@ -1,4 +1,4 @@
-import { mockApi, notFound } from './testing';
+import { mockApi, notFound, TEST_API_URL } from './testing';
 
 const get = async (path: string) => {
   const response = await fetch(`http://api.test${path}`);
@@ -41,5 +41,17 @@ describe('mockApi.route', () => {
     await get('/users?email=a');
     expect(api.lastCall.path).toBe('/users');
     expect(api.lastCall.query.get('email')).toBe('a');
+  });
+});
+
+describe('mockApi route with a delayed response', () => {
+  it('waits for a promise returned by the route', async () => {
+    const api = mockApi();
+    let release: (value: unknown) => void = () => undefined;
+    api.route('/slow', () => new Promise((resolve) => (release = resolve)));
+    const pending = fetch(`${TEST_API_URL}/slow`).then((r) => r.json());
+    release({ ok: true });
+    await expect(pending).resolves.toEqual({ ok: true });
+    api.restore();
   });
 });

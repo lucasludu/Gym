@@ -49,7 +49,7 @@ Muestra: hora de inicio y fin ("19:00 – 20:00"), nombre del tipo con su color 
 - Al confirmar el servidor, un aviso **"Reservaste {tipo}, {día} {hora}"** visible y anunciado por el lector de pantalla (región en vivo), que se va solo a los 4 segundos.
 - Mientras se reserva, el botón muestra el spinner y no se puede tocar de nuevo (sin reservas dobles).
 - La reserva creada: `status: "confirmed"`, `createdAt: now`, `cancelledAt: null`.
-- Al reservar o cancelar se invalidan las reservas del socio (y con ellas "Próxima clase" y la racha de Inicio) y las sesiones de esa semana.
+- Al reservar o cancelar se invalidan las reservas del socio (y con ellas "Próxima clase" y la racha de Inicio). Las sesiones **no** se vuelven a pedir: json-server no actualiza `bookedCount` y traería el cupo viejo, deshaciendo la actualización optimista; quedan con el cupo ajustado hasta el próximo pull to refresh. Con el backend real (T9.5) se invalidan también. Si la reserva falla, sí se vuelve a pedir esa clase.
 
 ### Motivo de bloqueo
 Si `canBookClass` bloquea, en lugar de "Reservar" se muestra un botón deshabilitado con el motivo y, debajo, la explicación. Un solo motivo, con la prioridad del modelo de datos.

@@ -10,15 +10,18 @@ import { useClassSession } from '../../hooks/useClassSession';
 import { useClassTypes } from '../../hooks/useClassTypes';
 import { useNow } from '../../hooks/useNow';
 import { useTrainers } from '../../hooks/useTrainers';
+import { useSession } from '../../store/appSession';
 import { useTheme } from '../../theme';
 import { EmptyState, ErrorState, LoadingSkeleton, Text } from '../ui';
+import { BookingAction } from './BookingAction';
 import { getClassCardSummary } from './classCardSummary';
 import { INTENSITY_LABELS } from './ClassCard';
 
-/** T5.13: everything about one class. Booking and cancelling are added in T5.14 and T5.15. */
+/** T5.13 and T5.14: everything about one class, and booking it. */
 export function ClassDetailScreen({ id }: { id: string }) {
   const { colors, spacing, radii } = useTheme();
   const now = useNow();
+  const userId = useSession((st) => st.userId);
   const session = useClassSession(id);
   const detail = combineQueries(
     [session, useClassTypes(), useTrainers()] as const,
@@ -104,6 +107,9 @@ export function ClassDetailScreen({ id }: { id: string }) {
       <Text variant="subtitle">
         {spots} de {s.capacity} lugares libres
       </Text>
+      {userId !== null && (
+        <BookingAction userId={userId} session={s} classType={classType} now={now} />
+      )}
     </>,
   );
 }
