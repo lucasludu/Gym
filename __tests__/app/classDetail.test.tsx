@@ -1,5 +1,6 @@
 import { act, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { Alert, type AlertButton } from 'react-native';
 import { renderRouter, screen, waitFor } from 'expo-router/testing-library';
 import * as SecureStore from 'expo-secure-store';
 
@@ -104,6 +105,7 @@ describe('Booking (T5.14)', () => {
     sessions?: ReturnType<typeof classSession>[];
     membershipEnd?: string | null;
     post?: () => unknown;
+    patch?: () => unknown;
   }) => {
     const bookings = [...(opts.bookings ?? [])];
     const sessions = opts.sessions ?? [THURSDAY];
@@ -121,6 +123,13 @@ describe('Booking (T5.14)', () => {
       ...(opts.membershipEnd === null ? {} : membership(opts.membershipEnd ?? '2026-11-30')),
     });
     for (const s of sessions) api.route(`/classSessions/${s.id}`, s);
+    for (const b of bookings) {
+      api.route(`/bookings/${b.id}`, (call: RecordedCall) => {
+        if (opts.patch) return opts.patch();
+        Object.assign(b, call.body);
+        return b;
+      });
+    }
     return { bookings };
   };
   const openDetail = (id = THURSDAY.id) => renderRouter('./app', { initialUrl: `/classes/${id}` });
@@ -227,5 +236,87 @@ describe('Booking (T5.14)', () => {
     expect(
       await screen.findByRole('button', { name: /^Próxima clase: Yoga, Jueves 5\/11/ }),
     ).toBeOnTheScreen();
+  });
+
+  describe('cancelling (T5.15)', () => {
+    const confirmCancel = async () => {
+      const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+      alert.mockClear();
+      await userEvent
+        .setup()
+        .press(await screen.findByRole('button', { name: 'Cancelar reserva' }));
+      expect(alert).toHaveBeenCalledTimes(1);
+      const [title, message, buttons] = alert.mock.calls[0] ?? [];
+      const byText = (text: string): AlertButton | undefined =>
+        (buttons ?? []).find((b) => b.text === text);
+      return { title, message, byText };
+    };
+
+    it('asks for confirmation and frees the spot (criterion 25)', async () => {
+      serve({ bookings: [booking('b1', THURSDAY.id)] });
+      await openDetail();
+      const { title, message, byText } = await confirmCancel();
+      expect(title).toBe('¿Cancelar la reserva?');
+      expect(message).toBe('Yoga, jueves 19:00. Vas a liberar tu lugar.');
+      expect(byText('Volver')?.style).toBe('cancel');
+      expect(byText('Cancelar reserva')?.style).toBe('destructive');
+
+      await act(async () => byText('Cancelar reserva')?.onPress?.());
+      expect(await screen.findByText('5 de 12 lugares libres')).toBeOnTheScreen();
+      expect(await screen.findByText('Cancelaste tu reserva de Yoga')).toBeOnTheScreen();
+      expect(screen.getByRole('button', { name: 'Reservar' })).toBeOnTheScreen();
+      expect(api.calls.find((c) => c.method === 'PATCH')?.path).toBe('/bookings/b1');
+    });
+
+    it('keeps the booking with "Volver" (criterion 26)', async () => {
+      serve({ bookings: [booking('b1', THURSDAY.id)] });
+      await openDetail();
+      const { byText } = await confirmCancel();
+      await act(async () => byText('Volver')?.onPress?.());
+      expect(screen.getByText('Reservada')).toBeOnTheScreen();
+      expect(api.calls.some((c) => c.method === 'PATCH')).toBe(false);
+    });
+
+    // The exact limit (2:00:00 before) is covered by canCancelBooking in bookingRules.test.ts:
+    // here waitFor moves the fake clock forward 50 ms per attempt.
+    it('cannot cancel less than 2 hours before, but can with a bit more (criterion 27)', async () => {
+      const soon = classSession('s-soon', '2026-11-03T11:59:00-03:00');
+      const atLimit = classSession('s-limit', '2026-11-03T12:01:00-03:00', SPINNING.id);
+      serve({
+        sessions: [soon, atLimit],
+        bookings: [booking('b1', soon.id), booking('b2', atLimit.id)],
+      });
+      await openDetail(soon.id);
+      expect(
+        await screen.findByText('Ya no podés cancelar: el límite es 2 horas antes de la clase.'),
+      ).toBeOnTheScreen();
+      expect(screen.queryByRole('button', { name: 'Cancelar reserva' })).toBeNull();
+
+      await act(() => router.push(`/classes/${atLimit.id}`));
+      expect(await screen.findByRole('button', { name: 'Cancelar reserva' })).toBeOnTheScreen();
+    });
+
+    it('keeps the booking and says so when the server fails (criterion 28)', async () => {
+      serve({
+        bookings: [booking('b1', THURSDAY.id)],
+        patch: () => new Response('{}', { status: 500 }),
+      });
+      await openDetail();
+      const { byText } = await confirmCancel();
+      await act(async () => byText('Cancelar reserva')?.onPress?.());
+      expect(await screen.findByText('No pudimos cancelar. Intentá de nuevo.')).toBeOnTheScreen();
+      expect(screen.getByText('Reservada')).toBeOnTheScreen();
+      expect(screen.getByText('4 de 12 lugares libres')).toBeOnTheScreen();
+    });
+
+    it('can book the class again after cancelling (criterion 29)', async () => {
+      serve({ bookings: [booking('b1', THURSDAY.id)] });
+      await openDetail();
+      const { byText } = await confirmCancel();
+      await act(async () => byText('Cancelar reserva')?.onPress?.());
+      await userEvent.setup().press(await screen.findByRole('button', { name: 'Reservar' }));
+      expect(await screen.findByText(/^Reservaste Yoga/)).toBeOnTheScreen();
+      expect(posts()).toHaveLength(1);
+    });
   });
 });

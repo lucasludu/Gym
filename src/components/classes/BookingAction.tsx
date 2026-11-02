@@ -1,14 +1,20 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 
-import { canBookClass, findOverlappingBooking } from '../../domain/bookingRules';
+import {
+  CANCELLATION_LIMIT_HOURS,
+  canBookClass,
+  canCancelBooking,
+  findOverlappingBooking,
+} from '../../domain/bookingRules';
 import type { ClassSession } from '../../domain/classSession';
 import type { ClassType } from '../../domain/classType';
 import { combineQueries } from '../../hooks/combineQueries';
 import { queryKeys } from '../../hooks/queryKeys';
-import { useBookClass } from '../../hooks/useBookClass';
+import { isOptimisticBooking, useBookClass } from '../../hooks/useBookClass';
 import { useBookedClasses } from '../../hooks/useBookedClasses';
+import { useCancelBooking } from '../../hooks/useCancelBooking';
 import { useMembership } from '../../hooks/useMembership';
 import { useMyBookings } from '../../hooks/useMyBookings';
 import { useTheme } from '../../theme';
@@ -36,8 +42,8 @@ function LiveNotice({ notice }: { notice: Notice }) {
 }
 
 /**
- * T5.14: "Reservar", or the reason the class cannot be booked. A booked class shows
- * "Reservada" (cancelling arrives in T5.15).
+ * T5.14 and T5.15: "Reservar", or the reason the class cannot be booked; a booked class
+ * shows "Reservada" and "Cancelar reserva" until 2 hours before it starts.
  */
 export function BookingAction({
   userId,
@@ -53,6 +59,7 @@ export function BookingAction({
   const { spacing } = useTheme();
   const client = useQueryClient();
   const book = useBookClass(userId);
+  const cancel = useCancelBooking(userId);
   const [notice, setNotice] = useState<Notice>(null);
   const bookings = useMyBookings(userId);
   const rulesData = combineQueries(
@@ -72,10 +79,54 @@ export function BookingAction({
 
   const content = (() => {
     if (myBooking !== undefined) {
+      const when = formatBookingWhen(session.startsAt, now);
+      const confirmCancel = () =>
+        Alert.alert(
+          '¿Cancelar la reserva?',
+          `${classType.name}, ${when}. Vas a liberar tu lugar.`,
+          [
+            { text: 'Volver', style: 'cancel' },
+            {
+              text: 'Cancelar reserva',
+              style: 'destructive',
+              onPress: () => {
+                setNotice(null);
+                cancel.mutate(
+                  { booking: myBooking, now },
+                  {
+                    onSuccess: () =>
+                      setNotice({
+                        kind: 'success',
+                        text: `Cancelaste tu reserva de ${classType.name}`,
+                      }),
+                    onError: () =>
+                      setNotice({ kind: 'error', text: 'No pudimos cancelar. Intentá de nuevo.' }),
+                  },
+                );
+              },
+            },
+          ],
+        );
+      // A booking just made has no server id yet: cancelling waits for it.
+      const waitingForId = isOptimisticBooking(myBooking);
       return (
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.sm }}>
-          <Badge label="Reservada" tone="primary" />
-          <Text color="textMuted">Tenés un lugar en esta clase.</Text>
+        <View style={{ gap: spacing.sm }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.sm }}>
+            <Badge label="Reservada" tone="primary" />
+            <Text color="textMuted">Tenés un lugar en esta clase.</Text>
+          </View>
+          {canCancelBooking(myBooking, session, now) ? (
+            <Button
+              label="Cancelar reserva"
+              variant="danger"
+              loading={waitingForId || cancel.isPending}
+              onPress={confirmCancel}
+            />
+          ) : (
+            <Text color="textMuted">
+              Ya no podés cancelar: el límite es {CANCELLATION_LIMIT_HOURS} horas antes de la clase.
+            </Text>
+          )}
         </View>
       );
     }
