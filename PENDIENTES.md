@@ -63,7 +63,7 @@ Se instalan cuando llegue la tarea que las usa.
 
 **Sin definir todavía**
 - Librería de gráficos → T5.29
-  Opciones compatibles con Expo Go: `victory-native` (Skia) o `react-native-gifted-charts` (SVG).
+  `react-native-gifted-charts` (con `react-native-svg` y `expo-linear-gradient`). ✅ Aprobada en T4.6; se instala en T5.29.
 - Persistencia local → T5.25
   `@react-native-async-storage/async-storage` (con `persist` de Zustand). ✅ Aprobada en T4.5; se instala en T5.25.
 - ~~Fechas → T1.2~~ ✅ sin librería (`src/domain/dates.ts`)
@@ -124,4 +124,4 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 ## Próximo paso sugerido
 
 1. Auth (T5.1–T5.5) ✅ e Inicio (T5.6–T5.9) ✅ implementados. Pendiente de Inicio: "Empezar" → logger (T5.21), tarjeta en curso (T5.25), detalle de clase al tocar la próxima clase (T5.13).
-2. Specs de Reservas (T4.3), Rutina (T4.4) y Workout logger (T4.5) ✅. Sigue T4.6 (`specs/features/progreso.md`) o implementar Reservas (T5.10–T5.16), Rutina (T5.17–T5.20) o el logger (T5.21–T5.26).
+2. Specs de features (T4.1–T4.6) ✅ completas. Sigue implementar Reservas (T5.10–T5.16), Rutina (T5.17–T5.20) o el logger (T5.21–T5.26).

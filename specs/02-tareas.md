@@ -131,7 +131,7 @@ Escribir cada spec **antes** de implementar la feature. Formato: objetivo, panta
 - [x] **T4.3** · `specs/features/reservas.md`
 - [x] **T4.4** · `specs/features/rutina.md`
 - [x] **T4.5** · `specs/features/workout-logger.md`
-- [ ] **T4.6** · `specs/features/progreso.md`
+- [x] **T4.6** · `specs/features/progreso.md`
 
 ---
 
