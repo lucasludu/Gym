@@ -13,15 +13,23 @@ import { useNow } from '../../hooks/useNow';
 import { useTrainers } from '../../hooks/useTrainers';
 import { useSession } from '../../store/appSession';
 import { useTheme } from '../../theme';
+import { SegmentedControl } from '../ui';
 import { ClassTypeFilter, DayClassList } from './DayClassList';
+import { MyBookingsView } from './MyBookingsView';
 import { useCalendarSelection, WeekDayPicker } from './WeekDayPicker';
 
-/** Clases tab, "Calendario" (specs/features/reservas.md, T5.10 and T5.12). */
+const VIEWS = [
+  { value: 'calendar', label: 'Calendario' },
+  { value: 'mine', label: 'Mis reservas' },
+] as const;
+
+/** Clases tab: "Calendario" (T5.10, T5.12) and "Mis reservas" (T5.16), specs/features/reservas.md. */
 export function ClassesScreen() {
   const { colors, spacing } = useTheme();
   const now = useNow();
   const selection = useCalendarSelection(now);
   const [classTypeId, setClassTypeId] = useState<string | null>(null);
+  const [view, setView] = useState<'calendar' | 'mine'>('calendar');
   const userId = useSession((s) => s.userId);
   const queryClient = useQueryClient();
   const [refreshing, setRefreshing] = useState(false);
@@ -72,21 +80,28 @@ export function ClassesScreen() {
         />
       }
     >
-      <WeekDayPicker selection={selection} today={now} />
-      {classTypes.data !== undefined && (
-        <ClassTypeFilter
-          classTypes={classTypes.data}
-          selected={classTypeId}
-          onChange={setClassTypeId}
-        />
+      <SegmentedControl options={VIEWS} value={view} onChange={setView} />
+      {view === 'mine' && userId !== null ? (
+        <MyBookingsView userId={userId} now={now} onShowCalendar={() => setView('calendar')} />
+      ) : (
+        <>
+          <WeekDayPicker selection={selection} today={now} />
+          {classTypes.data !== undefined && (
+            <ClassTypeFilter
+              classTypes={classTypes.data}
+              selected={classTypeId}
+              onChange={setClassTypeId}
+            />
+          )}
+          <DayClassList
+            query={dayClasses}
+            filterName={filterName}
+            now={now}
+            onClearFilter={() => setClassTypeId(null)}
+            onOpenClass={(id) => router.push(`/classes/${id}`)}
+          />
+        </>
       )}
-      <DayClassList
-        query={dayClasses}
-        filterName={filterName}
-        now={now}
-        onClearFilter={() => setClassTypeId(null)}
-        onOpenClass={(id) => router.push(`/classes/${id}`)}
-      />
     </ScrollView>
   );
 }

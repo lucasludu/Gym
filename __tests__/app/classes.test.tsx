@@ -1,5 +1,5 @@
 import { userEvent } from '@testing-library/react-native';
-import { renderRouter, screen, within } from 'expo-router/testing-library';
+import { renderRouter, screen, waitFor, within } from 'expo-router/testing-library';
 import * as SecureStore from 'expo-secure-store';
 
 import { mockApi } from '../../src/api/testing';
@@ -7,6 +7,13 @@ import { sessionStore } from '../../src/store/appSession';
 import { fakeNow } from '../../src/testing/clock';
 import { SOFIA } from '../../src/testing/fixtures';
 import { routeHomeApi } from '../../src/testing/homeApi';
+import {
+  booking as apiBooking,
+  CAMILA,
+  classSession,
+  SPINNING,
+  YOGA,
+} from '../../src/testing/classFixtures';
 
 // Tuesday 2026-11-03, 10:00 in Buenos Aires.
 const NOW = '2026-11-03T10:00:00-03:00';
@@ -218,5 +225,95 @@ describe('Clases · list of the day (T5.12)', () => {
     await openClasses();
     expect(await screen.findByText('07:00 – 08:00')).toBeOnTheScreen();
     expect(screen.queryByText('Reservada')).toBeNull();
+  });
+});
+
+describe('Clases · Mis reservas (T5.16)', () => {
+  const sessions = [
+    classSession('s-thu', '2026-11-05T19:00:00-03:00', YOGA.id),
+    classSession('s-today', '2026-11-03T19:00:00-03:00', SPINNING.id),
+    classSession('s-now', '2026-11-03T09:30:00-03:00', YOGA.id),
+    classSession('s-att', '2026-10-30T19:00:00-03:00', SPINNING.id),
+    classSession('s-ns', '2026-10-28T19:00:00-03:00', YOGA.id),
+    classSession('s-can', '2026-11-04T07:00:00-03:00', SPINNING.id),
+    classSession('s-fin', '2026-11-02T19:00:00-03:00', YOGA.id),
+  ];
+  const serve = (bookings: ReturnType<typeof apiBooking>[]) => {
+    routeHomeApi(api, {
+      classTypes: [YOGA, SPINNING],
+      trainers: [CAMILA],
+      classSessions: sessions,
+      bookings,
+    });
+    for (const s of sessions) api.route(`/classSessions/${s.id}`, s);
+  };
+  const openMine = async () => {
+    const router = await openClasses();
+    await userEvent.setup().press(await screen.findByRole('tab', { name: 'Mis reservas' }));
+    return router;
+  };
+
+  it('starts on "Calendario"', async () => {
+    serve([]);
+    await openClasses();
+    expect(await screen.findByRole('tab', { name: 'Calendario' })).toBeSelected();
+  });
+
+  it('lists the upcoming bookings, soonest first, with "En curso" (criterion 30)', async () => {
+    serve([apiBooking('b1', 's-thu'), apiBooking('b2', 's-today'), apiBooking('b3', 's-now')]);
+    await openMine();
+    const upcoming = await screen.findAllByRole('button', { name: /^Reserva: / });
+    expect(upcoming.map((b) => b.props.accessibilityLabel)).toEqual([
+      'Reserva: Yoga, Hoy · 09:30, con Camila Rodríguez, en curso',
+      'Reserva: Spinning, Hoy · 19:00, con Camila Rodríguez',
+      'Reserva: Yoga, Jueves 5/11 · 19:00, con Camila Rodríguez',
+    ]);
+    expect(screen.getByText('En curso')).toBeOnTheScreen();
+  });
+
+  it('lists the history with its outcome, most recent first (criteria 31 and 32)', async () => {
+    serve([
+      apiBooking('b1', 's-att', 'attended'),
+      apiBooking('b2', 's-ns', 'no_show'),
+      apiBooking('b3', 's-can', 'cancelled'),
+      apiBooking('b4', 's-fin'),
+    ]);
+    await openMine();
+    const history = await screen.findAllByRole('button', { name: /^Historial: / });
+    expect(history.map((b) => b.props.accessibilityLabel)).toEqual([
+      'Historial: Spinning, Mañana · 07:00, cancelada',
+      'Historial: Yoga, Lunes 2/11 · 19:00, finalizada',
+      'Historial: Spinning, Viernes 30/10 · 19:00, asististe',
+      'Historial: Yoga, Miércoles 28/10 · 19:00, no asististe',
+    ]);
+    for (const badge of ['Cancelada', 'Finalizada', 'Asististe', 'No asististe']) {
+      expect(screen.getByText(badge)).toBeOnTheScreen();
+    }
+    expect(screen.getByText('No tenés clases reservadas')).toBeOnTheScreen();
+  });
+
+  it('opens the detail of a booking', async () => {
+    serve([apiBooking('b1', 's-thu')]);
+    const router = await openMine();
+    await userEvent
+      .setup()
+      .press(await screen.findByRole('button', { name: /^Reserva: Yoga, Jueves/ }));
+    await waitFor(() => expect(router.getPathname()).toBe('/classes/s-thu'));
+  });
+
+  it('has empty states, and "Ver calendario" goes back to the calendar (criterion 33)', async () => {
+    serve([]);
+    await openMine();
+    expect(await screen.findByText('No tenés clases reservadas')).toBeOnTheScreen();
+    expect(screen.getByText('Todavía no fuiste a ninguna clase')).toBeOnTheScreen();
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Ver calendario' }));
+    expect(screen.getByRole('tab', { name: 'Calendario' })).toBeSelected();
+    expect(screen.getByText('2 al 8 de noviembre')).toBeOnTheScreen();
+  });
+
+  it('shows the error with retry', async () => {
+    routeHomeApi(api, { bookings: () => new Response('{}', { status: 400 }) });
+    await openMine();
+    expect(await screen.findByRole('button', { name: 'Reintentar' })).toBeOnTheScreen();
   });
 });
