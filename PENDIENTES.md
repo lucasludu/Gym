@@ -55,7 +55,7 @@ Se instalan cuando llegue la tarea que las usa.
 
 **Nombradas en las tareas (hay que aprobarlas)**
 - ~~`expo-secure-store` → T5.2~~ ✅ instalada
-- `expo-notifications` y `expo-haptics` → T5.24, T6.4
+- `expo-notifications` y `expo-haptics` → T5.24, T6.4 (✅ aprobadas en T4.5; se instalan en T5.24)
 - `react-native-reanimated` → T6.3
 - `@shopify/flash-list` → T6.6
 - `eas-cli` → T7.3
@@ -65,7 +65,7 @@ Se instalan cuando llegue la tarea que las usa.
 - Librería de gráficos → T5.29
   Opciones compatibles con Expo Go: `victory-native` (Skia) o `react-native-gifted-charts` (SVG).
 - Persistencia local → T5.25
-  `@react-native-async-storage/async-storage` (con `persist` de Zustand); la ambigüedad 3 confirmó que hace falta. Hay que aprobarla.
+  `@react-native-async-storage/async-storage` (con `persist` de Zustand). ✅ Aprobada en T4.5; se instala en T5.25.
 - ~~Fechas → T1.2~~ ✅ sin librería (`src/domain/dates.ts`)
 
 ---
@@ -124,4 +124,4 @@ Fases 1 y 2 terminadas; el resto, sin empezar.
 ## Próximo paso sugerido
 
 1. Auth (T5.1–T5.5) ✅ e Inicio (T5.6–T5.9) ✅ implementados. Pendiente de Inicio: "Empezar" → logger (T5.21), tarjeta en curso (T5.25), detalle de clase al tocar la próxima clase (T5.13).
-2. Specs de Reservas (T4.3) y Rutina (T4.4) ✅. Sigue T4.5 (`specs/features/workout-logger.md`) o implementar Reservas (T5.10–T5.16) / Rutina (T5.17–T5.20).
+2. Specs de Reservas (T4.3), Rutina (T4.4) y Workout logger (T4.5) ✅. Sigue T4.6 (`specs/features/progreso.md`) o implementar Reservas (T5.10–T5.16), Rutina (T5.17–T5.20) o el logger (T5.21–T5.26).
