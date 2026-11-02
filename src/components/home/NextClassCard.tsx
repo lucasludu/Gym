@@ -29,8 +29,7 @@ function NextClass({ item, now }: { item: BookedClass; now: Date }) {
 
   return (
     <Card
-      // The class detail (T5.13) is not built yet: open the classes tab meanwhile.
-      onPress={() => router.navigate('/classes')}
+      onPress={() => router.push(`/classes/${item.session.id}`)}
       accessibilityLabel={`Próxima clase: ${item.classType.name}, ${when}, con ${trainer}`}
       style={{ padding: 0, overflow: 'hidden' }}
     >

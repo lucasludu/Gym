@@ -1,4 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
 
@@ -84,8 +85,7 @@ export function ClassesScreen() {
         filterName={filterName}
         now={now}
         onClearFilter={() => setClassTypeId(null)}
-        // The class detail arrives in T5.13.
-        onOpenClass={() => undefined}
+        onOpenClass={(id) => router.push(`/classes/${id}`)}
       />
     </ScrollView>
   );

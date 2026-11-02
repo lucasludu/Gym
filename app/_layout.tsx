@@ -26,6 +26,7 @@ export default function RootLayout() {
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Protected guard={status === 'signedIn'} redirectTo="/login">
               <Stack.Screen name="(tabs)" />
+              <Stack.Screen name="classes/[id]" />
             </Stack.Protected>
             <Stack.Protected guard={status === 'signedOut'} redirectTo="/">
               <Stack.Screen name="(auth)" />

@@ -10,6 +10,7 @@ export const queryKeys = {
   trainers: () => ['trainers'] as const,
   /** Prefix of every class sessions query, to invalidate them all after booking. */
   allClassSessions: () => ['classSessions'] as const,
+  classSession: (id: string) => [...queryKeys.allClassSessions(), 'detail', id] as const,
   classSessions: (range: { from: LocalDate; to: LocalDate }) =>
     [...queryKeys.allClassSessions(), range.from, range.to] as const,
   bookings: (userId: string | null) => ['bookings', userId] as const,

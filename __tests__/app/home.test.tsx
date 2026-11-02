@@ -169,16 +169,17 @@ describe('Inicio', () => {
       await waitFor(() => expect(router.getPathname()).toBe('/classes'));
     });
 
-    it('opens the classes when tapped (criterion 11; the class detail arrives in T5.13)', async () => {
+    it('opens the class detail when tapped (criterion 11)', async () => {
       routeHomeApi(
         api,
         withClasses([booking('b1', 's1')], [session('s1', '2026-11-05T19:00:00-03:00')]),
       );
+      api.route('/classSessions/s1', session('s1', '2026-11-05T19:00:00-03:00'));
       const router = await openHome();
       await userEvent
         .setup()
         .press(await screen.findByRole('button', { name: /^Próxima clase: Yoga, Jueves 5\/11/ }));
-      await waitFor(() => expect(router.getPathname()).toBe('/classes'));
+      await waitFor(() => expect(router.getPathname()).toBe('/classes/s1'));
     });
   });
 

@@ -7,7 +7,7 @@ import { useTheme } from '../../theme';
 import { Badge, Card, Text } from '../ui';
 import { getClassCardSummary } from './classCardSummary';
 
-const INTENSITY_LABELS: Record<Intensity, string> = {
+export const INTENSITY_LABELS: Record<Intensity, string> = {
   low: 'Intensidad baja',
   medium: 'Intensidad media',
   high: 'Intensidad alta',
