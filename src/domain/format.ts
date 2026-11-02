@@ -6,7 +6,7 @@ import { differenceInDays, toLocalDate } from './dates';
  * Written by hand instead of Intl, whose Spanish support in Hermes is incomplete.
  */
 
-const MONTHS = [
+export const MONTHS = [
   'enero',
   'febrero',
   'marzo',

@@ -1,5 +1,5 @@
-import { ComingSoon } from '../../src/components/ComingSoon';
+import { ClassesScreen } from '../../src/components/classes/ClassesScreen';
 
-export default function ClassesScreen() {
-  return <ComingSoon feature="Clases" />;
+export default function Classes() {
+  return <ClassesScreen />;
 }
