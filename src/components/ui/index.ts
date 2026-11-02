@@ -1,6 +1,7 @@
 export { Badge, type BadgeProps, type BadgeTone } from './Badge';
 export { Button, type ButtonProps, type ButtonVariant } from './Button';
 export { Card, type CardProps } from './Card';
+export { Chip, type ChipProps } from './Chip';
 export { IconButton, type IconButtonProps } from './IconButton';
 export { Input, type InputProps } from './Input';
 export { Text, type TextProps, type TextVariant } from './Text';
